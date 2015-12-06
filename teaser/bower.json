@@ -1,0 +1,14 @@
+{
+  "name": "teaser",
+  "authors": [
+    "Dongjun Kwon <mayajuni10@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

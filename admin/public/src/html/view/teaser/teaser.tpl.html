@@ -1,0 +1,83 @@
+<div id="teaser">
+    <div class="col-sm-12" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                검색
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="email" class="col-sm-1 control-label">Email</label>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" id="email" ng-model="search._id" placeholder="email..">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-11">
+                            <button type="submit" class="btn btn-default" ng-click="getBoardList()">검색</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                총 {{teaser.list.length}} 건
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <div>
+                        <h4 style="font-weight: 600">임의로 등록된 Count : 총 {{teaser.count}} 건</h4>
+                        <form class="form-inline">
+                            <div class="form-group" class="margin-left-5">
+                                <label class="padding-right-10"> 추가 등록 Count </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" ng-model="count" placeholder="Count .." >
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" ng-click="editCount()" ng-disabled="count === 0 ">수정</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <hr>
+                    <table class="table table-hover">
+                        <colgroup>
+                            <col width="60%">
+                            <col width="40%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="pointer" ng-click="changeOrderBy('_id')">
+                                Email
+                                <i class="fa" ng-show="predicate === '_id'" ng-class="{'fa-caret-down':reverse, 'fa-caret-up': !reverse}"></i>
+                            </th>
+                            <th class="pointer" ng-click="changeOrderBy('regDt')">
+                                등록 일시
+                                <i class="fa" ng-show="predicate === 'regDt'" ng-class="{'fa-caret-down':reverse, 'fa-caret-up': !reverse}"></i>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-if="teaser.list.length < 1">
+                            <td class="text-center" colspan="3">
+                                데이터가 없거나 검색을 해주세요.
+                            </td>
+                        </tr>
+                        <tr ng-repeat="list in teaser.list | orderBy : predicate : reverse ">
+                            <td>
+                                {{list._id}}
+                            </td>
+                            <td>
+                                {{list.regDt | date : 'yyyy-MM-dd HH:mm:ss'}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

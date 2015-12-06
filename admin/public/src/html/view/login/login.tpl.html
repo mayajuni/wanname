@@ -1,0 +1,28 @@
+<div class="login">
+    <div class="login-box container">
+        <div class="contentBox">
+            <form class="form-signin" name="myForm">
+                <h2 class="form-signin-heading">
+                    Please sign in
+                </h2>
+                <div class="login-error" ng-if="!!login.error"><p>{{login.error}}</p></div>
+                <hr/>
+                <label for="inputID" class="login-text1">User ID</label>
+                <input type="text" id="inputID" class="form-control" ng-model="login._id" placeholder="ID" ng-blur="checkId()" required autofocus>
+
+                <label for="inputPassword" class="login-text1">Password</label>
+                <input type="password" id="inputPassword" class="form-control" ng-model="login.password" placeholder="Password" required>
+
+                <label for="inputCapcha" class="login-text1">Security Code:</label>
+                <input type="text" maxlength="4" id="inputCapcha" class="security-input" title="Security Code" placeholder="Security Code" ng-model="login.captcha" required>
+            <span class="captcha-box">
+                <img src="/captcha.png" width="70" height="30" class="captcha-img"/>
+            </span>
+                <label>
+                    <input type="checkbox" ng-model="login.autoLogin"> Auto Login
+                </label>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="doLogin();" ng-disabled="!login.password || !login._id || !login.captcha || !!login.newId" >Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>

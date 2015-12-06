@@ -1,0 +1,26 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "authors": [
+    "Dongjun Kwon <mayajuni10@gmail.com>"
+  ],
+  "keywords": [],
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0-beta.0",
+    "angular-animate": "~1.5.0-beta.0",
+    "angular-sanitize": "~1.5.0-beta.0",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "ng-file-upload": "~9.1.2",
+    "wow": "~1.1.2",
+    "angular-bootstrap": "~0.14.2",
+    "angular-summernote": "~0.5.1",
+    "angular-strap": "~2.3.6"
+  }
+}

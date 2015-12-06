@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9" data-ng-app="wanname"><![endif]-->
+<![if IE 9 ]><html data-ng-app="wanname"><![endif]>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="wanna:me" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="requiresActiveX=true" />
+
+    <title>WannaMe</title>
+    <base href="/">
+
+    <!-- favicon
+    <link rel="icon" href="/lib/imgs/favicon.ico" type="image/x-icon">-->
+
+    <!-- css -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
+    <link rel='stylesheet' href='/lib/textAngular/src/textAngular.css'>
+    <link rel="stylesheet" href="/dist/css/wanname.min.css">
+
+    <!-- lib -->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="/lib/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src='/lib/textAngular/dist/textAngular-rangy.min.js'></script>
+    <script src='/lib/textAngular/dist/textAngular-sanitize.min.js'></script>
+    <script src='/lib/textAngular/dist/textAngular.min.js'></script>
+    <script src='/lib/angular-bootstrap/ui-bootstrap.min.js'></script>
+    <script src='/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+    <script src='/lib/ng-dialog/js/ngDialog.min.js'></script>
+
+    <script src="/dist/js/wannameApp.min.js"></script>
+    <script src="/dist/templates/templates.js"></script>
+</head>
+<body>
+    <header id="header" ng-include="'header/header.tpl.html'" ng-controller="headerC"></header>
+
+    <section class="row">
+        <article ui-view></article>
+    </section>
+    <!--[if lt IE 9]>
+    <article class="ie-warning">
+        <h1 class="c-white">주의</h1>
+        <p>저희가 지원하지 않는 브라우저 버젼입니다.. 아래의 링크를 클릭후 업그레이드 하시기 바랍니다.</p>
+        <div class="iew-container">
+            <ul class="iew-download">
+                <li>
+                    <a href="http://www.google.com/chrome/" target="_blank">
+                        <img src="/dist/imgs/browsers/chrome.png" alt="">
+                        <div>Chrome</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">
+                        <img src="/dist/imgs/browsers/firefox.png" alt="">
+                        <div>Firefox</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.opera.com" target="_blank">
+                        <img src="/dist/imgs/browsers/opera.png" alt="">
+                        <div>Opera</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apple.com/safari/" target="_blank">
+                        <img src="/dist/imgs/browsers/safari.png" alt="">
+                        <div>Safari</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">
+                        <img src="/dist/imgs/browsers/ie.png" alt="">
+                        <div>IE (New)</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+    </article>
+    <![endif]-->
+
+    <div id="loaderDiv" loader>
+        <div class="spinner-2">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="col-md-4">
+                <div>
+                    <h2>
+                        WANNA:ME
+                    </h2>
+                    <p>
+                        워너미: 잡큐레이션 서비스
+                    </p>
+                    <p>
+                        워너미 대표: 박지수
+                    </p>
+                    <p>
+                        개인정보 책임관리자: 박지수
+                    </p>
+                    <p>
+                        개인정보 보호담당자: 손성곤
+                    </p>
+                    <p>
+                        사업자번호: 412-06-96389
+                    </p>
+                    <p>
+                        통신판매업 신고번호:
+                    </p>
+                    <p>
+                        제 2105-서울송파-1269호
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h2>
+                        About 워너미
+                    </h2>
+                    <p>
+                        공지사항
+                    </p>
+                    <p>
+                        파트너 신청
+                    </p>
+                    <p>
+                        1:1 문의하기
+                    </p>
+                    <p>
+                        자주찾는 질문
+                    </p>
+                    <p>
+                        이용약관
+                    </p>
+                    <p>
+                        개인정보 처리방침
+                    </p>
+                    <p>
+                        환불규정
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h2>
+                        Facebook Page
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

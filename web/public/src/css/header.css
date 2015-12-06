@@ -1,0 +1,30 @@
+nav {
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.menu-btn {
+    float: right;
+    color: black;
+    cursor: pointer;
+    z-index: 999;
+    border: 1px solid  black;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.menu-btn .fa{
+    font-size: 17px;
+    font-weight: 200;
+    margin: 0px 3px;
+}
+
+.menu-btn:hover,
+.menu-btn:focus {
+    background-color: #eee;
+}
+
+.nav>li.active, .nav>li.active {
+    text-decoration: none;
+    background-color: #eee;
+}

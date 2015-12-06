@@ -1,0 +1,83 @@
+<div id="board">
+    <div class="col-sm-12" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                검색
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-1 control-label">작성자</label>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" id="name" ng-model="search.name" placeholder="작성자">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="col-sm-1 control-label">제목</label>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" id="title" ng-model="search.title" placeholder="제목">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-11">
+                            <button type="submit" class="btn btn-default" ng-click="getBoardList()">검색</button>
+                            <button type="submit" class="btn btn-success" ng-click="openCreateModal()">등록</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                총 {{count}} 건
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <colgroup>
+                            <col width="60%">
+                            <col width="30%">
+                            <col width="10%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                이름 (아이디)
+                            </th>
+                            <th>
+                                등록 일시
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-if="boardList.length < 1">
+                            <td class="text-center" colspan="3">
+                                데이터가 없거나 검색을 해주세요.
+                            </td>
+                        </tr>
+                        <tr class="pointer" ng-repeat="list in boardList" ng-click="openEditModal(list._id)">
+                            <td>
+                                {{list.title}}
+                            </td>
+                            <td>
+                                {{list.name}}({{list.userId}})
+                            </td>
+                            <td>
+                                {{list.regDt | date : 'yyyy-MM-dd HH:mm:ss'}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-paging">
+                    <uib-pagination total-items="count" ng-model="search.page" max-size="10" items-per-page="20" class="pagination-sm" rotate="false"></uib-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

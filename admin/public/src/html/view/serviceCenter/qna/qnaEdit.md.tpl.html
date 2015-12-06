@@ -1,0 +1,52 @@
+<div id="boardEdit">
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title">{{$root.activeMenu.nickName}}</h2>
+    </div>
+    <form name="myForm">
+        <div class="modal-body padding-20">
+            <div class="form-group">
+                <label>이름(아이디)</label>
+                <div class="padding-left-10">
+                    {{board.name}} ( {{board.userId}} )
+                </div>
+            </div>
+            <div class="form-group">
+                <label>제목</label>
+                <div class="padding-left-10">
+                    {{board.title}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label>파일</label>
+                <only-read-file-box class="padding-left-10" file-list="board.fileList"></only-read-file-box>
+            </div>
+            <div class="form-group">
+                <label>내용</label>
+                <div class="content-box" ng-bind-html="board.content | changeTrustAdHtml"></div>
+            </div>
+            <div class="form-group">
+                <label>답변</label>
+                <summernote ng-model="board.answer" on-image-upload="notFileUpload()"
+                            config="{ toolbar: [
+            ['edit',['undo','redo']],
+            ['headline', ['style']],
+            ['style', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+            ['fontface', ['fontname']],
+            ['textsize', ['fontsize']],
+            ['fontclr', ['color']],
+            ['alignment', ['ul', 'ol', 'paragraph', 'lineheight']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['insert', ['link','video','hr']],
+            ['view', ['fullscreen', 'codeview']],
+            ['help', ['help']]]}"
+                        ></summernote>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-warning" ng-click="editBoard()" ng-disabled="myForm.$error.required || !board.content">수정</button>
+            <button type="submit" class="btn btn-default" ng-click="close()">닫기</button>
+        </div>
+    </form>
+</div>

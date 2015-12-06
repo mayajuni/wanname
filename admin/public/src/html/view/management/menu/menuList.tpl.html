@@ -1,0 +1,92 @@
+<div id="managementMenu">
+    <div class="col-xs-6" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                메뉴 리스트
+            </div>
+            <div class="panel-body">
+                <h2>
+                    Menu List <button class="btn btn-default" ng-click="addMenuForm(1)">Step1 등록</button>
+                </h2>
+                <ul class="nav" dnd-list="menus" dnd-allowed-types="['step1']">
+                    <li ng-repeat="list in menus"
+                        dnd-draggable="list"
+                        dnd-moved="moved(menus, $index, 1)"
+                        dnd-type="'step1'"
+                        dnd-effect-allowed="move"
+                        dnd-selected="selected(list, 1)"
+                        ng-class="{'active': step1 === list}" >
+                        <a>
+                            <i class="fa fa-angle-down"></i>
+                            {{list.nickName | firstCharUpper}}
+                        </a>
+                        <ul class="sub-nav" ng-if="list.subMenuList &&list.subMenuList.length > 0" dnd-list="list.subMenuList" dnd-allowed-types="['step2'+list._id]">
+                            <li ng-repeat="subList in list.subMenuList"
+                                dnd-draggable="subList"
+                                dnd-moved="moved(list.subMenuList, $index, 2)"
+                                dnd-type="'step2'+list._id"
+                                dnd-effect-allowed="move"
+                                dnd-selected="selected(subList, 2)"
+                                ng-class="{'active': detail._id === subList._id}">
+                                <a>- {{subList.nickName | firstCharUpper}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="text-right margin-top-10">
+                    <button class="btn btn-default" ng-click="saveRank()">메뉴 순서 변경</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                메뉴 상세
+            </div>
+            <div class="panel-body">
+                <div ng-show="!showForm">
+                    <h4>왼쪽에서 선택해주세요.</h4>
+                </div>
+                <div ng-show="showForm">
+                    <h2>Step {{step}} {{isAdd}} <button class="btn btn-default" ng-if="isAdd != 'Add' && (step == 1 && detail)" ng-click="addMenuForm(2)">Step2 등록</button></h2>
+                    <form class="form-horizontal" name="myForm">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">이름</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="detail.name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">닉네임</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="detail.nickName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">URL</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="detail.url">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">API</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="detail.api">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div ng-if="!!isAdd">
+                                <button class="btn btn-default" ng-disabled="myForm.$error.required" ng-click="addMenu()">메뉴 등록</button>
+                            </div>
+                            <div ng-if="!isAdd">
+                                <button class="btn btn-default" ng-disabled="myForm.$error.required" ng-click="editMenu()">메뉴 수정</button>
+                                <button class="btn btn-default" ng-disabled="myForm.$error.required" ng-click="deleteMenu()">메뉴 삭제</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

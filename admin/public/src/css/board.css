@@ -1,0 +1,12 @@
+.list-paging {
+    text-align: center;
+}
+
+.note-editor .note-editing-area .note-editable {
+    min-height: 300px;
+}
+
+#boardEdit .content-box {
+    border: 1px solid #ddd;
+    padding: 5px;
+}

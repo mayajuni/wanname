@@ -1,0 +1,140 @@
+
+@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+
+*:focus { outline:none; }
+
+html {
+    height: 100%;
+    font-size: 100%;
+}
+
+body {
+    color: #565656;
+    /*background: #F0F3F3;*/
+    background: #fff;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    padding: 0px;
+    margin: 0px;
+    min-height: 100%;
+    position: relative;
+    overflow-y: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    padding: 0px !important;
+    margin: 0px !important;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+
+body::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar
+{
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    /*font-family: "Montserrat", sans-serif;*/
+    color: #424856;
+}/*
+h1,
+.h1 {
+    font-size: 1.375em;
+}
+h2,
+.h2 {
+    font-size: 1.188em;
+}
+h3,
+.h3 {
+    font-size: 1.063em;
+}
+h4,
+.h4 {
+    font-size: 0.938em;
+}
+h5,
+.h5 {
+    font-size: 0.813em;
+}
+h6,
+.h6 {
+    font-size: 0.75em;
+}*/
+p {
+    font-size: 0.875em;
+}
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+img {
+    max-width: 100%;
+}
+
+ul > li {
+    display: block;
+}
+
+section {
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    -webkit-transform: translate3d(240,0,0)!important;
+    transform: translate3d(240,0,0)!important;
+    padding: 70px 10px 5px 268px;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+a {
+    color: #323232;
+    cursor: pointer;
+}
+
+.modal::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar
+{
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+.modal::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}

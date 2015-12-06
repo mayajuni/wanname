@@ -1,0 +1,31 @@
+{
+  "name": "admin",
+  "version": "0.0.0",
+  "authors": [
+    "Dongjun Kwon <mayajuni10@gmail.com>"
+  ],
+  "description": "study",
+  "keywords": [],
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0-beta.0",
+    "angular-animate": "~1.5.0-beta.0",
+    "angular-sanitize": "~1.5.0-beta.0",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "ng-file-upload": "~9.0.15",
+    "wow": "~1.1.2",
+    "Flot": "jquery-flot#~0.8.3",
+    "flot.tooltip": "~0.8.5",
+    "flot.curvedlines": "~1.1.1",
+    "angular-drag-and-drop-lists": "~1.3.0",
+    "angular-bootstrap": "~0.14.2",
+    "angular-summernote": "~0.5.1",
+    "socket.io-client": "~1.3.7"
+  }
+}

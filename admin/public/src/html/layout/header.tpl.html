@@ -1,0 +1,57 @@
+<div class="brand">
+    <a href="/admin" class="logo">
+        <img src="/imgs/logo.png">
+    </a>
+</div>
+<ul class="icons">
+    <li id="leftMenuBtn">
+        <button class="icon" ng-click="toggleLeftMenu()">
+            <i class="fa fa-bars"></i>
+        </button>
+    </li>
+    <li class="dropdown">
+        <button class="icon" id="alram" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-bell-o"></i>
+            <span class="new-count">28</span>
+        </button>
+        <div class="dropdown-menu news" aria-labelledby="alram">
+            <ul>
+                <li>
+                    <i class="fa fa-bell-o"></i> Alarm :  28 News
+                </li>
+                <li class="content" ng-repeat="list in newsList">
+                    <div class="profile-img">
+                        <img ng-src="{{list.profileUrl}}">
+                    </div>
+                    <div class="text">
+                        {{list.content}}
+                        <div class="reg-date"><i class="fa fa-edit"></i> {{list.regDt}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>
+<ul class="icons pull-right">
+    <li class="dropdown">
+        <div  class="profile" id="setting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="http://images.gofreedownload.net/woman-28905.jpg" class="img-circle"  style="width: 32px; height: 32px;">
+            <span style="padding: 0 3px;">
+                {{admin.name}}
+            </span>
+            <span class="caret"></span>
+        </div>
+        <div class="dropdown-menu profile-menu"  aria-labelledby="setting">
+            <ul>
+                <li ng-class="{divider: list.divider}" ng-repeat="list in profileMenu">
+                    <div ng-if="!!list.url && !list.click">
+                        <a ng-href="{{list.url}}" ng-bind-html="list.content"></a>
+                    </div>
+                    <div ng-if="!!list.click && !list.url" ng-click="$eval(list.click);">
+                        <div ng-bind-html="list.content"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>

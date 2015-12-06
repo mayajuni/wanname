@@ -1,0 +1,34 @@
+<div>
+    <div ngf-drop ngf-select ngf-change="upload($files)" class="drop-box"
+         ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true">Drop file here or click to upload</div>
+    <div class="file-list">
+        <ul class="file row">
+            <li class="margin-top-5 text-center" ng-repeat="list in fileList">
+                <div class="file-remove" ng-click="deleteFile($index, list._id)">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </div>
+                <div class="file-icon" ng-if="!list.isImg">
+                    <a ng-href="{{list.url}}" download="{{list.name}}" target="_self">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                </div>
+                <div class="text-center" ng-if="list.isImg">
+                    <a ng-href="{{list.url}}" target="_blank">
+                        <img draggable="false" ngf-src="selectedFiles[$index - oldFileCount]" ng-if="$index >= oldFileCount" class="img-circle" />
+                        <img ng-src="{{list.url}}" ng-if="$index < oldFileCount" class="img-circle" />
+                    </a>
+                </div>
+                <div class="progress" style="height: 5px; margin-top: 5px; margin-bottom: 5px;">
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{width: progresses[$index]+'%'};">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-xs btn-success" ng-click="openFileModal($index)" ng-show="!list.error">Show Info</button>
+                    <button type="submit" class="btn btn-xs btn-danger" ng-click="openFileModal($index)" ng-show="!!list.error">Show Error</button>
+                    <button type="submit" class="btn btn-xs btn-default margin-top-5" ng-click="inputImage(list.url)" ng-show="!list.error && list.isImg && isEditor">Input Image</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="wanna:me" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="requiresActiveX=true" />
+
+    <!-- sns -->
+    <meta property="og:title" content="워너미는 당신의 새로운 시작을 돕습니다."/>
+    <!-- website, article(기사형태,블로그나) -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:description" content="회사를 떠나 새로운 일을 시작하고 싶나요? 당신이 생각하는 일 당신과 맞는 일인지 체험하고 확인하세요. 직접 경험을 하고 나면 두려움이 사라집니다. 당신이 생각했던 일을 먼저 하고 있는 사람을 만나세요. 그와 함께 일하고 체험하세요. 그의 살아있는 조언을 들어보세요. 워너미는 당신의 새로운 직업의 시작을 돕습니다."/>
+    <meta property="og:image" content="http://teaser.wanname.kr/dist/imgs/facebook_image.jpg"/>
+    <!--<meta property="og:site_name" content=""/>-->
+
+
+    <!-- 웹 페이지(사이트) 타이틀 -->
+    <meta name="title" content="워너미는 당신의 새로운 시작을 돕습니다." />
+    <!-- 웹 페이지(사이트) 요약 설명 -->
+    <meta name="description" content="회사를 떠나 새로운 일을 시작하고 싶나요? 당신이 생각하는 일 당신과 맞는 일인지 체험하고 확인하세요. 직접 경험을 하고 나면 두려움이 사라집니다. 당신이 생각했던 일을 먼저 하고 있는 사람을 만나세요. 그와 함께 일하고 체험하세요. 그의 살아있는 조언을 들어보세요. 워너미는 당신의 새로운 직업의 시작을 돕습니다." />
+    <!-- 웹 페이지(사이트) 검색 키워드 작성 -->
+    <meta name="keywords" content="워너미, 은퇴 후 직업, 창업 체험, 제2의 인생, 직업체험, 소자본 창업, 창업 경험, 카페 창업, 음식점 창업" />
+    
+    <!-- 웹 페이지(사이트) 검색사이트 검색로봇의 접근 허용 -->
+    <meta name="robots" content="ALL" />
+
+    <title>워너미 직업체험 잡큐레이션 서비스</title>
+    <base href="/">
+
+    <!-- favicon >-->
+    <link rel="icon" href="/dist/imgs/favicon.ico" type="image/x-icon">
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/css/wanname.min.css">
+</head>
+<body>
+    <section>
+        <div class="log">
+            <img src="/dist/imgs/logo.png">
+        </div>
+        <div class="share-box">
+            <a style="cursor: pointer" onclick="shareFacebook()">
+                <img src="/dist/imgs/social_facebook.png">
+            </a>
+            <a style="cursor: pointer" onclick="shareKakao()">
+                <img src="/dist/imgs/social_kakao.png">
+            </a>
+            <a style="cursor: pointer" onclick="shareNaver()">
+                <img src="/dist/imgs/social_naver.png">
+            </a>
+        </div>
+        <div class="content-box">
+            <div class="title">
+                워너미는 당신의 새로운 시작을 돕습니다.
+            </div>
+            <div class="text">
+                <p>회사를 떠나 새로운 일을 꿈꾸고 있나요?</p>
+                <p>그런 당신을 위해 직업을 체험할 수 있는 Playground를 만들었습니다.</p>
+                <br>
+                <p>바로 세상에 뛰어 들지 마세요.</p>
+                <p>당신이 생각했던 일을 먼저 하고 있는 사람을 만나세요.</p>
+                <p>그와 함께 일하고 체험하세요.</p>
+                <p>그의 살아있는 조언을 들어보세요.</p>
+                <br>
+                <p>당신이 꿈꾸는 일 생각하는 일 당신과 맞는 일인지 직접 확인하고 시작하세요.</p>
+                <p>직접 경험을 하고 나면 두려움이 사라집니다.</p>
+                <p>새로운 시작을 위한 설렘과 두려움까지 모두 겪어 본 파트너를 만나세요.</p>
+                <br>
+                <p>워너미가 돕겠습니다.</p>
+                <br>
+                <p>당신을 위한 직업 큐레이션 서비스 WannaMe.</p>
+                <p>곧 찾아가겠습니다.</p>
+            </div>
+            <div>
+                <div class="email-box">
+                    <p>이메일 주소를 남겨주세요.</p>
+                    <p>워너미의 이벤트와 업데이트 소식을 가장 빨리 받으실수 있습니다.</p>
+                    <div class="email-btn">
+                        <div class="input-group">
+                            <input type="text" class="form-control  input-lg" id="email" placeholder="Email...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btn-lg" type="button" onclick="saveEmil()">보내기</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div>현재까지 <span class="btn btn-primary btn-xs"><span id="count" class="count">0</span></span>명이 소식받기를 신청하였습니다.</div>
+                </div>
+            </div>
+        </div>
+        <div id="1st" class="background"></div>
+        <div id="2st" class="background"></div>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-ms" role="document">
+            <div class="email-end modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div style="padding-top: 30px;">
+                        이메일 주소를 남겨 주셔서 감사합니다.
+                        <br><br>
+                        워너미의 최신소식을 전해드리겠습니다.
+                    </div>
+                    <br>
+                    <div class="facebook-modal-box">
+                        워너미 페이스북 페이지에도 방문해보세요!
+                        <a href="http://www.facebook.com/wanname.kr" target="_blank">facebook.com/wanname.kr</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/dist/js/wannameApp.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-70021676-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

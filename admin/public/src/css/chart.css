@@ -1,0 +1,85 @@
+/*
+ * Flot Chart
+ */
+[class*="flot-chart"] {
+    width: 100%;
+    display: block;
+}
+.flot-chart {
+    height: 200px;
+}
+.flot-chart-pie {
+    height: 300px;
+}
+@media (min-width: 768px) {
+    .flot-chart-pie {
+        margin-bottom: 20px;
+    }
+}
+.flot-tooltip,
+#flotTip {
+    position: absolute;
+    color: #333;
+    display: none;
+    font-size: 12px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 3px 10px;
+    background-color: #fff;
+    z-index: 99999;
+}
+[class*="flc-"] {
+    text-align: center;
+    margin: 10px 0 5px;
+}
+[class*="flc-"] table {
+    display: inline-block;
+}
+[class*="flc-"] .legendColorBox > div {
+    border: #fff !important;
+}
+[class*="flc-"] .legendColorBox > div > div {
+    border-radius: 50%;
+}
+[class*="flc-"] .legendLabel {
+    padding: 0 8px 0 3px;
+}
+.dash-widget-item {
+    position: relative;
+    min-height: 380px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+.dash-widget-item .dash-widget-header {
+    position: relative;
+}
+.dash-widget-item .dash-widget-header .actions {
+    display: none;
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    padding: 0;
+    list-style: none;
+}
+.dash-widget-item .dash-widget-header .actions > li {
+    display: inline-block;
+    vertical-align: baseline;
+}
+.dash-widget-item .dash-widget-header .actions > li > a {
+    color: #fff;
+}
+.dash-widget-item .dash-widget-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.dash-widget-item .dash-widget-title {
+    padding: 12px 20px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    font-weight: 300;
+}
+.dash-widget-item:hover .dash-widget-header .actions {
+    display: block;
+}

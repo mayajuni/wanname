@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9" data-ng-app="admin"><![endif]-->
+<![if IE 9 ]><html data-ng-app="admin"><![endif]>
+<head lang="ko">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="author" content="wanna:me" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="requiresActiveX=true" />
+
+    <title>wanname-admin</title>
+    <base href="/">
+    <link rel="icon" href="/imgs/favicon.ico" type="image/x-icon">
+
+    <!-- css -->
+    <link rel="stylesheet" href="/dist/lib/css/lib.min.css"/>
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/dist/css/admin.min.css">
+
+    <script src="/dist/lib/js/lib.min.js"></script>
+    <!-- App level -->
+    <script src="/dist/js/adminApp.min.js"></script>
+    <script src="/dist/templates/templates.js"></script>
+</head>
+<body>
+    <header id="header" ng-if="!!$root.admin" ng-include="'layout/header.tpl.html'" ng-controller="headerC"></header>
+
+    <aside id="leftMenu" ng-if="!!$root.admin" ng-include="'layout/sideMenu.tpl.html'" ng-controller="sideMenuC" ng-class="{'hide-menu' : $root.hideMenu}"></aside>
+
+    <section ng-class="{'hide-menu' : $root.hideMenu}">
+        <div ng-if="!!$root.admin">
+            <h2>
+                {{$root.activeMenu.nickName}}
+            </h2>
+        </div>
+        <article ui-view></article>
+
+        <!--[if lt IE 9]>
+        <article class="ie-warning">
+            <h1 class="c-white">Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/" target="_blank">
+                            <img src="/imgs/browsers/chrome.png" alt="">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">
+                            <img src="/imgs/browsers/firefox.png" alt="">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com" target="_blank">
+                            <img src="/imgs/browsers/opera.png" alt="">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/" target="_blank">
+                            <img src="/imgs/browsers/safari.png" alt="">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">
+                            <img src="/imgs/browsers/ie.png" alt="">
+                            <div>IE (New)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </article>
+        <![endif]-->
+    </section>
+
+    <div id="loaderDiv" loader>
+        <div class="spinner-2">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+</body>
+</html>

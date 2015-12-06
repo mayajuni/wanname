@@ -1,0 +1,106 @@
+<div>
+    <!--<div class="col-sm-6" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Member Chart
+            </div>
+            <div class="panel-body">
+                <div id="pie-chart" class="flot-chart-pie" data-pie-donut data-chart-datas='chartDatas' data-chart-click="test"></div>
+                <div class="flc-pie hidden-xs"></div>
+            </div>
+        </div>
+    </div>-->
+    <div class="col-sm-12" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Member Search
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="id" class="col-sm-1 control-label">ID(Email)</label>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" id="id" ng-model="search._id" placeholder="ID(Email)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">실명인증</label>
+                        <div class="col-sm-11">
+                            <select class="form-control" ng-model="search.identification">
+                                <option value="">::전체::</option>
+                                <option value="미인증">미인증</option>
+                                <option value="진행중">진행중</option>
+                                <option value="인증완료">인증완료</option>
+                                <option value="인증보류">인증보류</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-11">
+                            <button type="submit" class="btn btn-default" ng-click="getMemberList()">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Member List
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>
+                                ID(Email)
+                            </th>
+                            <th>
+                                이름
+                            </th>
+                            <th>
+                                생년월일
+                            </th>
+                            <th>
+                                실명인증
+                            </th>
+                            <th>
+                                가입일시
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-if="memberList.length < 1">
+                            <td class="text-center" colspan="5">
+                                데이터가 없거나 검색을 해주세요.
+                            </td>
+                        </tr>
+                        <tr class="pointer" ng-repeat="list in memberList" ng-click="openDetail(list)">
+                            <td>
+                                {{list._id}}
+                            </td>
+                            <td>
+                                {{list.name}}
+                            </td>
+                            <td>
+                                {{list.birthday}}
+                            </td>
+                            <td>
+                                <span ng-if="list.identification != '진행중'">{{list.identification}}</span>
+                            <span ng-if="list.identification == '진행중'">
+                                <button class="btn btn-warning btn-xs">인증 확인 필요</button>
+                            </span>
+                            </td>
+                            <td>
+                                {{list.regDt | date : 'yyyy-MM-dd HH:mm:ss'}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+#admin table th, #admin table td{
+    text-align: center;
+}
+
+/* management admin-menu */
+#adminMenu ul {
+    padding: 0;
+}
+
+#adminMenu li {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#adminMenu .nav .step1-hover, #adminMenu .sub-nav .step2-hover {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    text-align: right;
+    opacity: 0;
+    color: #000000;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+#adminMenu .nav .step1-hover {
+    width: calc(100% - 30px);
+}
+
+#adminMenu .sub-nav .step2-hover {
+    width: calc(100% - 70px);
+}
+
+#adminMenu .nav > li > a:hover .step1-hover, #adminMenu .nav .sub-nav > li > a:hover .step2-hover {
+    opacity: 0.6;
+}
+
+#adminMenu .nav .sub-nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 40px;
+}
+
+#adminMenu .nav > li.active > a, #adminMenu .nav > li > a:hover,#adminMenu .nav > li > a:focus, #adminMenu .nav > li > a:active,
+#adminMenu .nav .sub-nav li.active > a, #adminMenu .nav .sub-nav > li > a:hover, #adminMenu .nav .sub-nav > li > a:focus, #adminMenu .nav .sub-nav > li > a:active
+{
+    cursor: pointer;
+    background-color: #eee;
+}

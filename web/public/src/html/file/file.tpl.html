@@ -1,0 +1,48 @@
+<div ngf-drop ngf-select ngf-change="addFile($files)" class="drop-box"
+     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true">Drop file here or click to upload</div>
+<div class="file-list col-xs-12 padding-0">
+    <ul class="file" >
+        <li ng-repeat="file in fileList">
+            <div class="file-loading" ng-if="!file._id && !file.error">
+                <div class="spinner-1">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                </div>
+            </div>
+            <div class="file-icon" ng-if="file.type.indexOf('image') < 0">
+                <a ng-href="{{file.url}}" download="{{file.name}}" target="_self"><i class="fa fa-file-text-o"></i></a>
+            </div>
+            <div class="text-center" ng-if="file.type.indexOf('image') > -1">
+                <a ng-href="{{file.url}}" target="_blank">
+                    <img draggable="false" ngf-src="files[$index - oldFileCount]" ng-if="$index >= oldFileCount" class="img-circle" />
+                    <img ng-src="{{file.url}}" ng-if="$index < oldFileCount" class="img-circle" />
+                </a>
+            </div>
+            <div class="btn-box">
+                <button type="button" class="btn btn-default btn-xs" title="File Info" placement="bottom" ng-show="!file.error"
+                        data-animation="am-flip-x" data-auto-close="1" bs-popover data-html="true"
+                        data-content="
+                        <dl>
+                            <dt>Name</dt>
+                            <dd><i class='fa fa-check-square-o'></i> {{file.name}}</dd>
+                            <dt>Size</dt>
+                            <dd><i class='fa fa-check-square-o'></i> {{file.size}} KB</dd>
+                            <dt>Type</dt>
+                            <dd><i class='fa fa-check-square-o'></i> {{file.type}}</dd>
+                            <dt>Url</dt>
+                            <dd><i class='fa fa-check-square-o'></i> {{file.url}}</dd>
+                        </dl>
+                        ">
+                    Show Info
+                </button>
+                <button type="button" class="btn btn-default btn-xs" title="File Error" placement="bottom" ng-show="!!file.error"
+                        data-animation="am-flip-x" data-auto-close="1" bs-popover data-html="true"
+                        data-content="<h4 style='color: red'>{{file.error}}</h4>">
+                    Show Error
+                </button>
+                <button class="btn btn-danger btn-xs" ng-click="remove(file._id, $index, !!file.error)">Remove</button>
+            </div>
+        </li>
+    </ul>
+</div>

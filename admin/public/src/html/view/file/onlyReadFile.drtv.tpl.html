@@ -1,0 +1,21 @@
+<div>
+    <div class="file-list">
+        <ul class="file row">
+            <li class="margin-top-5 text-center" ng-repeat="list in fileList">
+                <div class="file-icon" ng-if="!list.isImg">
+                    <a ng-href="{{list.url}}" download="{{list.name}}" target="_self">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                </div>
+                <div class="text-center" ng-if="list.isImg">
+                    <a ng-href="{{list.url}}" target="_blank">
+                        <img ng-src="{{list.url}}" class="img-circle" />
+                    </a>
+                </div>
+                <div class="margin-top-10">
+                    <button type="submit" class="btn btn-xs btn-success" ng-click="openFileModal($index)" ng-show="!list.error">Show Info</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

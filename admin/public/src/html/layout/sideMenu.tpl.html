@@ -1,0 +1,23 @@
+<nav>
+    <h5 class="menu-header">Navigation</h5>
+    <ul class="nav">
+        <li ng-repeat="list in menuList | orderBy : 'rank'" ng-class="{'active' : list.active}">
+            <a ng-if="!list.subMenuList || list.subMenuList.length < 1" ng-href="{{list.url}}">
+            <!--<a ng-if="!list.subMenuList || list.subMenuList.length < 1" ui-sref="{{list.name}}" ui-sref-opts="{reload: true}">-->
+                {{list.nickName | firstCharUpper}}
+            </a>
+
+            <a ng-if="!!list.subMenuList && list.subMenuList.length > 0" type="button" data-toggle="collapse" data-target="#{{list.name}}" aria-expanded="false">
+                <i ng-class="list.icon"></i> {{list.nickName | firstCharUpper}}
+            </a>
+            <ul class="sub-nav collapse in" ng-if="!!list.subMenuList" id="{{list.name}}"  >
+                <li ng-repeat="subList in list.subMenuList | orderBy : 'rank'" ng-class="{'active' : subList.active}">
+                    <!--<a ui-sref="{{list.name}}-{{subList.name}}" ui-sref-opts="{reload: true}">-->
+                    <a ng-href="{{subList.url}}" ui-sref-opts="{reload: true}">
+                        {{subList.nickName | firstCharUpper}}
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

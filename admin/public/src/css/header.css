@@ -1,0 +1,186 @@
+#header {
+    /*background: #4285F4;*/
+    background: #1d212a;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    height: 60px;
+    position: fixed;
+}
+#header .brand {
+    float: left;
+    width: 240px;
+    height: 60px;
+    padding: 0 0 0 10px;
+    position: relative;
+    background: #eee;
+}
+#header .logo {
+    color: #1d212a;
+    text-transform: uppercase;
+    display: inline-block;
+}
+#header .logo img {
+    margin-right: 6px;
+    margin-top: -4px;
+    width: 200px;
+}
+
+#header ul {
+    padding: 0;
+}
+
+#header .icons > li {
+    float: left;
+    position: relative;
+    display: block;
+    color: white;
+}
+
+#header button.icon {
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    font-size: 1.125em;
+    padding: 20px;
+    cursor: pointer;
+    float: left;
+    background-color: transparent;
+    border: none;
+    position: relative;
+}
+
+#header button.icon:hover, #header .profile:hover {
+    /*background: #238acc;*/
+    background: #eee;
+    color: #1d212a;
+}
+
+#header button.icon > .new-count {
+    background-color: red;
+    font-size: 10px;
+    font-weight: 600;
+    text-shadow: none;
+    line-height: 12px;
+    padding: 2px 5px;
+    position: absolute;
+    right: 14px;
+    top: 12px;
+    border-radius: 50%;
+}
+
+#header .profile {
+    padding: 14px;
+    cursor: pointer;
+}
+
+#header .icons {
+    margin: 0;
+}
+
+#header .news {
+    padding: 0px;
+}
+
+#header .news ul {
+    width: 350px;
+    color: black;
+}
+
+#header .news ul > li {
+    border-bottom: 1px solid gainsboro;
+}
+
+#header .news ul > li:first-child {
+    padding: 5px;
+}
+
+#header .news ul > li:last-child {
+    border: 0px;
+}
+
+#header .news ul > .content {
+    cursor: pointer;
+    height: 70px;
+    padding: 10px;
+    position: relative;
+}
+
+#header .news ul > .content .profile-img{
+    width: 50px;
+    float: left;
+}
+
+#header .news ul > .content img {
+    width: 50px;
+    height: 50px;
+}
+
+#header .news ul > .content .text {
+    float: left;
+    width: 265px;
+    padding-left: 5px;
+}
+
+#header .news ul > .content .text .reg-date{
+    position: absolute;
+    bottom: 3px;
+}
+
+#header .news ul > .content:hover {
+    background-color: #F2F2F2;
+}
+
+#header .profile-menu {
+    right: 0;
+    left: auto;
+    color: black;
+}
+
+#header .profile-menu ul > li {
+    width: 100%;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#header .profile-menu ul > li:hover {
+    background-color: #F2F2F2;
+}
+
+@media (max-width: 1020px) {
+    /* header */
+    #header {
+        height: 90px;
+    }
+
+    #header .brand {
+        width: 100%;
+        padding: 0;
+        height: 50px;
+        text-align: center;
+        position: relative;
+    }
+
+    #header button.icon {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
+
+    #header button.icon>.new-count {
+        right: 0px;
+        top: 2px;
+    }
+
+    #header .profile {
+        padding: 4px;
+    }
+
+    #header .logo {
+        margin-top: -8px;
+    }
+
+    /* end header */
+}

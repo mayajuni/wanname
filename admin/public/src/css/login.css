@@ -1,0 +1,133 @@
+.login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+    background-color: rgb(136, 206, 219);
+}
+
+.login-box {
+    width: 500px;
+    padding-top: 5%;
+}
+
+.login-box.container > .contentBox {
+    background-color: #fff;
+    border: 1px solid #39a6bb;
+    padding: 20px;
+    margin: 0 -20px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.form-signin {
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading{
+    margin-bottom: 20px;
+    margin-top: -5px;
+}
+
+.box-paddings{
+    padding-top: 14%;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input {
+    margin-bottom: 10px;
+}
+
+.pw_padding{
+    padding-top: 10px;
+}
+.login-form {
+    margin-left: 65px;
+}
+.login-error{
+    font-size: 14px;
+    font-weight: 700;
+    color: red;
+    top:20px;
+}
+.login-text{
+    width: 200px;
+    color: #39a6bb;
+    padding-top: 15px;
+    padding-bottom: 2px;
+}
+.login-text1{
+    width: 600px;
+    color: #39a6bb;
+    padding-bottom: 2px;
+    display: inline-block;
+}
+.login-align{
+    float: left;
+    padding-left: 10px;
+}
+.login-box .btn-md{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.captcha-img{
+    display: inline-block;
+}
+.captcha-box {
+    padding: 3px;
+    border: 1px solid #1391b0;
+    width: 76px;
+    height: 36px;
+    display: inline-block;
+}
+
+.security-input {
+    display: inline-block;
+    width: 77%;
+    height: 45px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.login-box hr {
+    width: 500px;
+    margin-left: -65px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}

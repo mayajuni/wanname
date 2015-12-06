@@ -1,0 +1,60 @@
+<div id="adminMenu">
+    <div class="col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                사용할수 있는 메뉴
+            </div>
+            <div class="panel-body">
+                <ul class="nav">
+                    <li ng-repeat="list in myMenuList">
+                        <a ng-click="eventStep1Menu('remove', list, $index)">
+                            {{list.nickName}}
+                            <div class="step1-hover">
+                                <i class="fa fa-remove fa-2x"></i>
+                            </div>
+                        </a>
+                        <ul class="sub-nav" style="padding: 0">
+                            <li ng-repeat="subList in list.subMenuList">
+                                <a ng-click="eventStep2Menu('remove', list, subList, $index)">
+                                    - {{subList.nickName}}
+                                    <div class="step2-hover">
+                                        <i class="fa fa-remove fa-2x"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                전체 메뉴
+            </div>
+            <div class="panel-body">
+                <ul class="nav">
+                    <li ng-repeat="list in menuList | orderBy: 'rank'">
+                        <a ng-click="eventStep1Menu('add', list, $index)">
+                            {{list.nickName}}
+                            <div class="step1-hover">
+                                <i class="fa fa-plus fa-2x"></i>
+                            </div>
+                        </a>
+                        <ul class="sub-nav" style="padding: 0">
+                            <li ng-repeat="subList in list.subMenuList | orderBy: 'rank'">
+                                <a ng-click="eventStep2Menu('add', list, subList, $index)">
+                                    - {{subList.nickName}}
+                                    <div class="step2-hover">
+                                        <i class="fa fa-plus fa-2x"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
