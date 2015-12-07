@@ -11,7 +11,7 @@ var Schema = mongo.mongoose.Schema;
 mongo.schema = {};
 
 /* 사용자 */
-mongo.schema.user = new Schema({
+mongo.schema.member = new Schema({
     _id: String,
     password: String,
     token: String,
@@ -89,11 +89,44 @@ mongo.schema.board = new Schema({
     category: String,
     title: {type: String, required: true},
     content: {type: String, required: true},
+    /* 메인에서 가장 위에 보일것들 */
+    isTop: Boolean,
     /* Qna에서 사용 */
     isAnswer: {type:Boolean, default: false},
     /* Qna에서 사용 */
     answer: String,
     fileList: [mongo.schema.file],
+    regDt: {type: Date, default: Date.now}
+});
+
+/* 댓글 스키마 */
+mongo.schema.commentScheama = new Schema({
+    userId: String,
+    name: String,
+    content: String,
+    regDt: {type: Date, default: Date.now}
+});
+
+/* 댓글 */
+mongo.schema.comment = new Schema({
+    userId: String,
+    name: String,
+    content: String,
+    subComment: [mongo.schema.commentScheama],
+    regDt: {type: Date, default: Date.now}
+});
+
+/* 블로그 */
+mongo.schema.blog = new Schema({
+    name: {type: String, required: true},
+    /* 카테고리 */
+    category: String,
+    title: {type: String, required: true},
+    content: {type: String, required: true},
+    /* 메인에서 가장 위에 보일것들 */
+    isTop: Boolean,
+    fileList: [mongo.schema.file],
+    comments: [mongo.schema.comment],
     regDt: {type: Date, default: Date.now}
 });
 
@@ -148,12 +181,13 @@ mongo.schema.teaser = new Schema({
 
 /* 모델 */
 mongo.model = {};
-mongo.model.user =  mongo.mongoose.model('user', mongo.schema.user);
+mongo.model.member =  mongo.mongoose.model('member', mongo.schema.member);
 mongo.model.board =  mongo.mongoose.model('board', mongo.schema.board);
 mongo.model.file =  mongo.mongoose.model('file', mongo.schema.file);
 mongo.model.program =  mongo.mongoose.model('program', mongo.schema.program);
 mongo.model.admin = mongo.mongoose.model('admin', mongo.schema.admin);
 mongo.model.adminMenu = mongo.mongoose.model('admin_menu', mongo.schema.adminMenu);
 mongo.model.teaser = mongo.mongoose.model('teaser', mongo.schema.teaser);
+mongo.model.blog = mongo.mongoose.model('blog', mongo.schema.blog);
 
 module.exports = mongo;

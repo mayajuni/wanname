@@ -4,7 +4,7 @@
 /* log를 찍어줄때 색갈을 주는 미들웨어 */
 var colors = require("colors");
 /* 에러 메세지 들어있는 프로퍼티 */
-var errorP = require("../../errorP");
+var property = require("../../property");
 
 /**
  * express 객체를 인자 값으로 받아서 진행
@@ -31,8 +31,8 @@ exports.app = function(app){
         err.status = !err.status ? 500 : err.status;
         console.log("error on request %s | %s | %d".red, req.method, req.url, err.status);
         console.log(err.stack);
-        /* errorP.common = "Something bad happened. :(" 이다. */
-        err.message = err.status == 500 ? errorP.common : err.message;
+        /* property.error.common = "Something bad happened. :(" 이다. */
+        err.message = err.status == 500 ? property.error.common : err.message;
         /* 아래와 같이 에러코드와 에러 메세지를 반환한다.  */
         res.status(err.status).send(err.message);
     });

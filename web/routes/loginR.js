@@ -2,7 +2,7 @@
  * Created by 동준 on 2015-09-30.
  */
 var express = require("express");
-var loginVO = require("../vos/loginVO");
+var memberVO = require("../vos/memberVO");
 var memberBiz = require("../../biz/routes/memberBiz");
 
 var router = express.Router();
@@ -10,8 +10,8 @@ var router = express.Router();
 /**
  * 로그인
  */
-router.post("/", loginVO.set, function(req, res){
-    memberBiz.login(loginVO.get._id, loginVO.get.password, function(data){
+router.post("/", memberVO.set, function(req, res){
+    memberBiz.login(memberVO.get._id, memberVO.get.password, function(data){
         req.session.user = data;
         res.send(data);
     });
@@ -20,8 +20,8 @@ router.post("/", loginVO.set, function(req, res){
 /**
  * 토큰 로그인
  */
-router.post("/token", loginVO.set, function(req, res){
-    memberBiz.tokenLogin(loginVO.get.token, function(data){
+router.post("/token", memberVO.set, function(req, res){
+    memberBiz.tokenLogin(memberVO.get.token, function(data){
         req.session.user = data;
         res.send(data);
     });
@@ -46,8 +46,8 @@ router.get("/logout", function(req, res){
 /**
  * 비밀번호 찾기
  */
-router.post("/findPassword", loginVO.set, function(req, res){
-    memberBiz.findPassword(loginVO.get._id, loginVO.get.name, function(){
+router.post("/findPassword/:_id", function(req, res){
+    memberBiz.findPassword(req.params._id, function(){
         res.send();
     })
 });

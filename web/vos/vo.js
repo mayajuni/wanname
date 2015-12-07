@@ -1,7 +1,7 @@
 /**
  * Created by 동준 on 2015-06-30.
  */
-var errorMsg = require("../../errorP");
+var property = require("../../property");
 
 exports.setAndValdate = function(req, next, objectVO, errStatus){
     var params = req.query;
@@ -32,7 +32,7 @@ exports.setAndValdate = function(req, next, objectVO, errStatus){
                 }
 
                 if(!notCheck && (!params[key] && !req.params[key])){
-                    var msg = !errorMsg[key] ? "Check " + key : errorMsg[key];
+                    var msg = !property.error[key] ? "Check " + key : property.error[key];
                     var err = new Error(msg);
                     err.status = !errStatus ? 409 : errStatus;
                     throw err;

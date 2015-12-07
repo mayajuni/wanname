@@ -54,6 +54,10 @@ routeC.app(app, __dirname);
  */
 errorC.app(app);
 
+http.createServer(app).listen(config.port.web, function(){
+    console.log("Express server listening on port " + config.port.web);
+});
+
 /**
  * express의 프로퍼티를 수정한 후 객체 자체를 모듈로 리턴!
  */

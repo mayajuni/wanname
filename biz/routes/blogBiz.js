@@ -1,5 +1,5 @@
 /**
- * Created by mayaj on 2015-09-01.
+ * Created by mayaj on 2015-12-06.
  */
 var config = require('../../config');
 var fs = require("fs");
@@ -7,7 +7,7 @@ var fileBiz = require('./fileBiz');
 
 /* mongo 연결 */
 var mongo = require('../config/mongoConfig');
-var Board = mongo.model.board;
+var Blog = mongo.model.blog;
 
 /* mongo objectId type */
 var ObjectId = mongo.mongoose.Types.ObjectId;
@@ -23,37 +23,31 @@ exports.getList = function(search, callback) {
     if(!!search.category) {
         where.category = category;
     }
-    if(!!search.name){
-        where.name = search.name;
-    }
     if(!!search.title){
         where.title = {$regex : search.title};
     }
     if(!!search.content){
         where.content = {$regex : search.content};
     }
-    if(search.isAnswer != null && search.isAnswer != undefined && search.isAnswer != '') {
-        where.isAnswer = search.isAnswer;
-    }
 
-    Board.count(where, function(error, count){
+    Blog.count(where, function(error, count){
         if(error){
             throw error;
         }
 
-        var board = {};
+        var blog = {};
         var page = !search.page ? 1 : search.page;
         var view = !search.view ? 20 : search.view;
-        board.count = count;
-        board.page = page;
+        blog.count = count;
+        blog.page = page;
 
-        Board.find(where, null, {sort : {"regDt" : -1}, skip : view * (page- 1), limit: view }, function(error, data){
+        Blog.find(where, null, {sort : {"regDt" : -1}, skip : view * (page- 1), limit: view }, function(error, data){
             if(error){
                 throw error;
             }
 
-            board.list = data;
-            callback(board);
+            blog.list = data;
+            callback(blog);
         });
     });
 };
@@ -65,7 +59,7 @@ exports.getList = function(search, callback) {
  * @param callback
  */
 exports.getDetail = function(_id, callback) {
-    Board.findOne({_id: new ObjectId(_id)}, function(error, data) {
+    Blog.findOne({_id: new ObjectId(_id)}, function(error, data) {
         if(error) {
             throw error;
         }
@@ -79,21 +73,21 @@ exports.getDetail = function(_id, callback) {
  *
  * @param userId
  * @param name
- * @param boardVO: Object
+ * @param blogVO: Object
  * @param callback
  */
-exports.save = function(userId, name, boardVO, callback) {
-    var board = new Board(boardVO);
-    board.userId = userId;
-    board.name = name;
+exports.save = function(userId, name, blogVO, callback) {
+    var blog = new Blog(blogVO);
+    blog.userId = userId;
+    blog.name = name;
 
-    board.save(function(error, result) {
+    blog.save(function(error, result) {
         if(error) {
             throw error;
         }
 
-        if(!!boardVO.fileList) {
-            fileBiz.addDivisionId(boardVO.fileList, config.file.doc.board, result._id, callback);
+        if(!!blogVO.fileList) {
+            fileBiz.addDivisionId(blogVO.fileList, config.file.doc.blog, result._id, callback);
         }else {
             callback();
         }
@@ -103,24 +97,24 @@ exports.save = function(userId, name, boardVO, callback) {
 /**
  * 게시판 수정
  *
- * @param boardVO
+ * @param blogVO
  * @param callback
  */
-exports.update = function(userId, boardVO, callback) {
-    var _id = boardVO._id;
-    delete boardVO._id;
-    boardVO.modiDt = Date.now;
+exports.update = function(userId, blogVO, callback) {
+    var _id = blogVO._id;
+    delete blogVO._id;
+    blogVO.modiDt = Date.now;
 
-    Board.update(
+    Blog.update(
         {_id: new ObjectId(_id), userId: userId},
-        {$set: boardVO},
+        {$set: blogVO},
         function(error) {
             if(error) {
                 throw error;
             }
 
-            if(!!boardVO.fileList) {
-                fileBiz.addDivisionId(boardVO.fileList, config.file.doc.board, _id, callback);
+            if(!!blogVO.fileList) {
+                fileBiz.addDivisionId(blogVO.fileList, config.file.doc.blog, _id, callback);
             }else {
                 callback();
             }
@@ -136,12 +130,12 @@ exports.update = function(userId, boardVO, callback) {
  * @param callback
  */
 exports.remove = function(userId, _id, callback) {
-    Board.remove({_id: new ObjectId(_id), userId: userId}, function(error) {
+    Blog.remove({_id: new ObjectId(_id), userId: userId}, function(error) {
         if(error) {
             throw error;
         }
 
-        fileBiz.divisionIdRemove(_id, config.file.doc.board, function() {
+        fileBiz.divisionIdRemove(_id, config.file.doc.blog, function() {
             callback();
         });
     })
@@ -154,7 +148,7 @@ exports.remove = function(userId, _id, callback) {
  * @param fileId
  */
 exports.removeFile = function(_id, fileId, callback) {
-    Board.update(
+    Blog.update(
         {_id: new ObjectId(_id)},
         {$pull: {fileList: {_id: new ObjectId(fileId)}}},
         function(error) {
@@ -163,5 +157,37 @@ exports.removeFile = function(_id, fileId, callback) {
             }
 
             callback();
+        });
+};
+
+/**
+ * 댓글을 단다
+ *
+ * @param blogVO
+ * @param callback
+ */
+exports.commentSave = function(blogVO, callback) {
+    Blog.findOneAndUpdate(
+        {_id: new ObjectId(blogVO._id)},
+        {
+            $push: {commentList : {userId: blogVO.userId, name: blogVO.name, content: content}},
+        },
+        {fields : {'commentList.pw': 0, 'commentList.sub.pw' : 0}, new: true},
+        function (err, data){
+            if(err){
+                throw err;
+            }
+
+            /* 텔레그램 메세지 보내기 */
+            var tgData = {
+                content : '[댓글등록, '+name+'님]  http://johayo.com/#'+url ,
+                division : data.division,
+                ip: req.headers['x-forwarded-for'] || req.ip,
+                url : url
+            };
+
+            tg.sendMsg(tgData);
+
+            res.send(data);
         });
 };

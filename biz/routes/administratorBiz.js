@@ -2,9 +2,8 @@
  * Created by mayaj on 2015-09-21.
  */
 var config = require('../../config');
-var errorP = require('../../errorP');
-var err = require('../util/error');
 var property = require('../../property');
+var err = require('../util/error');
 var crypto = require("../util/crypto");
 var ramdom = require("../util/random");
 var email = require("../util/email");
@@ -24,10 +23,10 @@ var Admin = mongo.model.admin;
  */
 exports.login = function(id, password, captcha, sessionCaptcha, callback) {
     if(captcha != sessionCaptcha){
-        err.throw(4019, errorP.captcha);
+        err.throw(4019, property.error.captcha);
     }
 
-    var filter = property.filter.adminSession;
+    var filter = config.filter.adminSession;
 
     Admin.findOne({_id : id, password : crypto.encrypt(password, config.crypto.password), isDelete: 'N'}, filter,  function(error, data){
         if(error){
@@ -35,7 +34,7 @@ exports.login = function(id, password, captcha, sessionCaptcha, callback) {
         }
 
         if(!data){
-            err.throw(4019, errorP.checkIdPw);
+            err.throw(4019, property.error.checkIdPw);
         }
 
         callback(data._doc);
@@ -50,7 +49,7 @@ exports.login = function(id, password, captcha, sessionCaptcha, callback) {
  * @param callback
  */
 exports.tokenLogin = function(token, callback) {
-    var filter = property.filter.adminSession;
+    var filter = config.filter.adminSession;
 
     Admin.findOne({token : token, isDelete: 'N'}, filter,  function(error, data){
         if(error){
@@ -58,7 +57,7 @@ exports.tokenLogin = function(token, callback) {
         }
 
         if(!data){
-            err.throw(4019, errorP.token);
+            err.throw(4019, property.error.token);
         }
 
         callback(data._doc);
@@ -87,7 +86,7 @@ exports.getAdministratorList = function(vo, callback) {
  * @param callback
  */
 exports.findPassword = function(_id, callback) {
-    var password = ramdom.numLowRandom(property.maxPwLength);
+    var password = ramdom.numLowRandom(config.maxPwLength);
     Admin.findOneAndUpdate(
         {_id: _id},
         {$set: {password: crypto.encrypt(password, config.crypto.password)}},
@@ -97,17 +96,17 @@ exports.findPassword = function(_id, callback) {
             }
 
             if(user.length < 1) {
-                err.throw(409, errorP.notUser)
+                err.throw(409, property.error.notUser)
             }
 
             /* 템플릿 만들기 */
-            email.getHtml(property.email.tpls.findPassword, {name: user.name, password: password}, function(error, data) {
+            email.getHtml(config.email.tpls.findPassword, {name: user.name, password: password}, function(error, data) {
                 if(error){
                     throw error;
                 }
 
                 /* 이메일 보내기 */
-                email.sendMail(user.email, property.email.title.adminFindPassword, data, function(error){
+                email.sendMail(user.email, config.email.title.adminFindPassword, data, function(error){
                     if(error) {
                         throw error;
                     }

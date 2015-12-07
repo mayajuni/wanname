@@ -31,12 +31,9 @@ gulp.task('lib-scripts', function() {
             ,"public/lib/ng-file-upload/ng-file-upload.min.js"
             ,'public/lib/summernote/dist/summernote.min.js'
             ,'public/lib/angular-summernote/dist/angular-summernote.js'
-            ,"public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"
             ,"public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"
             ,"public/lib/angular-strap/dist/angular-strap.min.js"
             ,"public/lib/angular-strap/dist/angular-strap.tpl.min.js"
-            /* socket */
-            ,"public/lib/socket.io-client/socket.io.js"
         ])
         .pipe(concat('lib.js'))
         /*.pipe(stripDebug())*/
@@ -79,7 +76,7 @@ gulp.task('scripts', function() {
     return gulp.src([
         'public/src/js/**/*.js'
     ])
-        .pipe(concat('wannameApp.js'))
+        .pipe(concat('all.js'))
         /*.pipe(stripDebug())*/
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())

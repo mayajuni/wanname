@@ -1,10 +1,6 @@
 /**
  * Created by mayaj on 2015-11-03.
  */
-/**
- * Created by mayaj on 2015-09-01.
- */
-var property = require('../../property');
 
 /* mongo 연결 */
 var mongo = require('../config/mongoConfig');

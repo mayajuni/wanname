@@ -1,7 +1,6 @@
 /**
  * Created by mayaj on 2015-09-01.
  */
-var property = require('../../property');
 var fs = require("fs");
 var administratorBiz = require("./administratorBiz");
 

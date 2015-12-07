@@ -6,10 +6,9 @@ var app = angular.module("wanname", [
         'ui.router',
         'ui.bootstrap',
         'ngFileUpload',
-        'textAngular',
-        /*'mgcrea.ngStrap',*/
-        'ngDialog',
+        'summernote',
         'templates',
+        'mgcrea.ngStrap',
         'utils'
     ]);
 

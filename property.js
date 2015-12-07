@@ -3,24 +3,25 @@
  */
 var property = {};
 
-/* email */
-property.email = {};
-/* 템플릿 */
-property.email.tpls = {};
-property.email.tpls.findPassword = "findPassword.ejs";
-/* 제목 */
-property.email.title = {};
-property.email.title.findPassword = "[✔ Wanna:me] 비밀번호 찾기";
-property.email.title.adminFindPassword = "[✔ Wanna:me] 관리자 비밀번호";
-
-/* 한탑 session에 저장될 항목 보여지는건 1 안보여지는건 0 */
-property.filter = {};
-property.filter.session = {};
-property.filter.session._id = 1;
-property.filter.session.name = 1;
-property.filter.session.token = 1;
-
-/* member */
-property.maxPwLength = 10;
+property.error = {};
+property.error.common = "Something bad happened. :(";
+property.error.id = "아이디를 확인해주세요.";
+property.error.pw = "비밀번호를 확인해주세요.";
+property.error.checkIdPw = "아이디와 비밀번호를 확인해주세요.";
+property.error.captcha = "Check captcha";
+property.error.needLogin = "로그인이 필요합니다.";
+property.error.notUser = "가입되어 있지 않습니다.";
+property.error.token = "Invalid Token";
+property.error.dontHaveAuth = "권한이 없습니다.";
+property.error.title = "제목을 확인해주세요.";
+property.error.content = "Check content";
+property.error.division = "Check division";
+property.error.newPw = "Check new password";
+property.error.oldPw = "Check old password";
+property.error.loginKey = "Check login key";
+property.error.wrongApproach = "Wrong approach";
+property.error.notAvailable = "Not available";
+property.error.reason = "Check reason";
+property.error.duplicateKey = "중복된 키 입니다.";
 
 module.exports = property;

@@ -17,6 +17,7 @@ function Vo() {
     return {
         _id: {validate: true, checkURL: ['!/api/login/token']},
         password: {validate: true, checkURL: ['/api/login']},
+        token: {validate: true, checkURL: ['/api/login/token']},
         newPassword: {method: "POST", validate: true, checkURL: ['/api/mypage/changePassword']},
         name: String,
         ph: String,

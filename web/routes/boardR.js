@@ -10,8 +10,8 @@ var router = express.Router();
 /**
  * 리스트
  */
-router.get("/:category", boardVO.set, function(req, res) {
-    boardBiz.getList(req.params.category, boardVO.get, function(data) {
+router.get("/", boardVO.set, function(req, res) {
+    boardBiz.getList(boardVO.get, function(data) {
         res.send(data);
     })
 });

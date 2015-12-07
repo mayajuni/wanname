@@ -4,12 +4,12 @@
 var multiparty = require("multiparty");
 var fs = require("fs");
 var err = require('../util/error');
-var errorP = require('../../errorP');
 var property = require('../../property');
 var config = require("../../config");
 
 var docBiz = {
     board: require("./boardBiz"),
+    blog: require("./blogBiz"),
     user: require("./memberBiz")
 };
 
@@ -143,12 +143,12 @@ exports.remove = function(_id, id, callback){
             }
 
             if(!data){
-                err.throw(409, errorP.dontHaveAuth);
+                err.throw(409, property.error.dontHaveAuth);
             }
 
             if(data.docName && data.docId) {
-                for(var key in property.file.doc) {
-                    if(data.docName == property.file.doc[key]) {
+                for(var key in config.file.doc) {
+                    if(data.docName == config.file.doc[key]) {
                         docBiz[key].removeFile(data.docId, data._id, function() {
                             fileRmove()
                         });
@@ -191,7 +191,7 @@ exports.checkFileAuth = function(id, url, callback){
             }
 
             if(data < 1) {
-                err.throw(409, errorP.dontHaveAuth);
+                err.throw(409, property.error.dontHaveAuth);
             }
 
             callback();

@@ -2,8 +2,8 @@
  * Created by 동준 on 2015-09-30.
  */
 var config = require('../../config');
-var errorP = require('../../errorP');
 var property = require('../../property');
+var config = require('../../config');
 var err = require('../util/error');
 var crypto = require("../util/crypto");
 var ramdom = require("../util/random");
@@ -24,13 +24,13 @@ var User = mongo.model.user;
  * @param callback
  */
 exports.login = function(id, password, callback){
-    User.findOne({_id : id, password : crypto.encrypt(password, config.crypto.password)}, property.filter.session,  function(error, data){
+    User.findOne({_id : id, password : crypto.encrypt(password, config.crypto.password)}, config.filter.session,  function(error, data){
         if(error){
             throw error;
         }
 
         if(!data){
-            err.throw(409, errorP.checkIdPw);
+            err.throw(409, property.error.checkIdPw);
         }
 
         callback(data._doc);
@@ -40,18 +40,17 @@ exports.login = function(id, password, callback){
 /**
  * 토큰 로그인
  *
- * @param id
- * @param pw
+ * @param token
  * @param callback
  */
 exports.tokenLogin = function(token, callback){
-    User.findOne({token: token}, property.filter.session,  function(error, data){
+    User.findOne({token: token}, config.filter.session,  function(error, data){
         if(error){
             throw error;
         }
 
         if(!data){
-            err.throw(4019, errorP.token);
+            err.throw(4019, property.error.token);
         }
 
         callback(data._doc);
@@ -137,7 +136,7 @@ exports.changePassword = function(userId, oldPassword, newPassword, callback) {
             }
 
             if(data.length < 1) {
-                err.throw(409, errorP.notUser);
+                err.throw(409, property.error.notUser);
             }
 
             callback();
@@ -157,7 +156,7 @@ exports.updateUser = function(userId, memberVO, callback) {
     User.findOneAndUpdate(
         {_id: userId},
         {$set: memberVO},
-        {fields : property.sessionFilter, new: true},
+        {fields : config.sessionFilter, new: true},
         function(error, data){
             if(error){
                 throw error;
@@ -176,8 +175,8 @@ exports.updateUser = function(userId, memberVO, callback) {
  * @param email
  * @param callback
  */
-exports.findPassword = function(userId, name, email, callback) {
-    var password = ramdom.numLowRandom(property.maxPwLength);
+exports.findPassword = function(_id, callback) {
+    var password = ramdom.numLowRandom(config.maxPwLength);
     User.findOneAndUpdate(
         {_id: userId, name: name, email: email},
         {$set: {password: crypto.encrypt(password, config.crypto.password)}},
@@ -187,17 +186,17 @@ exports.findPassword = function(userId, name, email, callback) {
             }
 
             if(data.length < 1) {
-                err.throw(409, errorP.notUser)
+                err.throw(409, property.error.notUser)
             }
 
             /* 템플릿 만들기 */
-            email.getHtml(property.email.tpls.findPassword, password, function(error, data) {
+            email.getHtml(config.email.tpls.findPassword, password, function(error, data) {
                 if(error){
                     throw error;
                 }
 
                 /* 이메일 보내기 */
-                email.sendMail(email, property.email.title.findPassword, data, function(error){
+                email.sendMail(email, config.email.title.findPassword, data, function(error){
                     if(error) {
                         throw error;
                     }
