@@ -9,7 +9,7 @@ app
             $stateProvider
                 .state('main', {
                     url: '/',
-                    templateUrl: 'main/main.tpl.html',
+                    templateUrl: 'view/main/main.tpl.html',
                     controller: 'mainC'
                 })
             ;

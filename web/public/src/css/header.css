@@ -2,14 +2,17 @@
     background-color: white;
     width: 100%;
     box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    height: 80px;
+    z-index: 999;
+}
+
+#header .container {
+    padding-top: 17.5px;
+    padding-bottom: 17.5px;
 }
 
 #header .logo {
     float: left;
-}
-
-#header .logo img {
-    width: 200px;
 }
 
 #header .menu-group {
@@ -19,19 +22,20 @@
 #header ul {
     float: left;
     padding: 0;
+    margin-left: 50px;
 }
 
 #header ul li {
     float: left;
     position: relative;
     display: block;
-    padding: 0 20px;
-    border-left: 2px solid #dcdcdc;
+    padding: 0 30px;
+    border-left: 2px solid #7c7c7c;
     height: 20px;
-    margin-top: 15px;
-    color: #323232;
+    margin-top: 20px;
+    color: #7b7b7b;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 
@@ -40,7 +44,7 @@
 }
 
 #header ul li:hover a {
-    color: #2f8cea;
+    color: #1371e7;
 }
 
 #header ul.sub-menu {
@@ -73,6 +77,21 @@
 @media (max-width: 768px) {
     #header {
         position: fixed;
+        height: auto;
+    }
+
+    #header .container {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    #header .navbar-header {
+        margin: 5px 0;
+    }
+
+    #header .logo {
+        margin-top: 5px;
+        padding-left: 10px;
     }
 
     #header .menu-btn {
@@ -90,7 +109,7 @@
         width: 260px;
         height: 100%;
         right: 0px;
-        background-color: rgba(255,255,255,.5);
+        background-color: rgba(255,255,255,.9);
         box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
 
@@ -107,6 +126,7 @@
         padding: 0;
         float: left;
         width: 100%;
+        margin-left: 0px;
     }
 
     #header ul li {
@@ -119,6 +139,10 @@
         border-left: none;
         height: auto;
         border-bottom: 1px solid #dcdcdc;
+    }
+
+    #header ul li:hover {
+        background-color: rgba(247,247,247,.9);
     }
 
     #header ul li:hover a {
@@ -139,17 +163,30 @@
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
+    #header {
+        height: auto;
+    }
+
+    #header .container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
     #header .navbar-header {
         width: 100%;
         text-align: center;
+        padding: 10px;
         border-bottom: 1px solid #dcdcdc;
-    }
-
-    #header {
     }
 
     #header .logo {
         float: none;
+    }
+
+    #header .logo i {
+        margin: 0 auto;
+        left: 0;
+        right: 0;
     }
 
     #header .container {

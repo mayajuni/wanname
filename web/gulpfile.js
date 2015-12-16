@@ -138,10 +138,10 @@ gulp.task('watch', function() {
     gulp.watch(['public/src/js/**/*.js'], ['scripts']);
 
     // Watch index files
-    gulp.watch('public/src/html/*.html', ['index-min']);
+    gulp.watch('public/src/html/index.html', ['index-min']);
 
     // Watch html files
-    gulp.watch(['public/src/html/**/*.html', '!public/src/html/index.html'], ['angular-template']);
+    gulp.watch(['public/src/html/**/**/*.html', '!public/src/html/index.html'], ['angular-template']);
 
     // Watch img files
     gulp.watch(['public/src/img/**/*'], ['img']);

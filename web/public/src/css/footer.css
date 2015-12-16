@@ -1,13 +1,12 @@
 footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     font-size: 11px;
-    color: #424242;
+    color: #7b7b7b;
 }
 
 #footer .footer {
-    background-color: #dcdcdc;
+    background-color: #ececec;
     padding: 2%;
     float: left;
     width: 100%;
@@ -21,12 +20,19 @@ footer {
     float: left;
 }
 
-#footer .footer .logo img {
-    width: 200px;
-}
-
 #footer .footer .content {
     float: left;
+    padding-left: 55px;
+}
+
+#footer .footer .escro {
+    float: right;
+    margin-right: 50px;
+}
+
+#footer .footer .escro .text{
+    float: left;
+    padding: 10px 5px;
 }
 
 @media (max-width: 992px) {
@@ -37,5 +43,6 @@ footer {
 
     #footer .footer .content {
         margin-top: 10px;
+        padding-left: 0;
     }
 }

@@ -1,8 +1,7 @@
 @font-face {
     font-family:Noto Sans CJK Regular;
-    src:url(/fonts/NSKR00.woff);
+    src:url(/fonts/NSKR400.woff);
 }
-
 
 *:focus { outline: none !important; }
 
@@ -11,16 +10,15 @@ html {
     font-size: 100%;
 }
 body {
-    color: #565656;
-    /*background-color: #f7f7f7;*/
-    background-color: #fff;
+    color: #7b7b7b;
+    background-color: #f7f7f7;
+    /*background-color: #fff;*/
     font-family: 'Noto Sans CJK Regular', sans-serif;
     padding: 0px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     overflow-y: auto;
-    height: 500px;
     font-size: 14px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -95,4 +93,43 @@ a:hover, a:focus {
 a {
     color: #565656;
     cursor: pointer;
+}
+
+/* logo */
+.logo-bk {
+    background-image: url(/dist/imgs/common/logoKb.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.logo_footer {
+    width: 168px;
+    height: 24px;
+    background-position: -5px -5px;
+}
+
+.logo_header {
+    width: 168px;
+    height: 40px;
+    background-position: -5px -39px;
+}
+
+.logo_wanname {
+    width: 300px;
+    height: 74px;
+    background-position: -5px -89px;
+}
+
+.wm_escro {
+    width: 50px;
+    height: 50px;
+    background-position: -183px -5px;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .container {
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 100% !important;
+    }
 }
