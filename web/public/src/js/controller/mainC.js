@@ -3,6 +3,15 @@
  */
 app.controller('mainC', ['$scope',
     function($scope){
-        console.log($('.item').length);
-        $('.carousel').children('.item').removeClass('active');
+        function checkWidth() {
+            if(window.matchMedia("(max-width: 768px)").matches) {
+                $scope.isShowBtn = false;
+            }else{
+                $scope.isShowBtn = true;
+            }
+        }
+        $(window).resize(function () {
+            checkWidth();
+        });
+        checkWidth();
     }]);

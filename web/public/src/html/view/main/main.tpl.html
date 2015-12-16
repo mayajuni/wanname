@@ -1,31 +1,53 @@
 <div id="main">
-    <div class="carousel">
-        <div class="content">
-            <div class="angle-left">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div style="position: relative">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/dist/imgs/main/banner_video_pc.jpg">
+                        <img src="/dist/imgs/main/banner_video_mobile.jpg" alt="a cute kitten">
+                    </picture>
+                </div>
+                <div class="item">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/dist/imgs/main/banner_video_pc.jpg">
+                        <img src="/dist/imgs/main/banner_video_mobile.jpg" alt="a cute kitten">
+                    </picture>
+                </div>
+                <div class="item">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/dist/imgs/main/banner_video_pc.jpg">
+                        <img src="/dist/imgs/main/banner_video_mobile.jpg" alt="a cute kitten">
+                    </picture>
+                </div>
+                <div class="item">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/dist/imgs/main/banner_video_pc.jpg">
+                        <img src="/dist/imgs/main/banner_video_mobile.jpg" alt="a cute kitten">
+                    </picture>
+                </div>
+            </div>
+
+            <a class="angle-left" href="#carousel" role="button" data-slide="prev">
                 <i class="fa fa-angle-left"></i>
-            </div>
-            <div class="angle-right">
+            </a>
+            <a class="angle-right" href="#carousel" role="button" data-slide="next">
                 <i class="fa fa-angle-right"></i>
-            </div>
-            <div class="item active">
-                <picture>
-                    <source media="(min-width: 768px)" srcset="/dist/imgs/main/banner_video_pc.jpg">
-                    <img src="/dist/imgs/main/banner_video_mobile.jpg" alt="a cute kitten">
-                </picture>
-            </div>
-            <div class="item">
-                <picture>
-                    <source media="(min-width: 768px)" srcset="/dist/imgs/main/banner_video_pc.jpg">
-                    <img src="/dist/imgs/main/banner_video_mobile.jpg" alt="a cute kitten">
-                </picture>
-            </div>
+            </a>
         </div>
+
+        <ol class="carousel-indicators carousel-btns" ng-if="!isShowBtn">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="3"></li>
+        </ol>
         <div class="bottom-btns">
-            <ul>
-                <li class="active">워너미와 함께하는 새로운 시작</li>
-                <li>커피위로 체험 프로그램</li>
-                <li>워너미 무료체험 현장 스케치</li>
-                <li>체험후기 이벤트</li>
+            <ul class="carousel-btns" ng-if="isShowBtn">
+                <li data-target="#carousel" data-slide-to="0" class="active">워너미와 함께하는 새로운 시작</li>
+                <li data-target="#carousel" data-slide-to="1">커피위로 체험 프로그램</li>
+                <li data-target="#carousel" data-slide-to="2">워너미 무료체험 현장 스케치</li>
+                <li data-target="#carousel" data-slide-to="3">체험후기 이벤트</li>
             </ul>
         </div>
     </div>

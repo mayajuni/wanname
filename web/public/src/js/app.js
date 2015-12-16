@@ -4,7 +4,7 @@
 var app = angular.module("wanname", [
         'ngAnimate',
         'ui.router',
-        'ui.bootstrap',
+        'ui.bootstrap.modal',
         'ngFileUpload',
         'summernote',
         'templates',

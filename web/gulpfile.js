@@ -24,7 +24,7 @@ gulp.task('lib-scripts', function() {
             ,"public/lib/angular-animate/angular-animate.min.js"
             ,"public/lib/angular-sanitize/angular-sanitize.min.js"
             /* Bootstrap */
-            ,"public/lib/bootstrap/dist/js/bootstrap.min.js"
+            /*,"public/lib/bootstrap/dist/js/bootstrap.min.js"*/
             /* Angular Modules */
             ,"public/lib/angular-ui-router/release/angular-ui-router.min.js"
             ,"public/lib/ng-file-upload/ng-file-upload-shim.min.js"
