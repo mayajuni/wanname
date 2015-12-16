@@ -4,6 +4,8 @@
 var config = require('../../config');
 var fs = require("fs");
 var fileBiz = require('./fileBiz');
+var err = require('../util/error');
+var property = require('../../property');
 
 /* mongo 연결 */
 var mongo = require('../config/mongoConfig');
@@ -166,28 +168,172 @@ exports.removeFile = function(_id, fileId, callback) {
  * @param blogVO
  * @param callback
  */
-exports.commentSave = function(blogVO, callback) {
-    Blog.findOneAndUpdate(
-        {_id: new ObjectId(blogVO._id)},
+exports.commentSave = function(userId, _id, name, content, callback) {
+    Blog.update(
+        {_id: new ObjectId(_id)},
         {
-            $push: {commentList : {userId: blogVO.userId, name: blogVO.name, content: content}},
+            $push: {comments : {userId: userId, name: name, content: content}}
         },
-        {fields : {'commentList.pw': 0, 'commentList.sub.pw' : 0}, new: true},
-        function (err, data){
-            if(err){
-                throw err;
+        function (error){
+            if(error){
+                throw error;
             }
 
-            /* 텔레그램 메세지 보내기 */
-            var tgData = {
-                content : '[댓글등록, '+name+'님]  http://johayo.com/#'+url ,
-                division : data.division,
-                ip: req.headers['x-forwarded-for'] || req.ip,
-                url : url
-            };
-
-            tg.sendMsg(tgData);
-
-            res.send(data);
+            callback();
         });
+};
+
+/**
+ * 댓글 삭제
+ *
+ * @param userId
+ * @param _id
+ * @param commentId
+ * @param callback
+ */
+exports.commentRemove = function(userId, _id, commentId, callback) {
+    Blog.findOneAndUpdate(
+        {_id: new ObjectId(_id)},
+        {$pull: {comments : {_id: commentId, userId: userId}}},
+        {new: true},
+        function(error, data) {
+            if(error) {
+                throw error;
+            }
+            if(!data) {
+                return err.throw(409, property.error.dontHaveAuth);
+            }
+
+            callback();
+        }
+    )
+};
+
+/**
+ * 댓글 수정
+ *
+ * 댓글 삭제 후 새로 등록시켜버린다.
+ *
+ * @param userId
+ * @param blogVO
+ * @param callback
+ */
+exports.commentEdit = function(userId, _id, commentId, content, callback) {
+    Blog.findOneAndUpdate(
+        {
+            _id: new ObjectId(_id),
+            'comments': {
+                $elemMatch: {_id: commentId, userId: userId}
+            }
+        },
+        {
+            $set: {'comments.$.content': content}
+        },
+        {new: true},
+        function (error, data){
+            if(error) {
+                throw error;
+            }
+            if(!data) {
+                return err.throw(409, property.error.dontHaveAuth);
+            }
+
+            callback();
+        });
+};
+
+/**
+ * 서브 댓글 등록
+ *
+ * @param userId
+ * @param _id
+ * @param commentId
+ * @param name
+ * @param content
+ * @param callback
+ */
+exports.subCommentSave = function(userId, _id, commentId, name, content, callback) {
+    Blog.update(
+        {
+            _id: new ObjectId(_id),
+            'comments': {
+                $elemMatch: {_id: commentId}
+            }
+        },
+        {$push: {'comments.$.subComments': {userId: userId, name: name, content: content}}},
+        function (error){
+            if(error){
+                throw error;
+            }
+
+            callback();
+        });
+};
+
+/**
+ * 서브댓글 수정
+ *
+ * @param userId
+ * @param _id
+ * @param commentId
+ * @param content
+ * @param callback
+ */
+exports.subCommentEdit = function(userId, _id, commentId, subCommentId, content, callback) {
+    exports.getDetail(_id, function(blog) {
+        blog.comments.forEach(function(data) {
+            // the following line looks for the specific array to add jobName Andrea to.
+            if (data._id == commentId) {
+                data.subComments.forEach(function(subData) {
+                    if(subData._id == subCommentId) {
+                        subData.content = content;
+                        exports.subCommentRemove(userId, _id, commentId, subCommentId, function() {
+                            Blog.update(
+                                {
+                                    _id: new ObjectId(_id),
+                                    'comments': {
+                                        $elemMatch: {_id: commentId}
+                                    }
+                                },
+                                {$push: {'comments.$.subComments': subData}},
+                                function (error){
+                                    if(error){
+                                        throw error;
+                                    }
+
+                                    callback();
+                                });
+                        });
+                    }
+                })
+            }
+        })
+    })
+};
+
+/**
+ * 서브 댓글 삭제
+ *
+ * @param userId
+ * @param _id
+ * @param commentId
+ * @param subCommentId
+ * @param callback
+ */
+exports.subCommentRemove = function(userId, _id, commentId, subCommentId, callback) {
+    Blog.update(
+        {
+            _id: new ObjectId(_id),
+            'comments': {
+                $elemMatch: {_id: commentId}
+            }
+        },
+        {$pull: {'comments.$.subComments' : {_id: subCommentId, userId: userId}}},
+        function(error) {
+            if(error) {
+                throw error;
+            }
+            callback();
+        }
+    )
 };

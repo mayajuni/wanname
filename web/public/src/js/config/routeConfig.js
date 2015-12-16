@@ -12,21 +12,6 @@ app
                     templateUrl: 'main/main.tpl.html',
                     controller: 'mainC'
                 })
-                .state('program', {
-                    url: '/program',
-                    templateUrl: 'program/programList.tpl.html',
-                    controller: 'programC'
-                })
-                .state('program-detail', {
-                    url: '/program/:_id',
-                    templateUrl: 'program/programDetail.tpl.html',
-                    controller: 'programDetailC'
-                })
-                .state('myPage', {
-                    url: '/myPage',
-                    templateUrl: 'myPage/myPage.tpl.html',
-                    controller: 'programDetailC'
-                })
             ;
 
             $urlRouterProvider.otherwise('/');

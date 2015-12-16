@@ -45,3 +45,8 @@
 .font-weight-700 {
     font-weight: 700
 }
+
+/* float */
+.float-right {
+    float: right;
+}

@@ -136,7 +136,7 @@ exports.changePassword = function(userId, oldPassword, newPassword, callback) {
             }
 
             if(data.length < 1) {
-                err.throw(409, property.error.notUser);
+                return err.throw(409, property.error.notUser);
             }
 
             callback();
@@ -156,7 +156,7 @@ exports.updateUser = function(userId, memberVO, callback) {
     User.findOneAndUpdate(
         {_id: userId},
         {$set: memberVO},
-        {fields : config.sessionFilter, new: true},
+        {fields : config.filter.session, new: true},
         function(error, data){
             if(error){
                 throw error;

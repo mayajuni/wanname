@@ -1,7 +1,10 @@
+@font-face {
+    font-family:Noto Sans CJK Regular;
+    src:url(/fonts/NSKR00.woff);
+}
 
-@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 
-*:focus { outline:none; }
+*:focus { outline: none !important; }
 
 html {
     height: 100%;
@@ -9,24 +12,19 @@ html {
 }
 body {
     color: #565656;
-    /*background: #F0F3F3;*/
-    background-color: #f7f7f7;
-    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    /*background-color: #f7f7f7;*/
+    background-color: #fff;
+    font-family: 'Noto Sans CJK Regular', sans-serif;
     padding: 0px;
-    margin: 0px;
-    min-height: 100%;
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
     overflow-y: auto;
+    height: 500px;
+    font-size: 14px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    padding: 0px !important;
-    margin: 0px !important;
-    -webkit-transition: all .1s ease-in-out;
-    -moz-transition: all .1s ease-in-out;
-    -o-transition: all .1s ease-in-out;
-    transition: all .1s ease-in-out;
-    padding-top: 51px;
+    -webkit-transition: all .1s ease-in-out; -moz-transition: all .1s ease-in-out; -o-transition: all .1s ease-in-out; transition: all .1s ease-in-out;
 }
 
 body::-webkit-scrollbar-track
@@ -95,16 +93,6 @@ a:hover, a:focus {
 }
 
 a {
-    color: #323232;
+    color: #565656;
     cursor: pointer;
-}
-
-footer {
-    background-color: white;
-    margin-top: 50px;
-}
-
-.blue-white {
-    background-color: #1266FF;
-    color: #fff;
 }

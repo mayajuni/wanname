@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 9 ]><html class="ie9" data-ng-app="wanname"><![endif]-->
-<![if IE 9 ]><html data-ng-app="wanname"><![endif]>
+<html ng-app="wanname">
 <head lang="ko">
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -23,11 +22,11 @@
 
 </head>
 <body>
-    <header id="header" ng-include="'header/header.tpl.html'" ng-controller="headerC"></header>
+    <header ng-include="'layout/header.tpl.html'" ng-controller="headerC"></header>
 
-    <section class="row">
+    <!--<section class="row">
         <article ui-view></article>
-    </section>
+    </section>-->
     <!--[if lt IE 9]>
     <article class="ie-warning">
         <h1 class="c-white">주의</h1>
@@ -69,6 +68,8 @@
         <p>Sorry for the inconvenience!</p>
     </article>
     <![endif]-->
+
+    <footer ng-include="'layout/footer.tpl.html'"></footer>
 
     <div id="loaderDiv" loader>
         <div class="spinner-2">

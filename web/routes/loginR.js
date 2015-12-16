@@ -31,7 +31,7 @@ router.post("/token", memberVO.set, function(req, res){
  * 로그인 정보를 가지고 온다.
  */
 router.post("/get", function(req, res){
-    res.send(req.session.user)
+    res.send(req.session.user);
 });
 
 /**

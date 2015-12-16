@@ -17,6 +17,7 @@ mongo.schema.member = new Schema({
     token: String,
     name: String,
     birthday: Number,
+    gender: String,
     ph: Number,
     regDt: {type: Date, default: Date.now},
     modiDt: Date
@@ -112,7 +113,7 @@ mongo.schema.comment = new Schema({
     userId: String,
     name: String,
     content: String,
-    subComment: [mongo.schema.commentScheama],
+    subComments: [mongo.schema.commentScheama],
     regDt: {type: Date, default: Date.now}
 });
 
@@ -123,8 +124,12 @@ mongo.schema.blog = new Schema({
     category: String,
     title: {type: String, required: true},
     content: {type: String, required: true},
+    /* 후기시 _ID값 추가해야된다. */
+
     /* 메인에서 가장 위에 보일것들 */
     isTop: Boolean,
+    /* 대표이미지 넣기 */
+    thumbnailImage: {type: Object, ref: mongo.schema.file},
     fileList: [mongo.schema.file],
     comments: [mongo.schema.comment],
     regDt: {type: Date, default: Date.now}

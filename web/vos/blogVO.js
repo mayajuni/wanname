@@ -18,15 +18,15 @@ function Vo() {
         _id: {method: "PUT, DELETE", validate: true},
         userId: String,
         name: String,
-        category: {method: "POST, PUT, DELETE", validate: true},
-        title: {method: "POST, PUT", validate: true, checkURL: ['!/api/blog/comment', '!/api/blog/subComment']},
+        category: String,
+        title: String,
         content: {method: "POST, PUT", validate: true},
         fileList: Array,
         regDt: Date,
         page: Number,
         view: Number,
         /* comment관련 */
-        commentId: {method: "POST, PUT", validate: true, checkURL: ['!/api/blog/comment', '!/api/blog/subComment']}
+        commentId: String
     }
 }
 

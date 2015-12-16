@@ -29,8 +29,7 @@ router.get("/:category/:_id", function(req, res) {
  * 댓글 등록
  */
 router.post("/comment", blogVO.set, function(req, res) {
-    blogVO.userId = req.session.user.userId;
-    blogBiz.commentSave(blogVO.get, function() {
+    blogBiz.commentSave(req.session.user._id, blogVO.get._id, blogVO.get.name, blogVO.get.content, function() {
         res.send('');
     })
 });
@@ -38,22 +37,46 @@ router.post("/comment", blogVO.set, function(req, res) {
 /**
  * 댓글 수정
  */
-router.put("/comment", blogVO.set, function(req, res) {
-
+router.put("/comment/:commentId", blogVO.set, function(req, res) {
+    blogBiz.commentEdit(req.session.user._id, blogVO, function() {
+        res.send('');
+    })
 });
 
 /**
- * 댓글 등록
+ * 댓글 삭제
+ */
+router.delete("/comment/:_id/:commentId", function(req, res) {
+    blogBiz.commentRemove(req.session.user._id, req.params._id, req.params.commentId, function() {
+        res.send('');
+    })
+});
+
+/**
+ * 2step 댓글 등록
  */
 router.post("/subComment", blogVO.set, function(req, res) {
-
+    blogBiz.subCommentSave(req.session.user._id, blogVO.get._id, blogVO.get.commentId, req.session.user.name, blogVO.get.content, function() {
+        res.send('');
+    })
 });
 
 /**
- * 댓글 수정
+ * 2step 댓글 수정
  */
-router.put("/subComment", blogVO.set, function(req, res) {
+router.put("/subComment/:subCommentId", blogVO.set, function(req, res) {
+    blogBiz.subCommentEdit(req.session.user._id, blogVO.get._id, blogVO.get.commentId, req.params.subCommentId, blogVO.get.content, function() {
+        res.send('');
+    })
+});
 
+/**
+ * 2step 댓글 삭제
+ */
+router.delete("/subComment/:_id/:commentId/:subCommentId", function(req, res) {
+    blogBiz.subCommentRemove(req.session.user._id, req.params._id, req.params.commentId, req.params.subCommentId, function() {
+        res.send('');
+    })
 });
 
 module.exports = router;

@@ -1,0 +1,41 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 11px;
+    color: #424242;
+}
+
+#footer .footer {
+    background-color: #dcdcdc;
+    padding: 2%;
+    float: left;
+    width: 100%;
+}
+
+#footer p {
+    margin: 0 0 5px;
+}
+
+#footer .footer .logo {
+    float: left;
+}
+
+#footer .footer .logo img {
+    width: 200px;
+}
+
+#footer .footer .content {
+    float: left;
+}
+
+@media (max-width: 992px) {
+    footer .container {
+        padding: 0;
+        width: 100%;
+    }
+
+    #footer .footer .content {
+        margin-top: 10px;
+    }
+}
