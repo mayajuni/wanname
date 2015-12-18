@@ -108,7 +108,7 @@ gulp.task('angular-template', function(){
 gulp.task('index-min', function(){
     return gulp.src('public/src/html/index.html')
         .pipe(rename({ suffix: '.min' }))
-        .pipe(minifyHTML())
+        .pipe(minifyHTML({conditionals: true}))
         .pipe(gulp.dest('public/dist/html'))
         .pipe(livereload());
 });

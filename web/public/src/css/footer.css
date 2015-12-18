@@ -16,33 +16,65 @@ footer {
     margin: 0 0 5px;
 }
 
-#footer .footer .logo {
+#footer ul li {
     float: left;
+    position: relative;
+    margin-right: 3%;
 }
 
-#footer .footer .content {
-    float: left;
-    padding-left: 55px;
-}
-
-#footer .footer .escro {
+#footer ul li.escro {
+    width: 110px;
     float: right;
-    margin-right: 50px;
 }
 
-#footer .footer .escro .text{
-    float: left;
-    padding: 10px 5px;
+#footer ul li .text {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    left: 55px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
-@media (max-width: 992px) {
+
+@media (max-width: 768px) {
     footer .container {
         padding: 0;
         width: 100%;
     }
 
-    #footer .footer .content {
+    #footer ul {
+        padding: 5px;
+    }
+
+    #footer ul li {
         margin-top: 10px;
+        margin-right: 0;
         padding-left: 0;
+    }
+
+    #footer ul li.escro {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    footer .container {
+        padding: 0;
+        width: 100%;
+    }
+
+    #footer ul li {
+        float: left;
+        position: relative;
+        margin-top: 10px;
+        margin-right: 10px;
+        width: calc(100% - 130px);
+    }
+
+    #footer ul li.escro {
+        width: 110px;
+        float: right;
     }
 }

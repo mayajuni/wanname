@@ -11,7 +11,7 @@ app.controller('mainC', ['$scope',
             }
         }
         $(window).resize(function () {
-            checkWidth();
+            checkWidth();$scope.$apply();
         });
         checkWidth();
     }]);

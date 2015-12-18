@@ -1,9 +1,21 @@
 #main {
     position: relative;
 }
+#main article {
+    margin-bottom: 30px;
+}
 
 #main .carousel {
     position: relative;
+}
+
+#main .carousel .content {
+    position: relative;
+}
+
+#main .carousel .content .carousel-inner {
+    padding: 0;
+    margin: 0;
 }
 
 #main .carousel .angle-left {
@@ -37,7 +49,7 @@
 }
 
 #main .carousel .bottom-btns {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     border-top: 4px solid #1371e7;
     border-bottom: 1px solid #d3d3d3;
@@ -74,6 +86,124 @@
     border-top-color: #0963c9;
 }
 
+#main .why-wanname>.title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1371e7;
+    height: 50px;
+    padding: 0 15px;
+}
+
+#main .why-wanname>.title .right-small-title {
+    float: right;
+    font-size: 18px;
+    color: #7b7b7b;
+    margin-top: 15px;
+}
+
+#main .why-wanname .content > [class*=col-] {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+#main .why-wanname .content .text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #fff;
+    text-align: center;
+}
+
+#main .why-wanname .content .text:hover .background {
+    border: 20px solid #f7f7f7;
+    background-color: rgba(0,0,0,0.6);
+}
+
+#main .why-wanname .content .text .background {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 0px solid #f7f7f7;
+    -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s; transition: all 0.5s;
+}
+
+#main .why-wanname .content .text .title {
+    position: absolute;
+    font-size: 50px;
+    font-weight: 600;
+    width: 100%;
+    top: calc(50% - 35px);
+    -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s; transition: all 0.5s;
+}
+
+#main .why-wanname .content .text:hover .title {
+    top: 20%;
+}
+
+#main .why-wanname .content .text .hover-box {
+    opacity: 0;
+    -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s; transition: all 0.5s;
+}
+
+#main .why-wanname .content .text:hover .hover-box {
+    opacity: 1;
+}
+
+#main .why-wanname .content .text .sub-title {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 400;
+    width: 100%;
+    top: 40%;
+}
+
+#main .why-wanname .content .text .content {
+    position: absolute;
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+    top: 50%;
+    padding: 11%;
+}
+
+#main .why-wanname .content .logo {
+    background-color: #1371e7;
+    display: none;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #main .carousel .bottom-btns ul li {
+        font-size: 14px;
+    }
+
+    #main .why-wanname .content .text:hover .background {
+        border: 10px solid #f7f7f7;
+    }
+    #main .why-wanname .content .text .title {
+        font-size: 35px;
+    }
+
+    #main .why-wanname .content .text:hover .title {
+        top: 11%;
+    }
+
+    #main .why-wanname .content .text .sub-title {
+        font-size: 20px;
+        top: 30%;
+    }
+
+    #main .why-wanname .content .text .content {
+        top: 35%;
+        font-size: 13px;
+    }
+}
+
+
 @media (max-width: 768px) {
     #main {
         margin-top: 60px;
@@ -102,10 +232,74 @@
         margin: auto 0;
         font-size: 3em;
     }
+
+    #main .why-wanname .content .text:hover .background {
+        border: 0;
+        background-color: transparent;
+    }
+
+    #main .why-wanname .content .text .title, #main .why-wanname .content .text:hover .title {
+        font-size: 26px;
+        top: calc(50% - 13px);
+    }
+
+    #main .why-wanname .content .text .hover-box {
+        opacity: 1;
+    }
+
+    #main .why-wanname .content .text .sub-title {
+        font-size: 18px;
+        top: 65%;
+        opacity: 1;
+    }
+
+    #main .why-wanname .content .text .content {
+        opacity: 0;
+    }
+
+    #main .why-wanname .content .logo {
+        display: block;
+    }
+
+    #main .why-wanname .content .logo .title, #main .why-wanname .content .logo .text:hover .title  {
+        top: 50%;
+        padding: 0 10%;
+    }
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
-    #main .carousel .bottom-btns ul li {
+@media (max-width: 360px) {
+    #main .why-wanname .content .text:hover .background {
+        border: 0;
+        background-color: transparent;
+    }
+
+    #main .why-wanname>.title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1371e7;
+        height: 50px;
+        padding: 0 15px;
+    }
+
+    #main .why-wanname>.title .right-small-title {
+        float: right;
         font-size: 14px;
+        color: #7b7b7b;
+        margin-top: 10px;
+    }
+
+    #main .why-wanname .content .text .title, #main .why-wanname .content .text:hover .title {
+        font-size: 24px;
+        top: 40%;
+    }
+
+    #main .why-wanname .content .text .sub-title {
+        font-size: 15px;
+        top: 60%;
+        opacity: 1;
+    }
+
+    #main .why-wanname .content .logo .title, #main .why-wanname .content .logo .text:hover .title {
+        top: calc(40% + 4px);
     }
 }
