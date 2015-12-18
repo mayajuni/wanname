@@ -57,11 +57,11 @@ gulp.task('img', function() {
     return gulp.src([
         'public/src/imgs/**/*'
     ])
-        .pipe(imagemin({
+        /*.pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant(), imageminGifsicle({interlaced: true}), imageminJpegtran({progressive: true})]
-        }))
+        }))*/
         .pipe(gulp.dest('public/dist/imgs'));
 });
 

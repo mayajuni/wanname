@@ -11,7 +11,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 
 var config = require("../config");
-var errorP = require("../errorP");
+var errorP = require("../property");
 var teaserR = require("./routes/teaserR");
 
 var app = express();
