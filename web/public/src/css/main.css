@@ -1,8 +1,11 @@
 #main {
     position: relative;
 }
+
 #main article {
     margin-bottom: 30px;
+    float: left;
+    width: 100%;
 }
 
 #main .carousel {
@@ -176,7 +179,7 @@
     display: none;
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 767px) and (max-width: 992px) {
     #main .carousel .bottom-btns ul li {
         font-size: 14px;
     }
@@ -204,7 +207,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #main {
         margin-top: 60px;
     }
