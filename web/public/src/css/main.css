@@ -180,13 +180,19 @@
 }
 
 #main .why-wanname .content .logo {
-    background-color: #1371e7;
     display: none;
+}
+#main .why-wanname .content .logo img {
+    background-color: #1371e7;
 }
 
 #main .notice .content {
     background-color: #f6f6f6;
     padding: 0 1%;
+}
+
+#main .notice table {
+    table-layout:fixed;
 }
 
 #main .notice table tr {
@@ -200,6 +206,11 @@
 }
 
 #main .notice table td div {
+    width: calc(100% - 1px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
 }
 
 #main .notice table thead th {
