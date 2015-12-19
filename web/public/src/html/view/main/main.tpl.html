@@ -40,12 +40,20 @@
             <li data-target="#carousel" data-slide-to="2"></li>
             <li data-target="#carousel" data-slide-to="3"></li>
         </ol>
-        <div class="bottom-btns">
-            <ul class="carousel-btns" ng-if="isShowBtn">
-                <li data-target="#carousel" data-slide-to="0" class="active">워너미와 함께하는 새로운 시작</li>
-                <li data-target="#carousel" data-slide-to="1">커피위로 체험 프로그램</li>
-                <li data-target="#carousel" data-slide-to="2">워너미 무료체험 현장 스케치</li>
-                <li data-target="#carousel" data-slide-to="3">체험후기 이벤트</li>
+        <div ng-class="{'bottom-btns': isShowBtn}">
+            <ul class="carousel-btns" ng-class="{'carousel-indicators': !isShowBtn}">
+                <li data-target="#carousel" data-slide-to="0" class="active">
+                    <div class="text">워너미와 함께하는 새로운 시작</div>
+                </li>
+                <li data-target="#carousel" data-slide-to="1">
+                    <div class="text">커피위로 체험 프로그램</div>
+                </li>
+                <li data-target="#carousel" data-slide-to="2">
+                    <div class="text">워너미 무료체험 현장 스케치</div>
+                </li>
+                <li data-target="#carousel" data-slide-to="3">
+                    <div class="text">체험후기 이벤트</div>
+                </li>
             </ul>
         </div>
     </article>
@@ -120,13 +128,53 @@
             </div>
         </div>
     </article>
-    <article class="why-wanname">
+    <article class="notice">
         <div class="title">
             알려 드려요
             <div class="right-small-title">
                 더 보기
                 <i class="fa fa-angle-right"></i>
             </div>
+        </div>
+        <div class="content">
+            <table class="table table-hover">
+                <colgroup>
+                    <col width="">
+                    <col width="130px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>내용</th>
+                        <th>일자</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                워너미 홈페이지가 오픈하였습니다.
+                            </div>
+                        </td>
+                        <td>2016년 01월 10일</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                워너미 직업체험 신청 및 결제 시 지켜주셔야 할 사항합니다.
+                            </div>
+                        </td>
+                        <td>2016년 01월 10일</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                "음식점 창업의 준비과정에 필요한 10가지 필수 체크 사항" - 화르르사르르 닭갈비 전진호 대표
+                            </div>
+                        </td>
+                        <td>2016년 01월 10일</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </article>
 </div>

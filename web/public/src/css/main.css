@@ -21,6 +21,10 @@
     margin: 0;
 }
 
+#main .carousel .carousel-indicators .text {
+    display: none;
+}
+
 #main .carousel .angle-left {
     position: absolute;
     left: 2%;
@@ -89,7 +93,7 @@
     border-top-color: #0963c9;
 }
 
-#main .why-wanname>.title {
+#main article>.title {
     font-size: 28px;
     font-weight: 600;
     color: #1371e7;
@@ -97,7 +101,7 @@
     padding: 0 15px;
 }
 
-#main .why-wanname>.title .right-small-title {
+#main article>.title .right-small-title {
     float: right;
     font-size: 18px;
     color: #7b7b7b;
@@ -121,7 +125,8 @@
 }
 
 #main .why-wanname .content .text:hover .background {
-    border: 20px solid #f7f7f7;
+    /*border: 20px solid #f7f7f7;*/
+    border: 20px solid #fff;
     background-color: rgba(0,0,0,0.6);
 }
 
@@ -179,13 +184,41 @@
     display: none;
 }
 
+#main .notice .content {
+    background-color: #f6f6f6;
+    padding: 0 1%;
+}
+
+#main .notice table tr {
+    height: 40px;
+    font-size: 14px;
+}
+
+#main .notice table td {
+    height: 40px;
+    font-size: 14px;
+}
+
+#main .notice table td div {
+}
+
+#main .notice table thead th {
+    text-align: center;
+    font-weight: normal;
+}
+
+#main .notice table thead td {
+    background-color: #1371e7;
+    color: #fff;
+}
+
 @media (min-width: 767px) and (max-width: 992px) {
     #main .carousel .bottom-btns ul li {
         font-size: 14px;
     }
 
     #main .why-wanname .content .text:hover .background {
-        border: 10px solid #f7f7f7;
+        border: 10px solid #fff;
     }
     #main .why-wanname .content .text .title {
         font-size: 35px;
