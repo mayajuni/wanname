@@ -8,6 +8,7 @@ var captcha = require("../util/captcha");
 /* 라우트 파일들 선언 */
 var loginR = require("../routes/loginR");
 var joinR = require("../routes/joinR");
+var blogR = require("../routes/blogR");
 
 /**
  * 라우터 설정!
@@ -22,9 +23,10 @@ exports.app = function(app, dirName){
 
     /* 로그인 */
     app.use("/api/login", loginR);
-
     /* 회원가입 */
     app.use("/api/join", joinR);
+    /* 블로그 */
+    app.use("/api/blog", blogR);
 
     /**
      * 순차적으로 진행이 되기떄문에 모든 위에서 연결한 라우트를 제외하고

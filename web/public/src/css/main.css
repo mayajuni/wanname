@@ -73,6 +73,7 @@
     overflow: hidden;
     padding: 0;
 }
+
 #main .carousel .bottom-btns ul li {
     position: relative;
     float: left;
@@ -333,7 +334,7 @@
 
     #main .why-wanname .content-box .text .title, #main .why-wanname .content-box .text:hover .title {
         font-size: 26px;
-        top: calc(50% - 13px);
+        top: 40%
     }
 
     #main .why-wanname .content-box .text .hover-box {
@@ -342,7 +343,7 @@
 
     #main .why-wanname .content-box .text .sub-title {
         font-size: 18px;
-        top: 65%;
+        top: 53%;
         opacity: 1;
     }
 
@@ -399,12 +400,12 @@
 
     #main .why-wanname .content-box .text .title, #main .why-wanname .content-box .text:hover .title {
         font-size: 24px;
-        top: 40%;
+        top: 35%;
     }
 
     #main .why-wanname .content-box .text .sub-title {
         font-size: 15px;
-        top: 60%;
+        top: 55%;
         opacity: 1;
     }
 

@@ -46,16 +46,6 @@ routeC.app(app, __dirname);
  */
 errorC.app(app);
 
-/* 몽고디비 */
-var connect = function () {
-    var options = { server: { socketOptions: { keepAlive: 1 } } };
-    mongoose.connect(config.mongodb.connectUrl, options);
-};
-connect();
-mongoose.connection.on('error', console.log);
-mongoose.connection.on('disconnected', connect);
-
-
 http.createServer(app).listen(config.port.admin, function(){
     console.log("Express server listening on port " + config.port.admin);
 });

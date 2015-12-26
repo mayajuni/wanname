@@ -12,6 +12,23 @@ app
                     templateUrl: 'view/main/main.tpl.html',
                     controller: 'mainC'
                 })
+                .state('program', {
+                    url: '/program',
+                    templateUrl: 'view/program/program.tpl.html',
+                    controller: 'programC'
+                })
+                .state('blog', {
+                    url: '/blog',
+                    templateUrl: 'view/blog/blog.tpl.html',
+                    controller: 'blogC',
+                    /*resolve: {
+                        blogList: ['blogS', function(blogS) {
+                            return blogS.list().then(function(data) {
+                                return data;
+                            })
+                        }]
+                    }*/
+                })
             ;
 
             $urlRouterProvider.otherwise('/');

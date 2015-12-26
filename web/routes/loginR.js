@@ -38,7 +38,7 @@ router.post("/get", function(req, res){
  * 로그아웃
  */
 router.get("/logout", function(req, res){
-    delete req.session.user;
+    req.session.destroy();
     delete req.user;
     res.send();
 });

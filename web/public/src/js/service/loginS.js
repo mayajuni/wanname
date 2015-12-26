@@ -10,7 +10,7 @@ app.factory('loginS', ['$rootScope', '$q', 'property', '$http', '$uibModal', 'lo
             }
             loginDialog = $uibModal.open({
                 animation: true,
-                templateUrl: 'login/login.tpl.html',
+                templateUrl: 'login/login.md.tpl.html',
                 controller: 'loginC'
             });
 

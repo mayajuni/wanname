@@ -50,6 +50,8 @@ var cors = require('cors');
  */
 var johayoJwt = require("johayo-jwt");
 
+var mongoose = require("mongoose");
+
 /* config */
 var config = require("../../config");
 
@@ -79,6 +81,16 @@ exports.app = function(app){
     app.use(bodyParser.urlencoded({ extended: false }));
     /* 쿠키 추출 미들웨어 선언 */
     app.use(cookieParser());
+
+
+    /* 몽고디비 */
+    var connect = function () {
+        var options = { server: { socketOptions: { keepAlive: 1 } } };
+        mongoose.connect(config.mongodb.connectUrl, options);
+    };
+    connect();
+    mongoose.connection.on('error', console.log);
+    mongoose.connection.on('disconnected', connect);
 
     /**
      * session 선언부.

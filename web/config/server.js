@@ -44,6 +44,7 @@ var RedisStore  = require ("connect-redis")(Session);
  */
 var cors = require('cors');
 
+var mongoose = require("mongoose");
 /**
  * jwt 미들웨어
  * https://github.com/expressjs/cors
@@ -99,6 +100,14 @@ exports.app = function(app){
             secure: false
         }
     }));
+
+    var connect = function () {
+        var options = { server: { socketOptions: { keepAlive: 1 } } };
+        mongoose.connect(config.mongodb.connectUrl, options);
+    };
+    connect();
+    mongoose.connection.on('error', console.log);
+    mongoose.connection.on('disconnected', connect);
 
     /**
      * johayo jwt 설정
