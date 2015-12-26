@@ -3,7 +3,7 @@
  */
 var johayoJwt = require("johayo-jwt");
 var err = require("./error");
-var errP = require("../../errorP");
+var errP = require("../../property");
 var fileBiz = require("../../biz/routes/fileBiz");
 var menuBiz = require("../../biz/routes/menuBiz");
 

@@ -5,7 +5,7 @@ var express = require("express");
 var menuVO = require("../vos/menuVO");
 var menuBiz = require("../../biz/routes/menuBiz");
 var err = require("../util/error");
-var errorP = require("../../errorP");
+var errorP = require("../../property");
 var router = express.Router();
 
 /**
