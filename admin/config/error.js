@@ -4,7 +4,7 @@
 /* log를 찍어줄때 색갈을 주는 미들웨어 */
 var colors = require("colors");
 /* 에러 메세지 들어있는 프로퍼티 */
-var errorP = require("../../errorP");
+var errorP = require("../../property");
 
 /**
  * express 객체를 인자 값으로 받아서 진행

@@ -1,7 +1,7 @@
 /**
  * Created by 동준 on 2015-06-30.
  */
-var errorMsg = require("../../errorP");
+var errorMsg = require("../../property");
 
 exports.setAndValdate = function(req, next, objectVO, errStatus){
     var params = req.query;
