@@ -1,0 +1,61 @@
+#login .modal-header {
+    border: none;
+    text-align: center;
+}
+
+#login .modal-header i {
+    margin: 8% auto 0;
+}
+
+#login .modal-body {
+    padding: 3% 10% 5%;
+}
+
+#login .modal-body .left-box {
+    padding: 0;
+}
+
+#login .modal-body .right-box {
+    padding: 0;
+    text-align: right;
+}
+
+#login .modal-body .checkbox {
+    margin-top: 5px;
+}
+
+#login .modal-body button{
+    background-color: #1371e7;
+    color: #fff;
+}
+
+#login .modal-body button:hover {
+    background-color: #286090;
+}
+
+#login .modal-footer {
+    text-align: center;
+}
+
+#login .modal-footer .footer-body {
+    padding: 3% 10% 5%;
+}
+
+#login .modal-footer .title {
+    font-size: 30px;
+    color: #1371e7;
+}
+
+#login .modal-footer p {
+    text-align: left;
+    margin: 15px 0;
+}
+
+#login .modal-footer .btn{
+    background-color: #1371e7;
+    color: #fff;
+}
+
+#login .modal-footer .btn:hover {
+    background-color: #286090;
+}
