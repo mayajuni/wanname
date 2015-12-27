@@ -14,13 +14,13 @@
     "angular-animate": "~1.5.0-beta.0",
     "angular-sanitize": "~1.5.0-beta.0",
     "angular-ui-router": "~0.2.15",
-    "bootstrap": "~3.3.5",
-    "font-awesome": "~4.4.0",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
     "jquery": "~2.1.4",
-    "ng-file-upload": "~9.1.2",
+    "ng-file-upload": "~11.0.0",
     "wow": "~1.1.2",
     "angular-bootstrap": "~0.14.2",
-    "angular-summernote": "~0.5.1",
+    "angular-summernote": "~0.5.2",
     "angular-strap": "~2.3.6"
   }
 }

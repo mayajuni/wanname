@@ -2,8 +2,8 @@
  * Created by 동준 on 2015-09-18.
  */
 app
-    .controller('loginC', ['$scope', 'loginS', '$state', '$rootScope', 'joinS', '$modalInstance', '$localStorage',
-        function($scope, loginS, $state, $rootScope, joinS, $modalInstance, $localStorage){
+    .controller('loginC', ['$scope', 'loginS', '$state', '$rootScope', 'joinS', '$uibModalInstance', '$localStorage',
+        function($scope, loginS, $state, $rootScope, joinS, $uibModalInstance, $localStorage){
             loginS.logout();
             $rootScope.user = null;
             $scope.login = {};
@@ -22,11 +22,11 @@ app
             };
 
             $scope.close = function() {
-                $modalInstance.dismiss('cancel');
+                $uibModalInstance.dismiss('cancel');
             };
 
             $scope.moveJoin = function() {
-                $modalInstance.dismiss('cancel');
+                $uibModalInstance.dismiss('cancel');
                 joinS.openJoinModal();
             };
 

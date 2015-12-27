@@ -88,7 +88,7 @@ exports.app = function(app){
         store: new RedisStore({
             port: config.redis.port,
             host: config.redis.host,
-            /*pass: config.redis.password,*/
+            pass: config.redis.password,
             ttl: config.redis.ttl
         }),
         name : config.session.name,
