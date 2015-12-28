@@ -16,3 +16,8 @@
 .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
     height: 65px
 }
+
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}

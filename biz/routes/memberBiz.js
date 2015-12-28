@@ -3,7 +3,6 @@
  */
 var config = require('../../config');
 var property = require('../../property');
-var config = require('../../config');
 var err = require('../util/error');
 var crypto = require("../util/crypto");
 var ramdom = require("../util/random");
@@ -14,7 +13,7 @@ var fileBiz = require("./fileBiz");
 
 /* mongo 연결 */
 var mongo = require('../config/mongoConfig');
-var User = mongo.model.user;
+var Member = mongo.model.member;
 
 /**
  * 로그인
@@ -24,7 +23,7 @@ var User = mongo.model.user;
  * @param callback
  */
 exports.login = function(id, password, callback){
-    User.findOne({_id : id, password : crypto.encrypt(password, config.crypto.password)}, config.filter.session,  function(error, data){
+    Member.findOne({_id : id, password : crypto.encrypt(password, config.crypto.password)}, config.filter.session,  function(error, data){
         if(error){
             throw error;
         }
@@ -44,7 +43,7 @@ exports.login = function(id, password, callback){
  * @param callback
  */
 exports.tokenLogin = function(token, callback){
-    User.findOne({token: token}, config.filter.session,  function(error, data){
+    Member.findOne({token: token}, config.filter.session,  function(error, data){
         if(error){
             throw error;
         }
@@ -60,16 +59,15 @@ exports.tokenLogin = function(token, callback){
 /**
  * 회원가입 후 자동로그인
  *
- * @param joinVO: Object [가입 정보, _id, pw, name, email]
+ * @param joinVO: Object [가입 정보, _id, pw, name]
  * @param callback
  */
 exports.join = function(memberVO, callback) {
-    var userVO = new User();
-    memberVO.token = crypto.encrypt(memberVO._id + date.nowDate("YYYYMMDDHHmmss"));
-    memberVO.password = crypto.encrypt(memberVO.password, config.crypto.password);
-    userVO._doc = memberVO;
+    var member = new Member(memberVO);
+    member.token = crypto.encrypt(memberVO._id + date.nowDate("YYYYMMDDHHmmss"));
+    member.password = crypto.encrypt(memberVO.password, config.crypto.password);
 
-    userVO.save(function(error) {
+    member.save(function(error) {
         if(error) {
             throw error;
         }
@@ -85,7 +83,7 @@ exports.join = function(memberVO, callback) {
  * @param callback
  */
 exports.checkEmail = function(email, callback) {
-    User.findOne({email: email}, function(error, data) {
+    Member.findOne({_id: email}, function(error, data) {
         if(error) {
             throw error;
         }
@@ -102,7 +100,7 @@ exports.checkEmail = function(email, callback) {
  */
 exports.changeToken = function(userId, callback) {
     var token = crypto.encrypt(userId + date.nowDate("YYYYMMDDHHmmss"));
-    User.update(
+    Member.update(
         {_id: userId},
         {$set: {
             token: token
@@ -126,7 +124,7 @@ exports.changeToken = function(userId, callback) {
  * @param callback
  */
 exports.changePassword = function(userId, oldPassword, newPassword, callback) {
-    User.findOneAndUpdate(
+    Member.findOneAndUpdate(
         {_id: userId, password: oldPassword},
         {$set: {password: crypto.encrypt(newPassword, config.crypto.password)}},
         {new: true},
@@ -153,7 +151,7 @@ exports.changePassword = function(userId, oldPassword, newPassword, callback) {
 exports.updateUser = function(userId, memberVO, callback) {
     delete memberVO.regDt;
 
-    User.findOneAndUpdate(
+    Member.findOneAndUpdate(
         {_id: userId},
         {$set: memberVO},
         {fields : config.filter.session, new: true},
@@ -175,10 +173,10 @@ exports.updateUser = function(userId, memberVO, callback) {
  * @param email
  * @param callback
  */
-exports.findPassword = function(_id, callback) {
+exports.findPassword = function(userId, name, callback) {
     var password = ramdom.numLowRandom(config.maxPwLength);
-    User.findOneAndUpdate(
-        {_id: userId, name: name, email: email},
+    Member.findOneAndUpdate(
+        {_id: userId, name: name},
         {$set: {password: crypto.encrypt(password, config.crypto.password)}},
         function(error, data) {
             if(error) {
@@ -196,7 +194,7 @@ exports.findPassword = function(_id, callback) {
                 }
 
                 /* 이메일 보내기 */
-                email.sendMail(email, config.email.title.findPassword, data, function(error){
+                email.sendMail(userId, config.email.title.findPassword, data, function(error){
                     if(error) {
                         throw error;
                     }
@@ -214,7 +212,7 @@ exports.findPassword = function(_id, callback) {
  * @param callback
  */
 exports.getMemberInfo = function(userId, callback) {
-    User.findOne({_id: userId}, {password: 0}, function(error, data) {
+    Member.findOne({_id: userId}, {password: 0}, function(error, data) {
         if(error) {
             throw error;
         }
@@ -235,7 +233,7 @@ exports.getMemberList = function(checkRealName, callback) {
         query.checkRealName = checkRealName;
     }
 
-    User.find(query, {password: 0}, function(error, data) {
+    Member.find(query, {password: 0}, function(error, data) {
         if(error) {
             throw error;
         }

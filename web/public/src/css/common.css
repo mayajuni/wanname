@@ -1,5 +1,8 @@
-.color-red {
+.red {
     color: red;
+}
+.blue {
+    color: #1371e7;
 }
 /* cursor */
 .pointer {
@@ -38,6 +41,52 @@
     padding-left: 20px;
 }
 
+
+
+/* margin */
+.margin-bottom-0 {
+    margin-bottom: 0px;
+}
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+.margin-top-5 {
+    margin-top: 5px;
+}
+.margin-top-10 {
+    margin-top: 10px;
+}
+.margin-top-20 {
+    margin-top: 20px;
+}
+.margin-top-30 {
+    margin-top: 30px;
+}
+.margin-left-5 {
+    margin-left: 5px;
+}
+.margin-left-10 {
+    margin-left: 10px;
+}
+.margin-left-15 {
+    margin-left: 15px;
+}
+.margin-right-5 {
+    margin-right: 5px;
+}
+.margin-right-10 {
+    margin-right: 10px;
+}
+.margin-right-15 {
+    margin-right: 15px;
+}
+
 /* font-weight */
 .font-weight-500 {
     font-weight: 500
@@ -52,4 +101,10 @@
 }
 .float-left {
     float: left;
+}
+
+/* error */
+.error {
+    color: red;
+    font-size: 12px;
 }

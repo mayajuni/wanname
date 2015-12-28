@@ -5,6 +5,11 @@ app
     .controller('headerC', ['$rootScope', '$scope', 'loginS', 'joinS', '$location',
         function($rootScope, $scope, loginS, joinS, $location){
             $scope.login = function() {
+                loginS.openLoginModal();
+            };
+
+            $scope.join = function() {
+                joinS.openJoinModal();
             }
-            loginS.openLoginModal();
+            joinS.openJoinModal();
         }]);

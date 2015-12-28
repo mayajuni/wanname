@@ -3,12 +3,11 @@
  */
 app.factory('joinS', ['$q', 'property', '$http', 'loginS', '$uibModal',
     function($q, property, $http, loginS, $uibModal){
-        /*var joinModal = $modal({templateUrl: 'join/join.tpl.html', show: false, controller: 'joinC'});*/
         var service = {
             openJoinModal: function() {
                 $uibModal.open({
                     animation: true,
-                    templateUrl: 'join/join.tpl.html',
+                    templateUrl: 'view/join/join.md.tpl.html',
                     controller: 'joinC'
                 });
             },
