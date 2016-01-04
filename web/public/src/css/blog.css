@@ -1,0 +1,60 @@
+#blog article {
+    padding: 3%;
+}
+
+#blog article .content-box {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+}
+
+#blog article .content-box  > [class*=col-] {
+    padding: 5px 10px;
+    cursor: pointer;
+    height: 280px;
+    position: relative;
+}
+
+#blog article .content-box  > [class*=col-] > img{
+    height: 270px;
+    width: 100%;
+}
+
+#blog article .content-box .text {
+    position: absolute;
+    bottom: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 20px;
+    width: calc(100% - 20px);
+    background-color: rgba(0,0,0,.7);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    #main .program .content-box > [class*=col-] {
+        padding: 5px;
+    }
+
+    #main .program .content-box .text .title {
+        font-size: 16px;
+    }
+
+    #main .program .content-box .text .name {
+        font-size: 12px;
+    }
+
+    #main .program .content-box .text .like-button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+
+}

@@ -24,6 +24,14 @@
     margin-top: 5px;
 }
 
+#login .control-label {
+    font-weight: 400;
+    font-size: 13px;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: left;
+}
+
 #login .modal-body button{
     background-color: #1371e7;
     color: #fff;
@@ -58,4 +66,10 @@
 
 #login .modal-footer .btn:hover {
     background-color: #286090;
+}
+
+#login .alert {
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
 }

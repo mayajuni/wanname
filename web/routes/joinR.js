@@ -14,6 +14,7 @@ router.post("/", memberVO.set, function(req, res){
     memberBiz.join(memberVO.get, function(){
         memberBiz.login(memberVO.get._id, memberVO.get.password, function(data) {
             req.session.user = data;
+            res.send();
         });
     });
 });

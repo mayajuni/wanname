@@ -14,8 +14,9 @@ app.factory('joinS', ['$q', 'property', '$http', 'loginS', '$uibModal',
             join: function(params){
                 var asy = $q.defer();
                 $http.post(property.api.join, params).success(function (){
-                    loginS.doLogin(params);
-                    asy.resolve();
+                    loginS.doLogin(params).then(function() {
+                        asy.resolve();
+                    });
                 }).error(function(data){asy.reject(data);});
                 return asy.promise;
             },

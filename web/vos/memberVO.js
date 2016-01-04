@@ -21,8 +21,9 @@ function Vo() {
         newPassword: {method: "POST", validate: true, checkURL: ['/api/mypage/changePassword']},
         name: String,
         ph: String,
-        interests: Array,
-        regDt: {default: Date.now}
+        gender: String,
+        birthday: String,
+        interests: Array
     }
 }
 

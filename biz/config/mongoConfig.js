@@ -16,9 +16,9 @@ mongo.schema.member = new Schema({
     password: String,
     token: String,
     name: String,
-    birthday: Number,
+    birthday: String,
     gender: String,
-    ph: Number,
+    ph: String,
     regDt: {type: Date, default: Date.now},
     modiDt: Date
 });

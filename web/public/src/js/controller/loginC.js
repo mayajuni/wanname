@@ -5,15 +5,29 @@ app
     .controller('loginC', ['$scope', 'loginS', '$state', '$rootScope', 'joinS', '$uibModalInstance', '$localStorage',
         function($scope, loginS, $state, $rootScope, joinS, $uibModalInstance, $localStorage){
             loginS.logout();
+            $localStorage.remove('token');
             $rootScope.user = null;
-            $scope.login = {};
+            $scope.login = {
+                _id:  $localStorage.get('email'),
+                isSaveEmail: !!$localStorage.get('email')
+            };
             $scope.error = {};
+
+            $scope.openJoin = function() {
+                $scope.close();
+                joinS.openJoinModal();
+            };
 
             $scope.doLogin = function() {
                 $scope.login.error = null;
                 loginS.doLogin($scope.login).then(function(data) {
-                    if($scope.login.isAuto) {
+                    if($scope.login.isAutoLogin) {
                         $localStorage.set('token', data.token);
+                    }
+                    if($scope.login.isSaveEmail) {
+                        $localStorage.set('email', $scope.login._id);
+                    }else{
+                        $localStorage.remove('email');
                     }
                     $scope.close();
                 }, function(err){

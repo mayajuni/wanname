@@ -10,6 +10,9 @@ app
 
             $scope.join = function() {
                 joinS.openJoinModal();
-            }
-            joinS.openJoinModal();
+            };
+
+            $scope.logout = function() {
+                loginS.logout();
+            };
         }]);

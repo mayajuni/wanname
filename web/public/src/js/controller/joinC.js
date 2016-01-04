@@ -2,13 +2,27 @@
  * Created by 동준 on 2015-10-11.
  */
 app
-    .controller('joinC', ['$scope', '$rootScope', 'joinS', '$uibModalInstance',
-        function($scope, $rootScope, joinS, $uibModalInstance){
+    .controller('joinC', ['$scope', '$rootScope', 'joinS', '$uibModalInstance', '$filter',
+        function($scope, $rootScope, joinS, $uibModalInstance, $filter){
             $scope.join = {};
             $scope.error = {};
 
             $scope.submit = function() {
+                delete $scope.error.birthday;
+                if($scope.join.birthday) {
+                    if($scope.join.birthday.length != 10) {
+                        $scope.error.birthday = '생년월일을 확인해주세요.';
+                        return
+                    }
+                }
+                if($scope.join.ph ){
+                    $scope.join.ph = $scope.join.ph.replace(/[^0-9]/g, '');
+                    if($scope.join.ph.length > 7) {
+                        $scope.join.ph  = $scope.join.ph .substr(0, 3) + '-' + $scope.join.ph .substr(3, 4) + '-' + $scope.join.ph .substr(7, 4);
+                    }
+                }
                 joinS.join($scope.join).then(function() {
+                    alert('회원가입이 완료되었습니다.');
                     $scope.close();
                 });
             };

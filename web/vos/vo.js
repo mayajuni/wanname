@@ -26,7 +26,7 @@ exports.setAndValdate = function(req, next, objectVO, errStatus){
                             notCheck = true;
                             break;
                         } else {
-                            notCheck = true;
+                            notCheck = !notCheck;
                         }
                     }
                 }

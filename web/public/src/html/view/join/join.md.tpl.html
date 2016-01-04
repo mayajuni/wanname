@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label for="inputName" class="col-sm-2 control-label">이름</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputName" placeholder="실명을 입력해 주세요. 입력 예) 손성곤" ng-model="join.name" required>
+                    <input type="text" class="form-control" id="inputName" placeholder="실명을 입력해 주세요. 입력 예) 손성곤" ng-model="join.name" required>
                 </div>
             </div>
             <div class="form-group">
@@ -49,11 +49,11 @@
                 <label for="inputPassword2" class="col-sm-2 control-label">성별</label>
                 <div class="col-sm-10 radio">
                     <label>
-                        <input type="radio" name="gender" value="option1" ng-model="join.gender">
+                        <input type="radio" name="gender" value="남자" ng-model="join.gender">
                         남자
                     </label>
                     <label class="margin-left-15">
-                        <input type="radio" name="gender" value="option1" ng-model="join.gender">
+                        <input type="radio" name="gender" value="여자" ng-model="join.gender">
                         여자
                     </label>
                 </div>
@@ -62,6 +62,9 @@
                 <label for="inputPassword3" class="col-sm-2 control-label">생년월일</label>
                 <div class="col-sm-10">
                     <input-date-each date-data="join.birthday"></input-date-each>
+                    <div class="error" ng-if="error.birthday">
+                        * {{error.birthday}}
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -76,31 +79,39 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-offset-2 col-sm-10 margin-bottom-20">
+            <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" ng-click="isInfo = !isInfo"> 개인정보 이용 약관 동의
                     </label>
-                    <div class="float-right">
+                    <div class="float-right" ng-click="baseInfo = !baseInfo">
                         <a>읽어보기</a>
                     </div>
                 </div>
+            </div>
+            <div class="terms-box" uib-collapse="!baseInfo">
+            sdfsdfsd
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" ng-click="isHome = !isHome"> 홈페이지 이용 약관 동의
                     </label>
-                    <div class="float-right">
+                    <div class="float-right" ng-click="homeTerms = !homeTerms">
                         <a>읽어보기</a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <button type="submit" class="btn btn-lg btn-block btn-join" ng-click="join()"
+            <div class="terms-box" uib-collapse="!homeTerms">
+                sdfsdfsdf
+            </div>
+            <div class="col-sm-6 margin-top-20">
+                <button type="submit" class="btn btn-lg btn-block btn-join" ng-click="submit()"
                         ng-disabled="myForm.$error.required || !!error.password || ((join.password && join.confirmPw) && join.password != join.confirmPw) || !isInfo || !isHome">
                     가입하기
                 </button>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 margin-top-20">
                 <button type="button" class="btn btn-lg btn-block btn-close" ng-click="close()">취소하기</button>
             </div>
         </div>

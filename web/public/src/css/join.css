@@ -82,6 +82,14 @@
     background-color: #555555;
 }
 
+#join .modal-footer .terms-box {
+    max-height: 200px;
+    overflow: auto;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 @media (min-width: 767px) and (max-width: 992px) {
 }
 

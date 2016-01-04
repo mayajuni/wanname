@@ -9,12 +9,20 @@
             </div>
         </div>
         <div class="menu-group">
-            <ul class="sub-menu">
+            <ul class="sub-menu" ng-if="!$root.user">
                 <li ng-click="login()">
                     <a>로그인</a>
                 </li>
-                <li>
+                <li ng-click="join()">
                     <a>회원가입</a>
+                </li>
+            </ul>
+            <ul class="sub-menu" ng-if="$root.user">
+                <li>
+                    <a>MyPage</a>
+                </li>
+                <li ng-click="logout()">
+                    <a>로그아웃</a>
                 </li>
             </ul>
             <ul class="menu">

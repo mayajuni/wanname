@@ -86,7 +86,7 @@
     background-color: #eee;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #header {
         position: fixed;
         height: auto;

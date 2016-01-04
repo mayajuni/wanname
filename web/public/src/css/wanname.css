@@ -152,7 +152,6 @@ article>.main-title {
     font-size: 28px;
     font-weight: 600;
     color: #1371e7;
-    height: 50px;
     padding: 0 15px;
 }
 
@@ -167,5 +166,11 @@ article>.main-title>.small{
         padding-top: 0;
         padding-bottom: 0;
         width: 100% !important;
+    }
+}
+
+@media (max-width: 767px){
+    section > article{
+        margin-top: 60px;
     }
 }

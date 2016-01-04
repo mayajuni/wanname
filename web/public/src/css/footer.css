@@ -91,7 +91,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     footer .container {
         padding: 0;
         width: 100%;

@@ -5,8 +5,8 @@ var property = {};
 
 property.error = {};
 property.error.common = "Something bad happened. :(";
-property.error.id = "아이디를 확인해주세요.";
-property.error.pw = "비밀번호를 확인해주세요.";
+property.error._id = "아이디를 확인해주세요.";
+property.error.password = "비밀번호를 확인해주세요.";
 property.error.checkIdPw = "아이디와 비밀번호를 확인해주세요.";
 property.error.captcha = "Check captcha";
 property.error.needLogin = "로그인이 필요합니다.";
