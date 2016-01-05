@@ -19,7 +19,23 @@ app
                 })
                 .state('blog', {
                     url: '/blog',
-                    templateUrl: 'view/blog/blog.tpl.html',
+                    templateUrl: 'view/blog/blog.tpl.html'
+                })
+                .state('blog.list', {
+                    url: '',
+                    templateUrl: 'view/blog/blogList.tpl.html',
+                    controller: 'blogC',
+                    /*resolve: {
+                        blogList: ['blogS', function(blogS) {
+                            return blogS.list().then(function(data) {
+                                return data;
+                            })
+                        }]
+                    }*/
+                })
+                .state('blog.detail', {
+                    url: '/:_id',
+                    templateUrl: 'view/blog/blogDetail.tpl.html',
                     controller: 'blogC',
                     /*resolve: {
                         blogList: ['blogS', function(blogS) {

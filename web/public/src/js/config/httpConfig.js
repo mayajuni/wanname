@@ -54,5 +54,6 @@ app
         }])
     .config(["$httpProvider", function($httpProvider) {
         $httpProvider.interceptors.push("httpConfig");
+        $httpProvider.useApplyAsync(true);
     }])
 ;

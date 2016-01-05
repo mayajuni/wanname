@@ -17,7 +17,7 @@
     "bootstrap": "~3.3.6",
     "font-awesome": "~4.5.0",
     "jquery": "~2.1.4",
-    "ng-file-upload": "~11.0.0",
+    "ng-file-upload": "~11.0.1",
     "wow": "~1.1.2",
     "angular-bootstrap": "~0.14.2",
     "angular-summernote": "~0.5.2",
