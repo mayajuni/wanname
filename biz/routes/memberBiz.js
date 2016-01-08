@@ -227,10 +227,10 @@ exports.getMemberInfo = function(userId, callback) {
  * @param checkRealName
  * @param callback
  */
-exports.getMemberList = function(checkRealName, callback) {
+exports.getMemberList = function(memberVO, callback) {
     var query = {};
-    if(checkRealName) {
-        query.checkRealName = checkRealName;
+    if(memberVO._id) {
+        query._id = memberVO._id;
     }
 
     Member.find(query, {password: 0}, function(error, data) {
@@ -238,6 +238,6 @@ exports.getMemberList = function(checkRealName, callback) {
             throw error;
         }
 
-        callback(data, checkRealName);
+        callback(data);
     });
 };

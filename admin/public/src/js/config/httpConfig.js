@@ -1,9 +1,10 @@
 /**
  * Created by 동준 on 2015-05-22.
  */
-angular.module('config', [])
-
-// This http interceptor listens for authentication failures
+app
+    .config(["$httpProvider", function($httpProvider) {
+        $httpProvider.interceptors.push("httpConfig");
+    }])
     .factory('httpConfig', ['$q', '$rootScope',
         function($q, $rootScope) {
             var numLoadings = 0;

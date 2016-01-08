@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     del = require('del'),
     templateCache = require('gulp-angular-templatecache'),
     minifyHTML = require('gulp-minify-html'),
+    livereload = require('gulp-livereload'),
     stripDebug = require('gulp-strip-debug');
 
 /**--------------- lib ---------------------------------- **/
@@ -72,7 +73,8 @@ gulp.task('admin-styles', function() {
         .pipe(concatCss('admin.css'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(minifycss())
-        .pipe(gulp.dest('public/dist/css'));
+        .pipe(gulp.dest('public/dist/css'))
+        .pipe(livereload());
 });
 
 // Scripts
@@ -94,7 +96,8 @@ gulp.task('admin-angular-template', function(){
         '!public/src/html/adminIndex.html'
     ])
         .pipe(templateCache())
-        .pipe(gulp.dest('public/dist/templates'));
+        .pipe(gulp.dest('public/dist/templates'))
+        .pipe(livereload());
 });
 
 // index.html 파일 복사
@@ -103,6 +106,7 @@ gulp.task('admin-index-min', function(){
         .pipe(rename({ suffix: '.min' }))
         .pipe(minifyHTML())
         .pipe(gulp.dest('public/dist/html'))
+        .pipe(livereload());
 });
 
 /** --------------- 공통 ------------------------------------------ */
@@ -120,6 +124,8 @@ gulp.task('default', ['clean'], function(){
 
 // Watch
 gulp.task('watch', function() {
+    livereload({ start: true });
+    livereload.listen();
     /** 관리자 */
     // Watch .css files
     gulp.watch('public/src/css/*.css', ['admin-styles']);
@@ -131,5 +137,5 @@ gulp.task('watch', function() {
     gulp.watch('public/src/html/*.html', ['admin-index-min']);
 
     // Watch html files
-    gulp.watch(['public/src/html/**/**/**/*.html', '!public/src/html/adminIndex.html'], ['admin-angular-template']);
+    gulp.watch(['public/src/html/**/**/*.html', '!public/src/html/adminIndex.html'], ['admin-angular-template']);
 });

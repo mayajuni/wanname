@@ -17,23 +17,4 @@ router.get('/', memberVO.set, function(req, res) {
     });
 });
 
-
-/**
- * 유저 정보상세를 가지고 온다.
- */
-router.get('/getStats', function(req, res) {
-    memberBiz.getIdentificationStats(function(data) {
-        res.send(data);
-    });
-});
-
-/**
- * 본인확인 변경
- */
-router.post('/changeIdentification', memberVO.set, function(req, res) {
-    memberBiz.changeIdentification(memberVO.get._id, memberVO.get.identification, memberVO.get.failIdentificationReason, function() {
-        res.send();
-    });
-});
-
 module.exports = router;

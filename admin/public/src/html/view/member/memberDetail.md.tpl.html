@@ -28,54 +28,6 @@
                 {{detail.regDt | date : 'yyyy-MM-dd HH:mm:ss'}}
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">실명인증</label>
-            <div class="col-sm-10 padding-top-7">
-                <div ng-if="detail.identification != '진행중'">
-                    {{detail.identification}}
-                </div>
-                <div ng-if="detail.identification == '진행중'">
-                    <label class="padding-left-5">
-                        <input type="radio" name="identification" ng-model="identification.code" value="진행중">
-                        진행중
-                    </label>
-                    <label class="padding-left-5">
-                        <input type="radio" name="identification" ng-model="identification.code" value="인증완료">
-                        인증완료
-                    </label>
-                    <label class="padding-left-5">
-                        <input type="radio" name="identification" ng-model="identification.code" value="인증보류">
-                        인증보류
-                    </label>
-                    <label class="padding-left-5">
-                        <button class="btn btn-xs btn-warning" ng-click="changeIdentification()" ng-disabled="identification.code =='인증보류' && !identification.reason">인증 변경</button>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group" ng-if="identification.code == '인증보류'">
-            <label class="col-sm-2 control-label">인증보류 사유</label>
-            <div class="col-sm-10 padding-top-7">
-                <div ng-if="detail.identification == '진행중'">
-                    <input type="text" class="form-control" id="reason" ng-model="identification.reason" placeholder="인증 보류 사유">
-                    <div class="color-red" ng-if="!identification.reason">※ 사유를 입력해주세요.</div>
-                </div>
-                <div ng-if="detail.identification == '인증보류'">
-                    {{detail.failIdentificationReason}}
-                </div>
-            </div>
-        </div>
-        <div class="form-group" ng-if="detail.identificationFile && detail.identification == '진행중'">
-            <label class="col-sm-2 control-label">인증서류</label>
-            <div class="col-sm-10">
-                <div ng-if="detail.identificationFile.isImg">
-                    <img ng-src="{{detail.identificationFile.url}}" class="img-responsive" alt="실명인증서류">
-                </div>
-                <div ng-if="!detail.identificationFile.isImg">
-                    <a>detail.identificationFile.</a>
-                </div>
-            </div>
-        </div>
     </form>
 </div>
 <div class="modal-footer">

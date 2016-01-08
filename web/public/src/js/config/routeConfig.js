@@ -18,14 +18,15 @@ app
                     controller: 'programC'
                 })
                 .state('blog', {
+                    abstract: true,
                     url: '/blog',
                     templateUrl: 'view/blog/blog.tpl.html'
                 })
                 .state('blog.list', {
                     url: '',
                     templateUrl: 'view/blog/blogList.tpl.html',
-                    controller: 'blogC',
-                    /*resolve: {
+                    controller: 'blogC'
+                  /*  resolve: {
                         blogList: ['blogS', function(blogS) {
                             return blogS.list().then(function(data) {
                                 return data;
