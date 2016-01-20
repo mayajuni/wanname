@@ -14,7 +14,8 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-1 col-sm-11">
-                            <button type="submit" class="btn btn-default" ng-click="getMemberList()">Search</button>
+                            <button type="submit" class="btn btn-default" ng-click="getBlogList();">검색</button>
+                            <button type="submit" class="btn btn-default" ng-click="openCreateModal()">등록</button>
                         </div>
                     </div>
                 </form>
@@ -24,15 +25,23 @@
     <div class="col-xs-12" >
         <div class="panel panel-default">
             <div class="panel-heading">
-                Blog List
+                총 {{count}} 건
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-hover">
+                        <colgroup>
+                            <col width="60%">
+                            <col width="20%">
+                            <col width="20%">
+                        </colgroup>
                         <thead>
                         <tr>
                             <th>
                                 Title
+                            </th>
+                            <th>
+                                상단 노출 여부
                             </th>
                             <th>
                                 날짜
@@ -45,12 +54,13 @@
                                 데이터가 없거나 검색을 해주세요.
                             </td>
                         </tr>
-                        <tr class="pointer" ng-repeat="list in memberList" ng-click="openDetail(list)">
+                        <tr class="pointer" ng-repeat="list in blogList" ng-click="openEditModal(list._id)">
                             <td>
-                                {{list._id}}
+                                {{list.title}}
                             </td>
                             <td>
-                                {{list.name}}
+                                <span ng-if="list.isTop">노출</span>
+                                <span ng-if="!list.isTop">비노출</span>
                             </td>
                             <td>
                                 {{list.regDt | date : 'yyyy-MM-dd HH:mm:ss'}}
@@ -58,6 +68,9 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="list-paging">
+                    <uib-pagination total-items="count" ng-model="search.page" max-size="10" items-per-page="20" class="pagination-sm" rotate="false"></uib-pagination>
                 </div>
             </div>
         </div>

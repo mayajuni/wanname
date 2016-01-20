@@ -12,6 +12,7 @@ angular.module('admin')
             sideMenu: rootApi + 'sideMenu/',
             board: rootApi + 'board/',
             file: rootApi + 'file/',
-            teaser: rootApi + 'teaser/'
+            teaser: rootApi + 'teaser/',
+            blog: rootApi + 'blog/'
         }
     });

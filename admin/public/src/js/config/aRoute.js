@@ -67,13 +67,13 @@ app
                     url: '/blog',
                     templateUrl: 'view/blog/blog.tpl.html',
                     controller: 'blogC',
-                    /*resolve: {
-                        teaserInfo: ['teaserS', function(teaserS) {
-                            return teaserS.getTeaserList().then(function(data) {
+                    resolve: {
+                        blogList: ['blogS', function(blogS) {
+                            return blogS.getBlogList().then(function(data) {
                                 return data;
                             })
                         }]
-                    }*/
+                    }
                 })
                 .state('teaser', {
                     url: '/teaser',

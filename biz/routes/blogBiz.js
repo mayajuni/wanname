@@ -2,7 +2,6 @@
  * Created by mayaj on 2015-12-06.
  */
 var config = require('../../config');
-var fs = require("fs");
 var fileBiz = require('./fileBiz');
 var err = require('../util/error');
 var property = require('../../property');
@@ -10,9 +9,6 @@ var property = require('../../property');
 /* mongo 연결 */
 var mongo = require('../config/mongoConfig');
 var Blog = mongo.model.blog;
-
-/* mongo objectId type */
-var ObjectId = mongo.mongoose.Types.ObjectId;
 
 /**
  * 게시판
@@ -61,7 +57,7 @@ exports.getList = function(search, callback) {
  * @param callback
  */
 exports.getDetail = function(_id, callback) {
-    Blog.findOne({_id: new ObjectId(_id)}, function(error, data) {
+    Blog.findOne({_id: _id}, function(error, data) {
         if(error) {
             throw error;
         }
@@ -105,22 +101,29 @@ exports.save = function(userId, name, blogVO, callback) {
 exports.update = function(userId, blogVO, callback) {
     var _id = blogVO._id;
     delete blogVO._id;
-    blogVO.modiDt = Date.now;
+    blogVO.updateDt = Date.now();
+    blogVO.updateId = userId;
 
-    Blog.update(
-        {_id: new ObjectId(_id), userId: userId},
-        {$set: blogVO},
-        function(error) {
-            if(error) {
-                throw error;
-            }
+    fileBiz.divisionIdEditRemove(blogVO._id, config.file.doc.blog, function() {
+        Blog.update(
+            {_id: _id},
+            {$set: blogVO},
+            function(error, result) {
+                if(error) {
+                    throw error;
+                }
 
-            if(!!blogVO.fileList) {
-                fileBiz.addDivisionId(blogVO.fileList, config.file.doc.blog, _id, callback);
-            }else {
-                callback();
-            }
-        });
+                if(result.nModified !== 1) {
+                    return err.throw(409, property.error.dontHaveAuth);
+                }
+
+                if(!!blogVO.fileList) {
+                    fileBiz.addDivisionId(blogVO.fileList, config.file.doc.blog, _id, callback);
+                }else {
+                    callback();
+                }
+            });
+    });
 };
 
 /**

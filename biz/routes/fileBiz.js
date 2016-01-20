@@ -28,7 +28,7 @@ var ObjectId = mongo.mongoose.Types.ObjectId;
  * @param division
  * @param callback
  */
-exports.save = function(req, division, callback){
+exports.save = function(req, division, docName, docId, callback){
     if(!fs.existsSync(config.file.path)){
         fs.mkdirSync(config.file.path);
     }
@@ -54,6 +54,8 @@ exports.save = function(req, division, callback){
         fileVO.url = "/"+division+"/" +fileVO.virtualName;
         /* 키로 바이트로 변환 */
         fileVO.size = (fileVO.size * 0.000977).toFixed(2);
+        fileVO.docName = docName;
+        fileVO.docId = docId;
 
         var file = new File(fileVO);
 
@@ -127,52 +129,114 @@ exports.divisionIdRemove = function(docId, docName, callback) {
 };
 
 /**
+ * 구분과 키값을 초기화 한다.
+ *
+ * 수정할때 쓴다. cronTab을 돌면서 없는 것들은 파일 삭제 한다.
+ *
+ * @param divisionId
+ * @param division
+ */
+exports.divisionIdEditRemove = function(docId, docName, callback) {
+    File.update(
+        {docId: docId, docName: docName},
+        {$set: {docId: '', docName: ''}},
+        function(error) {
+            if(error) {
+                throw error;
+            }
+            callback();
+        });
+};
+
+/**
  * 파일 삭제
+ *
+ * 파일을 삭제 후 해당 도큐먼트에 저장되어 있는 이미지도 삭제 시킨다.
  *
  * @param _id
  * @param id
  * @param callback
  */
-exports.remove = function(_id, id, callback){
+exports.remove = function(_id, userId, callback){
+    exports.onlyRemove(_id, userId, function(data) {
+        if(data.docName && data.docId) {
+            for (var key in config.file.doc) {
+                if (data.docName == config.file.doc[key]) {
+                    docBiz[key].removeFile(data.docId, data._id, function () {
+                        callback();
+                    });
+                }
+            }
+        } else {
+            callback()
+        }
+    });
+};
+
+/**
+ * 파일 삭제
+ *
+ * @param _id
+ * @param callback
+ */
+exports.onlyRemove = function(_id, userId, callback){
     File.findOne(
-        /*{_id: _id, id: id},*/
-        {_id:  new ObjectId(_id)},
-        function(error, data){
-            if(error){
+        {_id: _id, userId: userId},
+        /*{_id:  new ObjectId(_id)},*/
+        function(error, data) {
+            if (error) {
                 throw error;
             }
 
-            if(!data){
+            if (!data) {
                 err.throw(409, property.error.dontHaveAuth);
             }
 
-            if(data.docName && data.docId) {
-                for(var key in config.file.doc) {
-                    if(data.docName == config.file.doc[key]) {
-                        docBiz[key].removeFile(data.docId, data._id, function() {
-                            fileRmove()
-                        });
-                        break;
-                    }
+            File.remove({_id: new ObjectId(_id)}, function(error){
+                if(error){
+                    throw error;
                 }
-            }else {
-                fileRmove()
-            }
 
-            function fileRmove() {
-                File.remove({_id: new ObjectId(_id)}, function(error){
-                    if(error){
-                        throw error;
-                    }
+                fs.unlinkSync(data.path);
 
-                    fs.unlinkSync(data.path);
-
-                    callback();
-                });
-            }
-
+                callback(data);
+            });
         }
-    )
+    );
+};
+
+/**
+ * 파일 전부 삭제
+ *
+ * 특별한 권한 체크를 안한다.
+ *
+ * @param _id
+ * @param callback
+ */
+exports.onlyAllRemove = function(_id, userId, callback){
+    File.findOne(
+        {_id: _id, userId: userId},
+        /*{_id:  new ObjectId(_id)},*/
+        function(error, data) {
+            if (error) {
+                throw error;
+            }
+
+            if (!data) {
+                err.throw(409, property.error.dontHaveAuth);
+            }
+
+            File.remove({_id: new ObjectId(_id)}, function(error){
+                if(error){
+                    throw error;
+                }
+
+                fs.unlinkSync(data.path);
+
+                callback(data);
+            });
+        }
+    );
 };
 
 /**

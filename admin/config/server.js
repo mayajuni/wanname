@@ -72,9 +72,10 @@ exports.app = function(app){
      * dev는 응답상태에 따라 색이 다르게 출력하게 하는 것이다.
      * 문서보면 나와있다.
      */
-    app.use(logger('common', {
+    /*app.use(logger('common', {
         skip: function (req, res) { return res.statusCode < 400 }
-    }));
+    }));*/
+    app.use(logger('dev'));
     /* body parser한것을 json 형식으로 받겠다고 선언 */
     app.use(bodyParser.json());
     /* URL으로 인코딩된 부분을 해석하기 위한 옵션 extended <- 이 부분은 잘 모르겠다. */

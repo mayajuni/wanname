@@ -125,14 +125,16 @@ mongo.schema.blog = new Schema({
     title: {type: String, required: true},
     content: {type: String, required: true},
     /* 후기시 _ID값 추가해야된다. */
-
+    programId: Schema.Types.ObjectId,
     /* 메인에서 가장 위에 보일것들 */
-    isTop: Boolean,
+    isTop: {type: Boolean, default: false},
     /* 대표이미지 넣기 */
     thumbnailImage: {type: Object, ref: mongo.schema.file},
     fileList: [mongo.schema.file],
     comments: [mongo.schema.comment],
-    regDt: {type: Date, default: Date.now}
+    regDt: {type: Date, default: Date.now},
+    updateDt: Date,
+    updateId: String
 });
 
 /** --관리자 시작------------------------------------------------------------------------------ */

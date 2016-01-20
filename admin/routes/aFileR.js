@@ -10,7 +10,7 @@ var router = express.Router();
  * 파일 저장
  */
 router.post("/:division", function(req, res){
-    fileBiz.save(req, req.params.division, function(data){
+    fileBiz.save(req, req.params.division, null, null, function(data){
         res.send(data);
     })
 });

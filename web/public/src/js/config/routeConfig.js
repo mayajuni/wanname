@@ -25,10 +25,11 @@ app
                 .state('blog.list', {
                     url: '',
                     templateUrl: 'view/blog/blogList.tpl.html',
-                    controller: 'blogC'
-                  /*  resolve: {
+                    controller: 'blogC'/*,
+                    resolve: {
                         blogList: ['blogS', function(blogS) {
-                            return blogS.list().then(function(data) {
+                            return blogS.getBlogList().then(function(data) {
+                                console.log(1);
                                 return data;
                             })
                         }]
@@ -40,7 +41,7 @@ app
                     controller: 'blogC',
                     /*resolve: {
                         blogList: ['blogS', function(blogS) {
-                            return blogS.list().then(function(data) {
+                            return blogS.getBlogList().then(function(data) {
                                 return data;
                             })
                         }]

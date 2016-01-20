@@ -34,9 +34,6 @@
 
 .file-list {
     margin-top: 15px;
-    float: left;
-    width: 100%;
-    margin-bottom: 10px;
 }
 
 .file .file-remove {
@@ -81,11 +78,10 @@
 .drop-box {
     background: #F8F8F8;
     border: 5px dashed #DDD;
-    width: 100%;
+    width: 230px;
     height: 65px;
     text-align: center;
     padding-top: 17px;
-    cursor: pointer;
 }
 
 .drop-box.dragover {
@@ -94,45 +90,4 @@
 
 .drop-box.dragover-err {
     border: 5px dashed red;
-}
-
-ul.show-file-list {
-    margin-top: 10px;
-}
-
-ul.show-file-list > li{
-    position: relative;
-    height: 60px;
-    border-radius: 6px;
-}
-
-ul.show-file-list > li:hover{
-    background-color: #dcdcdc;
-}
-
-ul.show-file-list > li .file-name {
-    padding-left: 60px;
-    height: 60px;
-    width: 100%;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-ul.show-file-list .file-icon {
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    width: 50px;
-    height: 50px;
-    margin: auto 0;
-}
-
-
-ul.show-file-list img{
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    width: 50px;
-    height: 50px;
-    margin: auto 0;
 }

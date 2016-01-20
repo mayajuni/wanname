@@ -1,7 +1,12 @@
 <div>
-    <div ngf-drop ngf-select ngf-change="upload($files)" class="drop-box"
-         ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true">Drop file here or click to upload</div>
-    <div class="file-list">
+    <div ngf-drop ngf-select ngf-change="upload($files)" name="file" id="file" class="drop-box" ngf-max-size="{{maxSize}}" ngf-pattern="{{pattern}}"
+         ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"  ng-model-options="{allowInvalid: true}">
+        Drop file here or click to upload
+    </div>
+    <div class="small error" ng-if="fileError">
+        {{fileError.code}}
+    </div>
+    <div class="file-list" ng-show="fileList && fileList.length > 0">
         <ul class="file row">
             <li class="margin-top-5 text-center" ng-repeat="list in fileList">
                 <div class="file-remove" ng-click="deleteFile($index, list._id)">

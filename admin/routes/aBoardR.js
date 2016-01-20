@@ -3,7 +3,6 @@
  */
 var express = require("express");
 var boardBiz = require("../../biz/routes/boardBiz");
-var err = require("../util/error");
 var boardVO = require("../vos/boardVO");
 var router = express.Router();
 

@@ -6,16 +6,13 @@ app
         return {
             restrict: 'AE',
             scope : {
-                isEditor: '@',
-                fileList: '=',
-                division: '@',
-                maxSize: '@',
-                pattern: '@',
-                id: '@'
+                isEditor : '@',
+                fileList : '=',
+                division : '@'
             },
             templateUrl : 'view/file/file.drtv.tpl.html',
-            controller : ['$scope', '$rootScope', 'fileS', '$uibModal',
-                function($scope, $rootScope, fileS, $uibModal){
+            controller : ['$scope', 'fileS', '$uibModal', '$rootScope',
+                function($scope, fileS, $uibModal, $rootScope){
                     $scope.oldFileCount = !!$scope.fileList ? $scope.fileList.length : 0;
                     $scope.selectedFiles = new Array();
                     $scope.fileList = !$scope.fileList ? new Array() : $scope.fileList;
@@ -25,24 +22,11 @@ app
                     }
 
                     $scope.upload = function (files, editor, welEditable) {
-                        $scope.fileError = null;
                         if (files && files.length) {
                             for (var i = 0; i < files.length; i++) {
-                                if (files[i].$error) {
-                                    $scope.fileError = {
-                                        code: files[i].$error == 'maxSize' ?
-                                        '각 파일별 최대 올릴수 있는 용량이 초과되었습니다. (최대 '+files[i].$errorParam+')'
-                                            : '올릴수 있는 파일이 아닙니다. (가능한 파일 '+files[i].$errorParam+')'
-                                    };
-                                    break;
-                                }
-                            }
-                            if(!$scope.fileError) {
-                                for (var i = 0; i < files.length; i++) {
-                                    $scope.selectedFiles.push(files[i]);
-                                    $scope.fileList.push(files[i]);
-                                    uploadFile($scope.fileList.length -1, editor, welEditable);
-                                }
+                                $scope.selectedFiles.push(files[i]);
+                                $scope.fileList.push(files[i]);
+                                uploadFile($scope.fileList.length -1, editor, welEditable);
                             }
                         }
                     };
@@ -57,7 +41,7 @@ app
                                 }
                             },function(err){
                                 $scope.progresses[count] = 0;
-                                $scope.fileList[count].error = $rootScope.error[err];
+                                $scope.fileList[count].error = err;
                             },function(evt){
                                 $scope.progresses[count] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                             });
@@ -81,17 +65,18 @@ app
                     $scope.deleteFile = function(index, _id){
                         if(index >= $scope.oldFileCount) {
                             $scope.selectedFiles.splice(index-$scope.oldFileCount, 1);
-                            if(_id){
-                                fileS.deleteFile(_id).then(function(){});
-                            }
                         }else{
                             $scope.oldFileCount = $scope.oldFileCount -1;
                         }
 
                         $scope.fileList.splice(index, 1);
+
+                        if(_id){
+                            fileS.deleteFile(_id).then(function(){});
+                        }
                     };
 
-                    $rootScope.$on('uploadFile-'+$scope.id, function(el, files, editor, welEditable){
+                    $rootScope.$on('uploadFile', function(el, files, editor, welEditable){
                         $scope.upload(files, editor, welEditable);
                     })
                 }]

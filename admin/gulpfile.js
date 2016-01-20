@@ -86,7 +86,8 @@ gulp.task('admin-scripts', function() {
         /*.pipe(stripDebug())*/
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
-        .pipe(gulp.dest('public/dist/js'));
+        .pipe(gulp.dest('public/dist/js'))
+        .pipe(livereload());
 });
 
 // html 변환
