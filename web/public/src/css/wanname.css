@@ -161,6 +161,39 @@ a {
     color: #7b7b7b;
 }
 
+ul.share-box {
+    width: 120px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+ul.share-box li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    color: #fff;
+    text-indent: -9999px;
+    font-size: 10px;
+    float: left;
+    background-image: url(/dist/imgs/common/sns_icons.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+ul.share-box li.facebook {
+    background-position: 0px 0px;
+}
+
+ul.share-box li.kakao {
+    background-position: -60px 0px;
+}
+
+ul.share-box li.naver {
+    background-position: -30px 0px;
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
     .container {
         padding-top: 0;

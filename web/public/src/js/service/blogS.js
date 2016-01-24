@@ -16,14 +16,14 @@ app.factory('blogS', ['$q', 'property', '$http',
             },
             getBestBlog: function(params){
                 var asy = $q.defer();
-                $http.get(property.api.blog+'best', {params: params}).success(function (data){
+                $http.get(property.api.blog + 'best', {params: params}).success(function (data){
                     asy.resolve(data);
                 });
                 return asy.promise;
             },
-            detail: function(email){
+            getBlogDetail: function(_id){
                 var asy = $q.defer();
-                $http.get(property.api.join + "checkEmail/", {params: {_id: email}}).success(function (data){
+                $http.get(property.api.blog + _id).success(function (data){
                     asy.resolve(data);
                 }).error(function(data){asy.reject(data);});
                 return asy.promise;

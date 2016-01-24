@@ -15,4 +15,8 @@ app
             $scope.logout = function() {
                 loginS.logout();
             };
+
+            $rootScope.$on('$stateChangeSuccess', function() {
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+            });
         }]);

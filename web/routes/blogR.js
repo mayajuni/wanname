@@ -11,6 +11,7 @@ var router = express.Router();
  * 리스트
  */
 router.get("/", blogVO.set, function(req, res) {
+    blogVO.view = 12;
     blogBiz.getList(blogVO.get, function(data) {
         res.send(data);
     })
@@ -28,7 +29,7 @@ router.get("/best", function(req, res) {
 /**
  *  상세 가져오기
  */
-router.get("/:category/:_id", function(req, res) {
+router.get("/:_id", function(req, res) {
     blogBiz.getDetail(req.params._id, function(data) {
         res.send(data);
     })

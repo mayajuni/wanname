@@ -42,14 +42,14 @@ app
                 .state('blog.detail', {
                     url: '/:_id',
                     templateUrl: 'view/blog/blogDetail.tpl.html',
-                    controller: 'blogC',
-                    /*resolve: {
-                        blogList: ['blogS', function(blogS) {
-                            return blogS.getBlogList().then(function(data) {
+                    controller: 'blogDetailC',
+                    resolve: {
+                        blog: ['blogS', '$stateParams', function(blogS, $stateParams) {
+                            return blogS.getBlogDetail($stateParams._id).then(function(data) {
                                 return data;
                             })
                         }]
-                    }*/
+                    }
                 })
             ;
 

@@ -7,7 +7,7 @@
     </div>
     <article class="best-blog clearfix">
         <h2>Best 공감 블로그</h2>
-        <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="list in bestList">
+        <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="list in bestList" ui-sref="blog.detail({_id: list._id})">
             <img ng-src="{{list.content | getFirstImg}}">
             <div class="background"></div>
             <div class="text">
@@ -16,7 +16,7 @@
         </div>
     </article>
     <article class="content-box clearfix">
-        <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="list in blogList">
+        <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="list in blogList" ui-sref="blog.detail({_id: list._id})">
             <img ng-src="{{list.content | getFirstImg}}">
             <div class="background"></div>
             <div class="text">

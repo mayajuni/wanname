@@ -1,0 +1,78 @@
+#blogDetail {
+    padding: 3%;
+}
+
+#blogDetail article {
+    margin: 20px 15px 0;
+}
+
+#blogDetail .header {
+    border-top: 5px solid #1371e7;
+    border-bottom: 1px solid #1371e7;
+    padding: 2% 0;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#blogDetail .header .sub {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#blogDetail .header .sub li {
+    float: left;
+    padding: 10px 5px;
+}
+
+#blogDetail .header .sub li:first-child {
+    float: left;
+    padding-left: 0px;
+}
+
+#blogDetail .header .sub li+li:before {
+    padding: 0;
+    color: #7b7b7b;
+    content: "/\00a0";
+}
+
+#blogDetail .header .sub li+li:before {
+    padding: 0;
+    color: #7b7b7b;
+    content: "/\00a0";
+}
+
+#blogDetail .footer {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#blogDetail .other-blog {
+    border-top: 1px solid #1371e7;
+    padding: 15px;
+}
+
+#blogDetail .other-blog .text{
+    border-bottom: 1px solid #dcdcdc;
+    padding: 5px;
+}
+
+#blogDetail .other-blog table tr:last-child{
+    border-bottom: 2px solid #dcdcdc;
+}
+
+#blogDetail .other-blog table tr:hover{
+    background-color: #ddd;
+}
+
+#blogDetail .other-blog table tr.active{
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 360px) {
+
+}

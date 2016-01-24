@@ -1,0 +1,45 @@
+<div id="blogDetail">
+    <div class="main-title">
+        블로그
+        <div class="small">
+            직장인들에게 도움이 되는 칼럼과 이야기. 워너미의 다양한 소식을 함께 하세요.
+        </div>
+    </div>
+    <article>
+        <div class="header clearfix">
+            {{blog.title}}
+            <ul class="sub clearfix">
+                <li>
+                    Author : 워너미
+                </li>
+                <li>
+                    Date : {{blog.regDt | date : 'yyyy.MM.dd HH:mm'}}
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <div ng-bind-html="blog.content | changeTrustAdHtml"></div>
+        </div>
+        <div class="footer clearfix">
+            <share title="blog.title" content="blog.content" img="img"></share>
+        </div>
+    </article>
+    <article class="other-blog">
+        <div class="text">
+            블로그의 다른 글
+        </div>
+        <table class="table">
+            <colgroup>
+                <col width="80%">
+                <col width="20%">
+            </colgroup>
+            <tbody>
+                <tr ng-repeat="list in subList | orderBy : 'regDt' : true" ui-sref="blog.detail({_id: list._id})"
+                    ng-class="{active: blog._id == list._id, pointer: blog._id != list._id}">
+                    <td>{{list.title}}</td>
+                    <td>{{list.regDt | date : 'yyyy.MM.dd'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+</div>

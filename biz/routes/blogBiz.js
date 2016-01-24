@@ -77,7 +77,25 @@ exports.getDetail = function(_id, callback) {
             throw error;
         }
 
-        callback(data);
+        var blog = {
+            detail: data
+        };
+
+        Blog.count({regDt: {$gt: new Date(data.regDt)}}, function(error, myCount) {
+            if(error) {
+                throw error;
+            }
+
+            myCount = myCount < 2 ? 0 : myCount - 2;
+            Blog.find({}, null, {sort : {"regDt" : -1}, skip : myCount, limit: 6 }, function(error, data){
+                if(error){
+                    throw error;
+                }
+
+                blog.subList = data;
+                callback(blog);
+            });
+        });
     })
 };
 
