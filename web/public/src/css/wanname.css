@@ -148,14 +148,14 @@ a {
     background-position: -183px -5px;
 }
 
-article>.main-title {
+.main-title {
     font-size: 28px;
     font-weight: 600;
     color: #1371e7;
     padding: 0 15px;
 }
 
-article>.main-title>.small{
+.main-title>.small{
     font-size: 14px;
     font-weight: 100;
     color: #7b7b7b;

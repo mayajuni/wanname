@@ -6,6 +6,7 @@ app.constant('property', {
         api: {
             login: rootApi + 'login/',
             join: rootApi + 'join/',
-            member: rootApi + 'member/'
+            member: rootApi + 'member/',
+            blog: rootApi + 'blog/'
         }
     });

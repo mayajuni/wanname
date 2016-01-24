@@ -25,15 +25,19 @@ app
                 .state('blog.list', {
                     url: '',
                     templateUrl: 'view/blog/blogList.tpl.html',
-                    controller: 'blogC'/*,
+                    controller: 'blogC',
                     resolve: {
-                        blogList: ['blogS', function(blogS) {
+                        blog: ['blogS', function(blogS) {
                             return blogS.getBlogList().then(function(data) {
-                                console.log(1);
+                                return data;
+                            })
+                        }],
+                        bestBlog: ['blogS', function(blogS) {
+                            return blogS.getBestBlog().then(function(data) {
                                 return data;
                             })
                         }]
-                    }*/
+                    }
                 })
                 .state('blog.detail', {
                     url: '/:_id',

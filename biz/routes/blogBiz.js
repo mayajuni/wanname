@@ -51,6 +51,21 @@ exports.getList = function(search, callback) {
 };
 
 /**
+ * 베스트를 가지고 온다.
+ *
+ * @param callback
+ */
+exports.getBestList = function(callback) {
+    Blog.find({isTop: true}, function(error, data){
+        if(error){
+            throw error;
+        }
+
+        callback(data);
+    });
+};
+
+/**
  * 게시판 상세를 가지고 온다.
  *
  * @param _id

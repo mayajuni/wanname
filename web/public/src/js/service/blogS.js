@@ -7,12 +7,18 @@
 app.factory('blogS', ['$q', 'property', '$http',
     function($q, property, $http){
         var service = {
-            list: function(params){
+            getBlogList: function(params){
                 var asy = $q.defer();
-                $http.get(property.api.blog, {}).success(function (){
-                    loginS.doLogin(params);
-                    asy.resolve();
-                }).error(function(data){asy.reject(data);});
+                $http.get(property.api.blog, {params: params}).success(function (data){
+                    asy.resolve(data);
+                });
+                return asy.promise;
+            },
+            getBestBlog: function(params){
+                var asy = $q.defer();
+                $http.get(property.api.blog+'best', {params: params}).success(function (data){
+                    asy.resolve(data);
+                });
                 return asy.promise;
             },
             detail: function(email){

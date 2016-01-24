@@ -1,27 +1,40 @@
-#blog article {
+#blog {
     padding: 3%;
 }
 
-#blog article .content-box {
+#blog article.best-blog {
+    background-color: #3d3d3d;
+    color: #fff;
+    padding: 2%;
+    margin: 15px 10px 0;
+}
+
+#blog article.best-blog h2{
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+#blog article.content-box {
     float: left;
     width: 100%;
     position: relative;
     margin-top: 15px;
 }
 
-#blog article .content-box  > [class*=col-] {
+#blog article [class*=col-] {
     padding: 5px 10px;
     cursor: pointer;
     height: 280px;
     position: relative;
 }
 
-#blog article .content-box  > [class*=col-] > img{
+#blog article [class*=col-] > img{
     height: 270px;
     width: 100%;
 }
 
-#blog article .content-box .text {
+#blog article .text {
     position: absolute;
     bottom: 5px;
     color: #fff;
@@ -38,7 +51,7 @@
     z-index: 1;
 }
 
-#blog article .content-box .background {
+#blog article .background {
     position: absolute;
     padding: 5px 10px;
     width: calc(100% - 20px);
@@ -50,26 +63,12 @@
     z-index: 2;
 }
 
-#blog article .content-box  > [class*=col-]:hover .background {
+#blog article > [class*=col-]:hover .background {
     border: 10px solid #1371e7;
 }
 
 @media (max-width: 767px) {
-    #main .program .content-box > [class*=col-] {
-        padding: 5px;
-    }
 
-    #main .program .content-box .text .title {
-        font-size: 16px;
-    }
-
-    #main .program .content-box .text .name {
-        font-size: 12px;
-    }
-
-    #main .program .content-box .text .like-button {
-        font-size: 16px;
-    }
 }
 
 @media (max-width: 360px) {

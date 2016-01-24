@@ -2,6 +2,11 @@
  * Created by �룞以� on 2015-07-22.
  */
 angular.module('utils', [])
+    .filter("getFirstImg", function() {
+        return function(content) {
+            return $(content).find('img:first').attr('src');
+        }
+    })
     .filter("cutEmailId", function(){
         return function(input){
             if(input){

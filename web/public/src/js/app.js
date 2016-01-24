@@ -6,6 +6,7 @@ var app = angular.module("wanname", [
     'ui.router',
     'ui.bootstrap.modal',
     'ui.bootstrap.collapse',
+    'ui.bootstrap.pagination',
     'ui.bootstrap.tpls',
     'ngFileUpload',
     'summernote',

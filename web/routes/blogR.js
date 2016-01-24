@@ -17,6 +17,15 @@ router.get("/", blogVO.set, function(req, res) {
 });
 
 /**
+ * 베스트
+ */
+router.get("/best", function(req, res) {
+    blogBiz.getBestList(function(data) {
+        res.send(data);
+    })
+});
+
+/**
  *  상세 가져오기
  */
 router.get("/:category/:_id", function(req, res) {
