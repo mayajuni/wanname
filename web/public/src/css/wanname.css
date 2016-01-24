@@ -194,6 +194,16 @@ ul.share-box li.naver {
     background-position: -30px 0px;
 }
 
+.list-paging {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+.menu-detail {
+    padding: 3%;
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
     .container {
         padding-top: 0;

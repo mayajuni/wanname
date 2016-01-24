@@ -13,9 +13,19 @@ app
                     controller: 'mainC'
                 })
                 .state('program', {
+                    abstract: true,
                     url: '/program',
-                    templateUrl: 'view/program/program.tpl.html',
+                    templateUrl: 'view/program/program.tpl.html'
+                })
+                .state('program.list', {
+                    url: '',
+                    templateUrl: 'view/program/programList.tpl.html',
                     controller: 'programC'
+                })
+                .state('program.detail', {
+                    url: '/:_id',
+                    templateUrl: 'view/program/programDetail.tpl.html',
+                    controller: 'programDetailC'
                 })
                 .state('blog', {
                     abstract: true,

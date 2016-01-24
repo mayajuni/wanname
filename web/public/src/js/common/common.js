@@ -2,14 +2,6 @@
  * Created by mayaj on 2015-11-09.
  */
 jQuery(document).ready(function(){
-    $('#headerMenuBtn').click(function() {
-        if($('.menu-group').hasClass('menu-show')) {
-            $('.menu-group').removeClass('menu-show');
-        }else{
-            $('.menu-group').addClass('menu-show');
-        }
-    });
-
     $('html').click(function(e) {
         if(window.matchMedia("(max-width: 786px)").matches) {
             /* 메뉴가 보일때 */
@@ -22,3 +14,17 @@ jQuery(document).ready(function(){
         }
     });
 });
+
+function closeMenu() {
+    if($('.menu-group').hasClass('menu-show')) {
+        $('.menu-group').removeClass('menu-show');
+    }
+}
+
+function menuToggle() {
+    if($('.menu-group').hasClass('menu-show')) {
+        $('.menu-group').removeClass('menu-show');
+    }else{
+        $('.menu-group').addClass('menu-show');
+    }
+}

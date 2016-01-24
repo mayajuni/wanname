@@ -55,7 +55,7 @@
     border-left: 0;
 }
 
-#header ul li:hover a {
+#header ul li:hover a, #header ul li.active a {
     color: #1371e7;
 }
 
@@ -71,8 +71,11 @@
     border: 1px solid  #dcdcdc;
     margin: 5px;
     border-radius: 5px;
-    padding: 9px 10px;
     display: none;
+}
+
+#header .menu-btn i {
+    padding: 10px;
 }
 
 #header .menu-btn .fa{

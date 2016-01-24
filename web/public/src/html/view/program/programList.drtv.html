@@ -1,0 +1,76 @@
+<div class="program-box">
+    <div class="tag-box clearfix" ng-if="!isMain">
+        <div class="best-tag clearfix">
+            <div class="text">인기태그</div>
+            <ul class="tag">
+                <li>커피</li>
+                <li>카페</li>
+                <li>작은카페</li>
+                <li>빵집</li>
+                <li>음식점 창업</li>
+            </ul>
+        </div>
+        <div class="tag-list">
+            <div class="all-btn" ng-click="openAllTag = !openAllTag">
+                <i class="fa fa-plus" ng-if="!openAllTag"></i>
+                <i class="fa fa-minus" ng-if="openAllTag"></i>
+                전체태그
+            </div>
+            <ul class="tag" ng-show="openAllTag">
+                <li>커피</li>
+                <li>카페</li>
+                <li>작은카페</li>
+                <li>빵집</li>
+                <li>음식점 창업</li>
+                <li>커피</li>
+                <li>카페</li>
+                <li>작은카페</li>
+                <li>빵집</li>
+                <li>음식점 창업</li>
+                <li>커피</li>
+                <li>카페</li>
+                <li>작은카페</li>
+                <li>빵집</li>
+                <li>음식점 창업</li>
+                <li>커피</li>
+                <li>카페</li>
+                <li>작은카페</li>
+                <li>빵집</li>
+                <li>음식점 창업</li>
+            </ul>
+        </div>
+    </div>
+    <div class="program-list clearfix">
+        <div class="col-sm-6 col-md-4">
+            <img src="/dist/imgs/main/pgm_01_wiro.jpg">
+            <div class="text">
+                <div class="title">
+                    일인 커피숍과 커피에 대한 모든 것
+                    일인 커피숍과 커피에 대한 모든 것
+                </div>
+                <div class="nmame">커피위로 정희수 로스터</div>
+                <div class="tag clearfix">
+                    <ul class="tag">
+                        <li>커피</li>
+                        <li>카페</li>
+                        <li>작은카페</li>
+                        <li>빵집</li>
+                        <li>음식점 창업</li>
+                    </ul>
+                </div>
+                <div class="btns">
+                    <span>
+                        <i class="fa fa-arrow-down"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-heart"></i>
+                        20
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="list-paging" ng-show="!isMain">
+            <uib-pagination total-items="count" ng-model="search.page" max-size="10" items-per-page="20" class="pagination-sm" rotate="false"></uib-pagination>
+        </div>
+    </div>
+</div>

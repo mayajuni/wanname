@@ -1,10 +1,10 @@
 <nav id="header">
     <div class="container">
         <div class="navbar-header">
-            <div class="logo">
+            <div class="logo pointer" ui-sref="main">
                 <i class="logo-bk logo_header"></i>
             </div>
-            <div id="headerMenuBtn" class="menu-btn">
+            <div id="headerMenuBtn" ng-click="toggle()" class="menu-btn">
                 <i class="fa fa-bars"></i>
             </div>
         </div>
@@ -26,11 +26,11 @@
                 </li>
             </ul>
             <ul class="menu">
-                <li>
-                    <a ui-sref="program">프로그램</a>
+                <li ui-sref="program.list" ng-class="{active: $state.includes('program.*')}">
+                    <a>프로그램</a>
                 </li>
-                <li>
-                    <a ui-sref="blog.list">블로그</a>
+                <li ui-sref="blog.list" ng-class="{active: $state.includes('blog.*')}">
+                    <a>블로그</a>
                 </li>
                 <li>
                     <a>고객센터</a>
