@@ -75,6 +75,11 @@ app
                         }]
                     }
                 })
+                .state('program', {
+                    url: '/program',
+                    templateUrl: 'view/program/programList.tpl.html',
+                    controller: 'programC'
+                })
                 .state('teaser', {
                     url: '/teaser',
                     templateUrl: 'view/teaser/teaser.tpl.html',

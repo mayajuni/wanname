@@ -19,8 +19,8 @@ function Vo() {
         password: String,
         name:  {method: "POST, PUT", validate: true, checkURL: ['/adminApi/administrator/']},
         email: {method: "POST, PUT", validate: true, checkURL: ['/adminApi/administrator/']},
-        step1: {method: "POST", validate: true, checkURL: ['!/adminApi/administrator/getAdminMenu', '!/adminApi/administrator/findPassword']},
-        step2: {method: "POST", validate: true, checkURL: ['!/adminApi/administrator/getAdminMenu', '!/adminApi/administrator/findPassword']},
+        step1: {method: "POST", validate: true, checkURL: ['!/adminApi/administrator/getAdminMenu', '!/adminApi/administrator/findPassword', '!/adminApi/administrator/getAdministratorMenu']},
+        step2: {method: "POST", validate: true, checkURL: ['!/adminApi/administrator/getAdminMenu', '!/adminApi/administrator/findPassword', '!/adminApi/administrator/getAdministratorMenu']},
         isDelete: {default: 'N'},
         regDt: Date,
         modiDt: Date

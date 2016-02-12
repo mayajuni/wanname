@@ -39,6 +39,7 @@ serverC.app(app);
  *     returns '/foo/bar/baz/asdf'
  */
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(config.file.path)));
 
 /**
  * route들이 선언되어 있는 부분입니다.

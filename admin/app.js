@@ -18,6 +18,9 @@ var errorC = require("./config/error");
 /* express 객체 선언 */
 var app = express();
 
+/* 글로벌로 경로를 넣어준다. */
+global.__base = __dirname + '/';
+
 /**
  * 서버에 대한 필요 모듈 및 설정.
  */

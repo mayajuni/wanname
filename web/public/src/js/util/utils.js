@@ -2,6 +2,13 @@
  * Created by �룞以� on 2015-07-22.
  */
 angular.module('utils', [])
+    .filter("getImage", function() {
+        return function(imgInfo) {
+            if(imgInfo && imgInfo.url){
+                return imgInfo.url;
+            }
+        }
+    })
     .filter("getFirstImg", function() {
         return function(content) {
             return $(content).find('img:first').attr('src');

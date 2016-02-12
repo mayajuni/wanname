@@ -1,5 +1,5 @@
 .program-box {
-    margin: 15px 10px;
+    margin: 15px 0px;
 }
 
 .program-box .tag-box .best-tag {
@@ -56,7 +56,7 @@
 }
 
 .program-box .program-list img {
-    width: 100%;
+    width: 100%;;
 }
 
 .program-box .program-list .text {

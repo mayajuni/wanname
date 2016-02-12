@@ -63,7 +63,8 @@ app
         }])
     .controller('blogEditC', ['$scope', 'blogS', 'detail', '$uibModalInstance',
         function($scope, blogS, detail, $uibModalInstance){
-            $scope.blog = detail;
+            $scope.blog = detail.detail;
+            console.log(detail);
 
             $scope.notFileUpload = function() {
                 alert('파일을 업로드 할 수 없습니다.');

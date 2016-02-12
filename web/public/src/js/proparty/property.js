@@ -7,6 +7,10 @@ app.constant('property', {
             login: rootApi + 'login/',
             join: rootApi + 'join/',
             member: rootApi + 'member/',
-            blog: rootApi + 'blog/'
+            blog: rootApi + 'blog/',
+            program: rootApi + 'program/',
+            faq: rootApi + 'faq/',
+            notice: rootApi + 'notice/',
+            qna: rootApi + 'qna/'
         }
     });

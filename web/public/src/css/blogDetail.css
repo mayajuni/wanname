@@ -1,11 +1,11 @@
 #blogDetail article {
-    margin: 20px 15px 0;
+    margin: 20px 0px 0;
 }
 
 #blogDetail .header {
     border-top: 5px solid #1371e7;
     border-bottom: 1px solid #1371e7;
-    padding: 2% 0;
+    padding: 2% 1%;
     font-size: 1.4em;
     font-weight: 600;
     margin-bottom: 20px;
@@ -45,7 +45,7 @@
 
 #blogDetail .other-blog {
     border-top: 1px solid #1371e7;
-    padding: 15px;
+    padding: 10px 0 15px;
 }
 
 #blogDetail .other-blog .text{

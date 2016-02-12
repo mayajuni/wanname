@@ -13,6 +13,9 @@ jQuery(document).ready(function(){
             }
         }
     });
+
+    var IMP = window.IMP;
+    IMP.init('imp28662685');
 });
 
 function closeMenu() {

@@ -29,9 +29,9 @@
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-xs btn-success" ng-click="openFileModal($index)" ng-show="!list.error">Show Info</button>
-                    <button type="submit" class="btn btn-xs btn-danger" ng-click="openFileModal($index)" ng-show="!!list.error">Show Error</button>
-                    <button type="submit" class="btn btn-xs btn-default margin-top-5" ng-click="inputImage(list.url)" ng-show="!list.error && list.isImg && isEditor">Input Image</button>
+                    <button type="button" class="btn btn-xs btn-success" ng-click="openFileModal($index)" ng-show="!list.error">Show Info</button>
+                    <button type="button" class="btn btn-xs btn-danger" ng-click="openFileModal($index)" ng-show="!!list.error">Show Error</button>
+                    <button type="button" class="btn btn-xs btn-default margin-top-5" ng-click="inputImage(list.url)" ng-show="!list.error && list.isImg && isEditor">Input Image</button>
                 </div>
             </li>
         </ul>

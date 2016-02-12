@@ -23,5 +23,8 @@ property.error.wrongApproach = "Wrong approach";
 property.error.notAvailable = "Not available";
 property.error.reason = "Check reason";
 property.error.duplicateKey = "중복된 키 입니다.";
+property.error.duplicateLike = "이미 좋아요를 하였습니다.";
+property.error.duplicateApply = "이미 하였습니다.";
+property.error.needLogin = "로그인이 필요합니다.";
 
 module.exports = property;

@@ -240,39 +240,9 @@
     color: #fff;
 }
 
-#main .program .content-box > [class*=col-] {
-    padding: 10px;
-    cursor: pointer;
-}
-
-#main .program .content-box > [class*=col-]:hover .text {
-    background-color: #1371e7;
-    color: #fff;
-}
-
-#main .program .content-box > [class*=col-] img {
-    height: 280px;
-}
-
-#main .program .content-box .text {
-    background-color: #fff;
-    color: #7b7b7b;
-    padding: 10px;
-}
-
-#main .program .content-box .text .title {
-    font-size: 22px;
-    font-weight: 600;
-}
-
-#main .program .content-box .text .name {
-    font-size: 14px;
-    font-weight: 100;
-}
-
-#main .program .content-box .text .like-button {
-    font-size: 18px;
-    text-align: right;
+#main .program .program-box, #main .program .program-box .program-list{
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -359,22 +329,6 @@
     #main .why-wanname .content-box .logo .title, #main .why-wanname .content-box .logo .text:hover .title  {
         top: 50%;
         padding: 0 10%;
-    }
-
-    #main .program .content-box > [class*=col-] {
-        padding: 5px;
-    }
-
-    #main .program .content-box .text .title {
-        font-size: 16px;
-    }
-
-    #main .program .content-box .text .name {
-        font-size: 12px;
-    }
-
-    #main .program .content-box .text .like-button {
-        font-size: 16px;
     }
 }
 

@@ -14,5 +14,5 @@ exports.app = function(app, dirName){
     app.all("/upload/*", loginAuth.staticCheck);
 
     app.use(express.static(path.join(dirName, 'public')));
-    app.use(express.static(path.resolve('./upload')));
+    app.use(express.static(path.resolve('../upload')));
 };

@@ -15,6 +15,7 @@ var boardR = require("../routes/aBoardR");
 var fileR = require("../routes/aFileR");
 var teaserR = require("../routes/aTeaserR");
 var blogR = require("../routes/aBlogR");
+var programR = require("../routes/aProgramR");
 
 /**
  * 라우터 설정!
@@ -56,6 +57,7 @@ exports.app = function(app, dirName){
     app.use(rootApi + 'administrator', administratorR);
     app.use(rootApi + 'board', boardR);
     app.use(rootApi + 'blog', blogR);
+    app.use(rootApi + 'program', programR);
 
     /**
      * angular의 html5 모드때문에 이렇게 한다

@@ -13,6 +13,7 @@ angular.module('admin')
             board: rootApi + 'board/',
             file: rootApi + 'file/',
             teaser: rootApi + 'teaser/',
-            blog: rootApi + 'blog/'
+            blog: rootApi + 'blog/',
+            program: rootApi + 'program/'
         }
     });

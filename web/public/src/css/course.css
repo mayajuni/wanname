@@ -1,0 +1,17 @@
+#course .modal-header {
+    background-color: #1371e7;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#course .modal-body .form-group {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    margin: 0;
+}
+
+#course .modal-body .form-group .control-label {
+    color: #1371e7;
+}

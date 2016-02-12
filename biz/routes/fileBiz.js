@@ -46,11 +46,11 @@ exports.save = function(req, division, docName, docId, callback){
         }
 
         var fileVO = files.file[0];
-        fileVO.id = req.session.admin._id || req.admin._id;
+        fileVO.userId = req.session.admin._id || req.admin._id;
         fileVO.name = fileVO.originalFilename;
         fileVO.type = fileVO.headers['content-type'];
         fileVO.isImg = fileVO.type.toString().indexOf('image') > -1;
-        fileVO.virtualName = fileVO.path.replace(/(\/([^>]+)\/)/ig,"").replace(/(\\([^>]+)\\)/ig,"").replace('upload','');
+        fileVO.virtualName = fileVO.path.replace(/(\/([^>]+)\/)/ig,"").replace(/(\\([^>]+)\\)/ig,"").replace('upload','').replace('d:','');
         fileVO.url = "/"+division+"/" +fileVO.virtualName;
         /* 키로 바이트로 변환 */
         fileVO.size = (fileVO.size * 0.000977).toFixed(2);

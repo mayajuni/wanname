@@ -19,7 +19,7 @@ router.post("/:division", function(req, res){
  * 파일 삭제
  */
 router.delete("/:_id", function(req, res){
-    fileBiz.remove(req.params._id, '', function(){
+    fileBiz.remove(req.params._id, req.admin._id, function(){
         res.send("");
     });
 });

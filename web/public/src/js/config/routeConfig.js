@@ -15,22 +15,29 @@ app
                 .state('program', {
                     abstract: true,
                     url: '/program',
-                    templateUrl: 'view/program/program.tpl.html'
+                    template: '<div ui-view></div>'
                 })
                 .state('program.list', {
-                    url: '',
+                    url: '/',
                     templateUrl: 'view/program/programList.tpl.html',
                     controller: 'programC'
                 })
                 .state('program.detail', {
                     url: '/:_id',
                     templateUrl: 'view/program/programDetail.tpl.html',
-                    controller: 'programDetailC'
+                    controller: 'programDetailC',
+                    resolve: {
+                        detail: ['programS', '$stateParams', function(programS, $stateParams) {
+                            return programS.getProgramDetail($stateParams._id).then(function(data) {
+                                return data
+                            })
+                        }]
+                    }
                 })
                 .state('blog', {
                     abstract: true,
                     url: '/blog',
-                    templateUrl: 'view/blog/blog.tpl.html'
+                    template: '<div ui-view></div>'
                 })
                 .state('blog.list', {
                     url: '',
@@ -60,6 +67,45 @@ app
                             })
                         }]
                     }
+                })
+                .state('center', {
+                    abstract: true,
+                    url: '/center',
+                    template: '<div ui-view></div>'
+                })
+                .state('center.main', {
+                    url: '',
+                    templateUrl: 'view/center/center.tpl.html'
+                })
+                .state('center.notice', {
+                    url: '/notice',
+                    template: '<div class="menu-detail">' +
+                    '<div class="main-title margin-bottom-10">공지사항' +
+                    '<div class="small">워너미의 다양한 소식을 함께 하세요.</div>' +
+                    '</div>' +
+                    '<article id="notice"><notice-list></notice-list></article>' +
+                    '</div>'
+                })
+                .state('center.noticeDetail', {
+                    url: '/notice/:_id',
+                    templateUrl: 'view/center/notice/noticeDetail.tpl.html',
+                    controller: 'noticeDetailC',
+                    resolve: {
+                        notice: ['noticeS', '$stateParams', function(noticeS, $stateParams) {
+                            return noticeS.getNoticeDetail($stateParams._id).then(function(data) {
+                                return data;
+                            })
+                        }]
+                    }
+                })
+                .state('center.faq', {
+                    url: '/faq',
+                    template: '<div class="menu-detail">' +
+                    '<div class="main-title margin-bottom-10">FAQ' +
+                    '<div class="small">자주찾는 질문은 여기에서.</div>' +
+                    '</div>' +
+                    '<article id="faq"><faq></faq></article>' +
+                    '</div>'
                 })
             ;
 

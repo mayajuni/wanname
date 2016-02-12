@@ -41,6 +41,7 @@ app
             };
 
             $scope.openAdministratorMenuModal = function(_id) {
+                console.log(_id);
                 var scope = $scope.$new();
                 scope._id = _id;
                 administratorS.openAdministratorMenuModal(scope);

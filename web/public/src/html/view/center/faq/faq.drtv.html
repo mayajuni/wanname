@@ -1,0 +1,22 @@
+<div class="faq">
+    <ul>
+        <li ng-repeat="list in faqList | orderBy : 'regDt' : false">
+            <div class="content">
+                <div class="header" ng-class="{'active': faqIds[list._id]}" ng-click="toggleFaq(list._id)">
+                    Q{{$index+1}} {{list.title}}
+                </div>
+                <div class="body" uib-collapse="!faqIds[list._id]">
+                    <div class="text" ng-bind-html="list.content | changeTrustAdHtml"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="qna-box">
+        혹시 이외에 궁금한 사항이 있으신가요?
+        <div>
+            <button class="btn btn-primary" ng-click="openQna()">
+                1:1 문의하기
+            </button>
+        </div>
+    </div>
+</div>

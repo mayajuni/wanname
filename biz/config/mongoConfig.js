@@ -40,13 +40,12 @@ mongo.schema.file = new Schema({
 
 /* 프로그램 코스(프로그램 스키마를 위해 필요) */
 mongo.schema.programCourses = new Schema({
-    title: {type: String, required: true},
-    content: {type: String, required: true},
-    /* 상세 내역은 json 형식으로 {1:내용, 2:내용} 이런식으로 간다 */
-    detail: Object,
-    location:  {type: String, required: true},
-    term:  {type: String, required: true},
-    pay:  {type: Number, required: true},
+    name: String,
+    feature: String,
+    dateLocation: String,
+    other: String,
+    content: String,
+    pay:  Number,
     regDt: {type:Date, default: Date.now}
 });
 
@@ -60,14 +59,15 @@ mongo.schema.programContent = new Schema({
 
 /* 프로그램 */
 mongo.schema.program = new Schema({
-    category: String,
-    mainImage: {type: Object, ref: mongo.schema.file},
-    title: {type: String, required: true},
-    content: [mongo.schema.programContent],
+    category: Array,
+    mainImage: [mongo.schema.file],
+    title: String,
     courses: [mongo.schema.programCourses],
     oldHtml: String,
+    likeList: [],
+    applyList: [],
     regDt: {type: Date, default: Date.now},
-    regId: {type: String, required: true},
+    regId: String,
     modiDt: Date
 });
 
@@ -96,24 +96,9 @@ mongo.schema.board = new Schema({
     isAnswer: {type:Boolean, default: false},
     /* Qna에서 사용 */
     answer: String,
+    itemId: String,
+    courseId: String,
     fileList: [mongo.schema.file],
-    regDt: {type: Date, default: Date.now}
-});
-
-/* 댓글 스키마 */
-mongo.schema.commentScheama = new Schema({
-    userId: String,
-    name: String,
-    content: String,
-    regDt: {type: Date, default: Date.now}
-});
-
-/* 댓글 */
-mongo.schema.comment = new Schema({
-    userId: String,
-    name: String,
-    content: String,
-    subComments: [mongo.schema.commentScheama],
     regDt: {type: Date, default: Date.now}
 });
 
@@ -131,10 +116,14 @@ mongo.schema.blog = new Schema({
     /* 대표이미지 넣기 */
     thumbnailImage: {type: Object, ref: mongo.schema.file},
     fileList: [mongo.schema.file],
-    comments: [mongo.schema.comment],
     regDt: {type: Date, default: Date.now},
     updateDt: Date,
     updateId: String
+});
+
+mongo.schema.category = new Schema({
+    _id: String,
+    count: {type: Number, default: 1}
 });
 
 /** --관리자 시작------------------------------------------------------------------------------ */
@@ -196,5 +185,6 @@ mongo.model.admin = mongo.mongoose.model('admin', mongo.schema.admin);
 mongo.model.adminMenu = mongo.mongoose.model('admin_menu', mongo.schema.adminMenu);
 mongo.model.teaser = mongo.mongoose.model('teaser', mongo.schema.teaser);
 mongo.model.blog = mongo.mongoose.model('blog', mongo.schema.blog);
+mongo.model.category = mongo.mongoose.model('category', mongo.schema.category);
 
 module.exports = mongo;

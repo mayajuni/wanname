@@ -5,9 +5,8 @@
             워너미와 함께 경험, 조언, 기회를 제공하는 파트너들의 프로그램 입니다.
         </div>
     </div>
-    <article>
-
-    </article>
+    <!-- 본문 -->
+    <article ng-bind-html="detail.oldHtml | changeTrustAdHtml"></article>
     <article>
         <div class="main-title">
             프로그램 후기
@@ -16,6 +15,27 @@
             <div class="best-after">
 
             </div>
+            <table class="table">
+                <colgroup>
+                    <col width="70%">
+                    <col width="20%">
+                    <col width="10%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>내용</th>
+                    <th>작성자</th>
+                    <th>일시</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>dnjsenfmf wlsWKfh skaksdml rjtdmfh aksemsms zjvl wjsans zkvp rhdrksdmf dlwpsms aksemfdj rkdi</td>
+                    <td>이지은</td>
+                    <td>20116-02-04</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </article>
     <article>
@@ -23,7 +43,19 @@
             프로그램 코스
         </div>
         <div class="couse-list">
-
+            <table class="table">
+                <colgroup>
+                    <col width="70%">
+                    <col width="20%">
+                    <col width="10%">
+                </colgroup>
+                <tbody>
+                <tr ng-repeat="list in detail.courses" ng-click="openCourseModal(list)">
+                    <td>{{list.name}}</td>
+                    <td>{{list.dateLocation}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </article>
 </div>

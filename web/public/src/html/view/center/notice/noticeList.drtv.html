@@ -1,0 +1,40 @@
+<div class="notice">
+    <table class="table table-hover">
+        <colgroup>
+            <col width="" >
+            <col width="130px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>제목</th>
+            <th>날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="list in bestList | orderBy : 'regDt' : true" ui-sref="center.noticeDetail({_id: list._id})" class="best">
+            <td>
+                {{list.title}}
+            </td>
+            <td align="center">
+                {{list.regDt | date : 'yyyy.MM.dd'}}
+            </td>
+        </tr>
+        <tr ng-repeat="list in noticeList | orderBy : 'regDt' : true" ui-sref="center.noticeDetail({_id: list._id})">
+            <td>
+                {{list.title}}
+            </td>
+            <td align="center">
+                {{list.regDt | date : 'yyyy.MM.dd'}}
+            </td>
+        </tr>
+        <tr ng-if="!noticeList || noticeList.length < 1">
+            <td colspan="2" class="center">
+                조회된 내역이 없습니다.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="list-paging" ng-show="!noPage">
+        <uib-pagination total-items="count" ng-model="search.page" max-size="10" items-per-page="{{search.view}}" class="pagination-sm" rotate="false"></uib-pagination>
+    </div>
+</div>

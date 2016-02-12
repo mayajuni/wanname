@@ -1,0 +1,45 @@
+<div id="noticeDetail" class="menu-detail">
+    <div class="main-title">
+        공지사항
+        <div class="small">워너미의 다양한 소식을 함께 하세요.</div>
+    </div>
+    <article>
+        <div class="header clearfix">
+            {{notice.title}}
+            <ul class="sub clearfix">
+                <li>
+                    Author : 워너미
+                </li>
+                <li>
+                    Date :  {{notice.regDt | date : 'yyyy.MM.dd'}}
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <div ng-bind-html="notice.content | changeTrustAdHtml"></div>
+        </div>
+    </article>
+    <article class="other-blog">
+        <div class="text">
+            공지사항의 다른글
+        </div>
+        <table class="table">
+            <colgroup>
+                <col width="80%">
+                <col width="20%">
+            </colgroup>
+            <tbody>
+            <tr ng-repeat="list in subList | orderBy : 'regDt' : true" ui-sref="center.noticeDetail({_id: list._id})"
+                ng-class="{active: notice._id == list._id, pointer: blog._id != list._id}">
+                <td>{{list.title}}</td>
+                <td>{{list.regDt | date : 'yyyy.MM.dd'}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <button class="btn btn-default" ui-sref="center.notice">
+                목록
+            </button>
+        </div>
+    </article>
+</div>

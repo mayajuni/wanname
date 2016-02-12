@@ -1,0 +1,139 @@
+<div id="programCreate">
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title">{{$root.activeMenu.nickName}}</h2>
+    </div>
+    <form name="myForm">
+        <div class="modal-body padding-20">
+            <div class="form-group">
+                <label>카테고리</label>
+                <div>
+                    <input type="text" class="form-control" placeholder="카테고리" maxlength="5"
+                           ng-model="category" ng-blur="addCategory()" ng-keyup="inputCategory($event)" ng-disabled="program.category.length > 2">
+                </div>
+                <div>
+                    <span ng-repeat="list in program.category track by $index" class="categoty-tag">
+                        {{list}}
+                        <i class="fa fa-times pointer" ng-click="removeCategory($index)"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>리스트 노출 이미지</label>
+                <div>
+                    <file-box division="program" file-list="program.mainImage" max-size="'10MB'" pattern="'.jpg,.png,.gif,.jpeg'"></file-box>
+                    1개만 올려주세요 리스트 노출입니다.
+                </div>
+            </div>
+            <div class="form-group">
+                <label>코스</label>
+                <div class="course">
+                    <button type="button" class="btn btn-xs btn-default" ng-click="isCollapsed = !isCollapsed">코스 추가</button>
+                    <div uib-collapse="!isCollapsed">
+                        <div class="course-box">
+                            <div class="form-group">
+                                <label>이름</label>
+                                <div>
+                                    <input type="text" ng-model="course.name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>특징</label>
+                                <div>
+                                    <textarea ng-model="course.feature" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>기간 및 장소</label>
+                                <div>
+                                    <input type="text" ng-model="course.dateLocation" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>특이사항</label>
+                                <div>
+                                    <textarea ng-model="course.other" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>가격</label>
+                                <div>
+                                    <input type="text" ng-model="course.pay"  class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>코스 커리큘럼</label>
+                                <div>
+                                    <summernote ng-model="course.content"></summernote>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-default" type="button" ng-click="pushCourse()">추가</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li class="pointer" ng-repeat-start="list in program.courses" ng-click="toggle($index)">{{list.name}}</li>
+                        <li ng-repeat-end uib-collapse="openCourses != $index">
+                            <div class="course-box">
+                                <button class="btn btn-danger btn-xs" ng-click="deleteCourse($index)">삭제</button>
+                                <div class="form-group">
+                                    <label>이름</label>
+                                    <div>
+                                        <input type="text" ng-model="list.name" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>특징</label>
+                                    <div>
+                                        <textarea ng-model="list.feature" class="form-control" readonly></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>기간 및 장소</label>
+                                    <div>
+                                        <input type="text" ng-model="list.dateLocation" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>특이사항</label>
+                                    <div>
+                                        <textarea ng-model="list.other" class="form-control" readonly></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>가격</label>
+                                    <div>
+                                        <input type="text" ng-model="list.pay"  class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>코스 커리큘럼</label>
+                                    <div>
+                                        <div ng-bind-html="list.content | changeTrustAdHtml"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>제목</label>
+                <div>
+                    <input type="text" class="form-control" ng-model="program.title" placeholder="제목" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>HTML</label>
+                <div>
+                    <textarea ng-model="program.oldHtml" class="form-control" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success" ng-click="save()" ng-disabled="myForm.$error.required || !program.oldHtml">등록</button>
+            <button type="submit" class="btn btn-default" ng-click="close()">닫기</button>
+        </div>
+    </form>
+</div>

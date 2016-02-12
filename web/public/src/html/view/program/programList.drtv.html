@@ -41,30 +41,27 @@
         </div>
     </div>
     <div class="program-list clearfix">
-        <div class="col-sm-6 col-md-4">
-            <img src="/dist/imgs/main/pgm_01_wiro.jpg">
+        <div class="col-sm-6 col-md-4" ng-repeat="list in programList | orderBy : 'regDt' : true">
+            <img ng-src="{{list.mainImage[0] | getImage}}" ui-sref="program.detail({_id: list._id})">
             <div class="text">
-                <div class="title">
-                    일인 커피숍과 커피에 대한 모든 것
-                    일인 커피숍과 커피에 대한 모든 것
-                </div>
-                <div class="nmame">커피위로 정희수 로스터</div>
-                <div class="tag clearfix">
-                    <ul class="tag">
-                        <li>커피</li>
-                        <li>카페</li>
-                        <li>작은카페</li>
-                        <li>빵집</li>
-                        <li>음식점 창업</li>
-                    </ul>
+                <div ui-sref="program.detail({_id: list._id})">
+                    <div class="title">
+                        {{list.title}}
+                    </div>
+                    <div class="nmame">커피위로 정희수 로스터</div>
+                    <div class="tag clearfix">
+                        <ul class="tag">
+                            <li ng-repeat="subList in list.category">{{subList}}</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="btns">
                     <span>
-                        <i class="fa fa-arrow-down"></i>
+                        <i class="fa fa-arrow-down" ng-click="apply(list._id)"></i>
                     </span>
                     <span>
-                        <i class="fa fa-heart"></i>
-                        20
+                        <i class="fa fa-heart" ng-click="like(list._id)"></i>
+                        {{list.likeList.length}}
                     </span>
                 </div>
             </div>

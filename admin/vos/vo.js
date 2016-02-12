@@ -17,15 +17,13 @@ exports.setAndValdate = function(req, next, objectVO, errStatus){
             if((!objectVO[key].method || !!objectVO[key].method && (objectVO[key].method.toUpperCase().indexOf(method.toUpperCase()) > -1))){
                 if(!!objectVO[key].checkURL){
                     for(var i=0;i<objectVO[key].checkURL.length;i++){
-                        if(objectVO[key].checkURL[i].substr(0,1) != '!') {
-                            notCheck = true;
-                            if(req.originalUrl == objectVO[key].checkURL[i] || req.originalUrl == objectVO[key].checkURL[i] + '/') {
-                                notCheck = false;
+                        if(objectVO[key].checkURL[i].substr(0,1) == '!') {
+                            if(req.originalUrl == objectVO[key].checkURL[i].replace('!', '') || req.originalUrl == objectVO[key].checkURL[i].replace('!', '') + '/') {
+                                notCheck = true;
                                 break;
                             }
-                        }else  if(objectVO[key].checkURL[i].substr(0,1) == '!') {
-                            notCheck = false;
-                            if(req.originalUrl == objectVO[key].checkURL[i] || req.originalUrl == objectVO[key].checkURL[i] + '/') {
+                        }else  if(objectVO[key].checkURL[i].substr(0,1) != '!') {
+                            if(!(req.originalUrl == objectVO[key].checkURL[i] || req.originalUrl == objectVO[key].checkURL[i] + '/')) {
                                 notCheck = true;
                                 break;
                             }

@@ -1,0 +1,31 @@
+#programCreate .course-box {
+    padding: 15px;
+    background-color: #ebebeb;
+    margin-top: 5px;
+}
+
+#programCreate .course ul {
+    padding: 0;
+    margin-top: 10px;
+}
+
+#programCreate .course ul li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: -1px;
+    background-color: #ebebeb;
+}
+
+#programCreate .course ul li .course-box{
+    background-color: #fff;
+}
+
+#programCreate .categoty-tag {
+    padding: 0 5px;
+    border: 1px solid #0f5d90;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    font-size: 12px;
+    margin: 5px;
+}
