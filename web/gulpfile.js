@@ -62,6 +62,8 @@ gulp.task('font-move', function() {
 // Styles
 gulp.task('styles', function() {
     return gulp.src([
+        'public/src/css/**/*.css',
+        'public/src/css/**/**/*.css',
         'public/src/css/*.css'
     ])
         .pipe(concatCss('all.css'))
@@ -74,7 +76,9 @@ gulp.task('styles', function() {
 // Scripts
 gulp.task('scripts', function() {
     return gulp.src([
-        'public/src/js/**/*.js'
+        'public/src/js/**/**/*.js',
+        'public/src/js/**/*.js',
+        'public/src/js/*.js'
     ])
         .pipe(concat('all.js'))
         /*.pipe(stripDebug())*/
@@ -96,6 +100,7 @@ gulp.task('img', function() {
 // html 변환
 gulp.task('angular-template', function(){
     return gulp.src([
+        'public/src/html/**/**/*.html',
         'public/src/html/**/*.html',
         '!public/src/html/index.html'
     ])
@@ -132,16 +137,16 @@ gulp.task('watch', function() {
     livereload.listen();
 
     // Watch .css files
-    gulp.watch('public/src/css/*.css', ['styles']);
+    gulp.watch(['public/src/css/**/*.css', 'public/src/css/**/**/*.css', 'public/src/css/*.css'], ['styles']);
 
     // Watch .js files
-    gulp.watch(['public/src/js/**/*.js'], ['scripts']);
+    gulp.watch(['public/src/js/**/**/*.js', 'public/src/js/**/*.js', 'public/src/js/*.js'], ['scripts']);
 
     // Watch index files
     gulp.watch('public/src/html/index.html', ['index-min']);
 
     // Watch html files
-    gulp.watch(['public/src/html/**/**/*.html', '!public/src/html/index.html'], ['angular-template']);
+    gulp.watch(['public/src/html/**/**/*.html', 'public/src/html/**/*.html', '!public/src/html/index.html'], ['angular-template']);
 
     // Watch img files
     gulp.watch(['public/src/img/**/*'], ['img']);
