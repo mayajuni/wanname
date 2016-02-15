@@ -1,0 +1,52 @@
+<div id="qnaDetail">
+    <div class="modal-header blue">
+        <button type="button" class="close" aria-label="Close" ng-click="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        1:1 문의
+    </div>
+    <div class="modal-body clearfix">
+        <form name="myForm">
+            <h2>나의 질문</h2>
+            <article>
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" placeholder="ID" ng-model="$root.user._id" readonly>
+                </div>
+                <div class="form-group">
+                    <label>이름</label>
+                    <input type="text" class="form-control" placeholder="이름" ng-model="$root.user.name" readonly>
+                </div>
+                <div class="form-group">
+                    <label>제목</label>
+                    <input type="text" class="form-control" placeholder="제목" ng-model="qna.title" readonly>
+                </div>
+                <div class="form-group">
+                    <label>내용</label>
+                    <textarea class="form-control" rows="10" placeholder="내용" ng-model="qna.content" readonly></textarea>
+                </div>
+            </article>
+            <h2>답변</h2>
+            <article>
+                <div ng-if="!qna.isAnswer">
+                    답변 대기중 입니다.
+                </div>
+                <div ng-if="qna.isAnswer">
+                    <div class="form-group">
+                        <label>이름</label>
+                        관리자
+                    </div>
+                    <div class="form-group">
+                        <label>날짜</label>
+                        {{qna.answerDt | date: 'yyyy.MM.dd HH:mm'}}
+                    </div>
+                    <div class="form-group">
+                        <label>내용</label>
+                        <textarea class="form-control" rows="10" placeholder="내용" ng-model="qna.content" readonly></textarea>
+                    </div>
+                </div>
+            </article>
+        </form>
+        </article>
+    </div>
+</div>

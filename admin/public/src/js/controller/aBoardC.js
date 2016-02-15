@@ -18,11 +18,15 @@ app
                 scope.category = $stateParams.category;
                 boardS.openCreateModal(scope).result.then(function() {
                     $scope.getBoardList();
+                }, function() {
+                    $scope.getBoardList();
                 });
             };
 
             $scope.openEditModal = function(_id) {
                 boardS.openEditModal($stateParams.category, _id).result.then(function() {
+                    $scope.getBoardList();
+                }, function() {
                     $scope.getBoardList();
                 });
             };

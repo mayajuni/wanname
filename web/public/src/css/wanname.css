@@ -204,6 +204,30 @@ ul.share-box li.naver {
     padding: 3%;
 }
 
+.modal-header.blue {
+    border: none;
+    text-align: center;
+    background-color: #1371e7;
+    color: #fff;
+    font-size: 25px;
+    position: relative;
+}
+
+.modal-header.blue .close {
+    color: white;
+    opacity: 1;
+    height: 21px;
+    top: 0;
+    bottom: 0;
+    right: 15px;
+    margin: auto 0;
+    position: absolute;
+}
+
+.modal-header.blue .close:hover {
+    color: #dcdcdc;
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
     .container {
         padding-top: 0;

@@ -9,9 +9,7 @@ app.controller('memberC', ['$scope', 'memberS', '$location',
         $scope.openDetail = function(detail) {
             var scope = $scope.$new();
             scope.detail = detail;
-            memberS.openDetailModal(scope).result.then({},function() {
-                $scope.getMemberList();
-            })
+            memberS.openDetailModal(scope).result.then($scope.getMemberList, $scope.getMemberList)
         };
 
         /* 멤버 리스트 */

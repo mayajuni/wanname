@@ -15,8 +15,8 @@ var rootVo = require("./vo");
  */
 function Vo() {
     return {
-        _id: {validate: true, checkURL: ['!/api/login/token']},
-        password: {validate: true, checkURL: ['/api/login']},
+        _id: {method: "POST", validate: true, checkURL: ['!/api/login/token', '!/api/profile']},
+        password: {validate: true, checkURL: ['/api/login', '/api/profile/changePassword']},
         token: {validate: true, checkURL: ['/api/login/token']},
         newPassword: {method: "POST", validate: true, checkURL: ['/api/mypage/changePassword']},
         name: String,

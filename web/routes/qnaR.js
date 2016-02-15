@@ -23,7 +23,7 @@ router.get("/", boardVO.set, function(req, res) {
  * 상세
  */
 router.get("/:_id", function(req, res) {
-    boardBiz.getDetail(req.user._id, req.params._id, function(data) {
+    boardBiz.getMyDetail(req.user._id, req.params._id, function(data) {
         res.send(data);
     })
 });

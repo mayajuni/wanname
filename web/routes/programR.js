@@ -3,6 +3,7 @@
  */
 var express = require("express");
 var programBiz = require("../../biz/routes/programBiz");
+var loginAuth = require("../util/loginAuth");
 
 var router = express.Router();
 
@@ -24,15 +25,21 @@ router.get("/category", function(req, res) {
     })
 });
 
-router.post("/apply/:_id", function(req, res) {
-    programBiz.apply(req.session.user, req.params._id, function(){
+router.post("/apply/:_id", loginAuth.check, function(req, res) {
+    programBiz.apply(req.user, req.params._id, function(){
         res.send();
     });
 });
 
-router.post("/like/:_id", function(req, res) {
-    programBiz.like(req.session.user, req.params._id, function(){
+router.post("/like/:_id", loginAuth.check, function(req, res) {
+    programBiz.like(req.user, req.params._id, function(){
         res.send();
+    })
+});
+
+router.get("/getApplyList", loginAuth.check, function(req, res) {
+    programBiz.getApplyList(req.user._id, function(data){
+        res.send(data);
     })
 });
 

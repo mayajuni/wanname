@@ -1,0 +1,44 @@
+<div id="qna" class="clearfix">
+    <table class="table table-hover">
+        <colgroup>
+            <col width="100px" >
+            <col width="" >
+            <col width="130px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="table-answer">구분</th>
+            <th class="table-title">제목</th>
+            <th class="table-date">날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="list in qnaList | orderBy : 'regDt' : true" ng-click="openDetail(list._id)">
+            <td align="center">
+                <div class="answer">
+                    <span ng-if="!list.isAnswer">
+                        [답변 대기]
+                    </span>
+                    <span ng-if="list.isAnswer">
+                        [답변 완료]
+                    </span>
+                </div>
+            </td>
+            <td>
+                {{list.title}}
+            </td>
+            <td align="center">
+                {{list.regDt | date : 'yyyy.MM.dd'}}
+            </td>
+        </tr>
+        <tr ng-if="!qnaList || qnaList.length < 1">
+            <td colspan="3" align="center">
+                조회된 내역이 없습니다.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="list-paging">
+        <uib-pagination total-items="count" ng-model="search.page" max-size="10" items-per-page="10" class="pagination-sm" rotate="false"></uib-pagination>
+    </div>
+</div>

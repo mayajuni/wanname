@@ -122,6 +122,22 @@ exports.getDetail = function(_id, callback) {
     })
 };
 
+/**
+ * 나의 게시판 상세를 가지고 온다.
+ *
+ * @param _id
+ * @param callback
+ */
+exports.getMyDetail = function(userId, _id, callback) {
+    Board.findOne({_id: new ObjectId(_id), userId: userId}, function(error, data) {
+        if(error) {
+            throw error;
+        }
+
+        callback(data);
+    })
+};
+
 
 /**
  * 게시판 상세를 가지고 온다.
@@ -208,7 +224,11 @@ exports.save = function(userId, name, boardVO, callback) {
 exports.update = function(userId, boardVO, callback) {
     var _id = boardVO._id;
     delete boardVO._id;
-    boardVO.modiDt = Date.now;
+    boardVO.modiDt = Date.now();
+    if(boardVO.isAnswer) {
+        boardVO.answerDt = Date.now();
+        var userId = boardVO.userId;
+    }
 
     fileBiz.divisionIdEditRemove(_id, config.file.doc.board, function() {
         Board.update(

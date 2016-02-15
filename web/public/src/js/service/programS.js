@@ -39,6 +39,13 @@ app.factory('programS', ['$q', 'property', '$http', '$uibModal',
                 });
                 return asy.promise;
             },
+            getApplyList: function() {
+                var asy = $q.defer();
+                $http.get(property.api.program+'getApplyList').success(function(data){
+                    asy.resolve(data);
+                });
+                return asy.promise;
+            },
             openCourseModal: function(scope) {
                 return $uibModal.open({
                     templateUrl: 'view/program/course.md.html',

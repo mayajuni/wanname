@@ -125,7 +125,7 @@ exports.changeToken = function(userId, callback) {
  */
 exports.changePassword = function(userId, oldPassword, newPassword, callback) {
     Member.findOneAndUpdate(
-        {_id: userId, password: oldPassword},
+        {_id: userId, password: crypto.encrypt(oldPassword, config.crypto.password)},
         {$set: {password: crypto.encrypt(newPassword, config.crypto.password)}},
         {new: true},
         function(error, data){
@@ -133,8 +133,8 @@ exports.changePassword = function(userId, oldPassword, newPassword, callback) {
                 throw error;
             }
 
-            if(data.length < 1) {
-                return err.throw(409, property.error.notUser);
+            if(!data || data.length < 1) {
+                return err.throw(409, property.error.password);
             }
 
             callback();
@@ -160,7 +160,7 @@ exports.updateUser = function(userId, memberVO, callback) {
                 throw error;
             }
 
-            callback(data);
+            callback(data._doc);
         }
     );
 };

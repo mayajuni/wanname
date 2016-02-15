@@ -43,6 +43,24 @@ app.factory('qnaS', ['$q', 'property', '$http', '$uibModal', 'loginS', '$rootSco
                     controller: 'qnaCreateC',
                     scope: scope
                 });
+            },
+            openDetailQna: function(_id) {
+                if(!$rootScope.user) {
+                    return loginS.openLoginModal();
+                }
+                return $uibModal.open({
+                    templateUrl: 'view/myPage/qna/qnaDetail.md.html',
+                    animation: true,
+                    controller: 'qnaDetailC',
+                    size: 'lg',
+                    resolve: {
+                        qna: function() {
+                            return service.getQnaDetail(_id).then(function(data) {
+                                return data;
+                            });
+                        }
+                    }
+                });
             }
         };
 

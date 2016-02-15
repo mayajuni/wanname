@@ -13,6 +13,7 @@ var programR = require("../routes/programR");
 var qnaR = require("../routes/qnaR");
 var noticeR = require("../routes/noticeR");
 var faqR = require("../routes/faqR");
+var profileR = require("../routes/profileR");
 
 /**
  * 라우터 설정!
@@ -47,6 +48,8 @@ exports.app = function(app, dirName){
 
     /* qna */
     app.use("/api/qna", qnaR);
+    /* profile */
+    app.use("/api/profile", profileR);
 
     /**
      * angular의 html5 모드때문에 이렇게 한다

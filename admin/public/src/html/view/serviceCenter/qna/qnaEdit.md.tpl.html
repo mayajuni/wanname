@@ -27,21 +27,7 @@
             </div>
             <div class="form-group">
                 <label>답변</label>
-                <summernote ng-model="board.answer" on-image-upload="notFileUpload()"
-                            config="{ toolbar: [
-            ['edit',['undo','redo']],
-            ['headline', ['style']],
-            ['style', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
-            ['fontface', ['fontname']],
-            ['textsize', ['fontsize']],
-            ['fontclr', ['color']],
-            ['alignment', ['ul', 'ol', 'paragraph', 'lineheight']],
-            ['height', ['height']],
-            ['table', ['table']],
-            ['insert', ['link','video','hr']],
-            ['view', ['fullscreen', 'codeview']],
-            ['help', ['help']]]}"
-                        ></summernote>
+                <textarea class="form-control" rows="10" ng-model="board.answer"></textarea>
             </div>
         </div>
         <div class="modal-footer">

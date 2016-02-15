@@ -96,6 +96,8 @@ mongo.schema.board = new Schema({
     isAnswer: {type:Boolean, default: false},
     /* Qna에서 사용 */
     answer: String,
+    /* Qna에서 사용 */
+    answerDt: Date,
     itemId: String,
     courseId: String,
     fileList: [mongo.schema.file],

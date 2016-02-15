@@ -158,6 +158,13 @@ exports.update = function(programVO, callback) {
     });
 };
 
+/**
+ * 좋아요
+ *
+ * @param user
+ * @param _id
+ * @param callback
+ */
 exports.like = function(user, _id, callback) {
       Program.findOne({_id: new ObjectId(_id), likeList: {$elemMatch: {_id: user._id}}}, function(error, data) {
           if(error) {
@@ -182,6 +189,13 @@ exports.like = function(user, _id, callback) {
       })
 };
 
+/**
+ * 관심
+ *
+ * @param user
+ * @param _id
+ * @param callback
+ */
 exports.apply = function(user, _id, callback) {
       Program.findOne({_id: new ObjectId(_id), applyList: {$elemMatch: {_id: user._id}}}, function(error, data) {
           if(error) {
@@ -206,6 +220,28 @@ exports.apply = function(user, _id, callback) {
       })
 };
 
+/**
+ * 관심 프로그램 가져오기
+ *
+ * @param userId
+ * @param callback
+ */
+exports.getApplyList = function(userId, callback) {
+    Program.find({applyList: {$elemMatch: {_id: userId}}}, function(error, data) {
+        if(error) {
+            throw error;
+        }
+
+        callback(data);
+    });
+};
+
+/**
+ * 후기 가져오기
+ *
+ * @param _id
+ * @param callback
+ */
 exports.getReview = function(_id, callback) {
     Program.count({programId: _id}, function(error, count){
         if(error){

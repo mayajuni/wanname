@@ -69,8 +69,8 @@ app
                     }
                 })
                 .state('center', {
-                    abstract: true,
                     url: '/center',
+                    abstract: true,
                     template: '<div ui-view></div>'
                 })
                 .state('center.main', {
@@ -106,6 +106,11 @@ app
                     '</div>' +
                     '<article id="faq"><faq></faq></article>' +
                     '</div>'
+                })
+                .state('myPage', {
+                    url: '/myPage',
+                    templateUrl: 'view/myPage/myPage.tpl.html',
+                    controller: 'myPageC'
                 })
             ;
 

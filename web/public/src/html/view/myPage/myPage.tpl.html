@@ -1,0 +1,20 @@
+<div class="menu-detail" id="myPage">
+    <div class="main-title">
+        My Page
+        <div class="small">
+            나만의 공간
+        </div>
+    </div>
+    <article>
+        <ul>
+            <li ng-class="{'active': toggle == 'profile'}" ng-click="doToggle('profile')">회원 정보</li>
+            <li ng-class="{'active': toggle == 'qna'}" ng-click="doToggle('qna')">내문의</li>
+            <li ng-class="{'active': toggle == 'like'}" ng-click="doToggle('like')">관심프로그램</li>
+            <li ng-class="{'active': toggle == 'pay'}" ng-click="doToggle('pay')">결제내역</li>
+        </ul>
+        <div class="content" ng-if="toggle == 'profile'" ng-include="'view/myPage/profile/profile.tpl.html'" ng-controller="profileC"></div>
+        <div class="content" ng-if="toggle == 'qna'" ng-include="'view/myPage/qna/qnaList.tpl.html'" ng-controller="qnaListC"></div>
+        <div class="content" ng-if="toggle == 'like'" ng-include="'view/myPage/apply/apply.tpl.html'" ng-controller="applyC"></div>
+        <div class="content" ng-if="toggle == 'pay'" ng-include="'view/myPage/pay/pay.tpl.html'" ng-controller="qnaListC"></div>
+    </article>
+</div>

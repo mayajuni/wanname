@@ -35,9 +35,7 @@ app
             };
 
             $scope.openAddModal = function() {
-                administratorS.openAddModal().result.then(function () {
-                    $scope.getAdministratorList();
-                });
+                administratorS.openAddModal().result.then($scope.getAdministratorList, $scope.getAdministratorList);
             };
 
             $scope.openAdministratorMenuModal = function(_id) {

@@ -1,8 +1,8 @@
 /**
  * Created by 동준 on 2015-09-18.
  */
-app.factory('loginS', ['$rootScope', '$q', 'property', '$http', '$uibModal', 'loginAfterQ', '$localStorage',
-    function($rootScope, $q, property, $http, $uibModal, loginAfterQ, $localStorage){
+app.factory('loginS', ['$rootScope', '$q', 'property', '$http', '$uibModal', 'loginAfterQ', '$localStorage', '$state',
+    function($rootScope, $q, property, $http, $uibModal, loginAfterQ, $localStorage, $state){
         var loginDialog = null;
         function openLoginDialog() {
             if ( loginDialog ) {
@@ -40,15 +40,19 @@ app.factory('loginS', ['$rootScope', '$q', 'property', '$http', '$uibModal', 'lo
                 }
             },
             openLoginModal: function() {
-                openLoginDialog().result.then({}, function () {
+                openLoginDialog().result.then(closeLogin, closeLogin);
+
+                function closeLogin() {
                     loginDialog = null;
                     if (!!$rootScope.user) {
                         loginAfterQ.retryAll();
-                     } else {
+                    } else {
                         loginAfterQ.cancelAll();
-                        /*location.href= '/';*/
-                     }
-                });
+                        if($state.includes('myPage.*')) {
+                            $state.go('main');
+                        }
+                    }
+                }
             },
             doLogin : function(login){
                 var asy = $q.defer();

@@ -231,4 +231,12 @@ angular.module('utils', [])
             return '/imgs/common/human-login.png';
         };
     })
+    .filter('phPattern', function() {
+        return function(ph){
+            if(ph){
+                return ph.substr(0, 3) + '-' + ph.substr(3, 4) + '-' + ph.substr(7, 4);
+            }
+            return '';
+        };
+    })
 ;
