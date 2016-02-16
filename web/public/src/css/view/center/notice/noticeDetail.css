@@ -1,0 +1,74 @@
+#noticeDetail article {
+    margin: 20px 0px 0;
+}
+
+#noticeDetail .header {
+    border-top: 5px solid #1371e7;
+    border-bottom: 1px solid #1371e7;
+    padding: 2% 1%;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#noticeDetail .header .sub {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#noticeDetail .header .sub li {
+    float: left;
+    padding: 10px 5px;
+}
+
+#noticeDetail .header .sub li:first-child {
+    float: left;
+    padding-left: 0px;
+}
+
+#noticeDetail .header .sub li+li:before {
+    padding: 0;
+    color: #7b7b7b;
+    content: "/\00a0";
+}
+
+#noticeDetail .header .sub li+li:before {
+    padding: 0;
+    color: #7b7b7b;
+    content: "/\00a0";
+}
+
+#noticeDetail .footer {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#noticeDetail .other-blog {
+    border-top: 1px solid #1371e7;
+    padding: 15px;
+}
+
+#noticeDetail .other-blog .text{
+    border-bottom: 1px solid #dcdcdc;
+    padding: 5px;
+}
+
+#noticeDetail .other-blog table tr:last-child{
+    border-bottom: 2px solid #dcdcdc;
+}
+
+#noticeDetail .other-blog table tr:hover{
+    background-color: #ddd;
+}
+
+#noticeDetail .other-blog table tr.active{
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 360px) {
+
+}

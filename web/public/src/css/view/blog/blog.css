@@ -1,0 +1,72 @@
+#blog article.best-blog {
+    background-color: #3d3d3d;
+    color: #fff;
+    padding: 2%;
+    margin: 15px 0px 0;
+}
+
+#blog article.best-blog h2{
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+#blog article.content-box {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+}
+
+#blog article [class*=col-] {
+    padding: 5px 10px;
+    cursor: pointer;
+    height: 280px;
+    position: relative;
+}
+
+#blog article [class*=col-] > img{
+    height: 270px;
+    width: 100%;
+}
+
+#blog article .text {
+    position: absolute;
+    bottom: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 20px;
+    width: calc(100% - 20px);
+    background-color: rgba(0,0,0,.7);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    z-index: 1;
+}
+
+#blog article .background {
+    position: absolute;
+    padding: 5px 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 10px;
+    border: 0px solid #f7f7f7;
+    -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s; transition: all 0.5s;
+    z-index: 2;
+}
+
+#blog article > [class*=col-]:hover .background {
+    border: 10px solid #1371e7;
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 360px) {
+
+}

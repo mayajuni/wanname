@@ -1,0 +1,85 @@
+#profileEdit .control-label {
+    font-weight: normal;
+    font-size: 13px;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: left;
+}
+
+#profileEdit .modal-body {
+    padding: 3% 10%;
+}
+
+#profileEdit .modal-body p.title-text {
+    font-weight: normal;
+    text-align: center;
+    margin: 6% 0 9%;
+}
+
+#profileEdit .modal-footer .form-inline > .form-group > select.form-control {
+    margin-right: 10px;
+}
+
+#profileEdit .modal-body .text {
+    font-size: 12px;
+    color: #1371e7;
+}
+
+#profileEdit .btn-edit {
+    background-color: #1371e7;
+    color: #fff;
+}
+
+#profileEdit .btn-edit:hover {
+    background-color: #286090;
+}
+
+#profileEdit .btn-close {
+    background-color: #6a6a6a;
+    color: #fff;
+}
+
+#profileEdit .btn-close:hover {
+    background-color: #555555;
+}
+
+#profileEdit .terms-box {
+    max-height: 200px;
+    overflow: auto;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#profileEdit .password-box {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 3%;
+}
+
+#profileEdit .password-box label{
+    font-size: 12px;
+}
+
+@media (max-width: 767px) {
+    #profileEdit .control-label {
+        font-weight: normal;
+        font-size: 13px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    #profileEdit .birthday {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    #profileEdit .modal-header {
+        font-size: 20px;
+    }
+
+    #profileEdit .modal-body {
+        padding: 3%;
+    }
+}

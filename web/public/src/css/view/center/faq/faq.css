@@ -1,0 +1,66 @@
+#faq {
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    padding: 15px;
+    float: left;
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.faq {
+    color: #444444;
+}
+
+.faq .qna-box {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.faq .qna-box  button{
+    margin-top: 15px;
+}
+
+.faq ul {
+    margin-top: 10px;
+}
+
+.faq ul li {
+    position: relative;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-bottom: -1px;
+}
+
+.faq ul li:first-child, .faq ul li:first-child > .content, .faq ul li:first-child .header, .faq ul li:first-child .header.active {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.faq ul li:last-child, .faq ul li:last-child > .content, .faq ul li:last-child .body > .text, .faq ul li:last-child .body, .faq ul li:last-child .header {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.faq ul li .header {
+    background-color: #fff;
+    padding: 5px 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+}
+
+.faq ul li .header.active {
+    background-color: #448ccb;
+    color: #fff;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.faq ul li .body > .text{
+    padding: 15px 5%;
+    background-color: #f5fbfe;
+}

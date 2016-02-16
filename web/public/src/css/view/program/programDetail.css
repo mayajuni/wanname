@@ -1,0 +1,28 @@
+#programDetail article .after-box {
+    background-color: #ededed;
+    padding: 2%;
+}
+
+#programDetail article .main-title {
+    margin-top: 20px;
+}
+
+#programDetail article .after-box table {
+    margin: 0;
+}
+
+#programDetail article .couse-list table {
+    margin: 0;
+}
+
+#programDetail article .couse-list table tr {
+    background-color: #1371e7;
+    color: #fff;
+    text-align: center;
+}
+
+#programDetail article .couse-list table tr:hover {
+    background-color: #2b669a;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}

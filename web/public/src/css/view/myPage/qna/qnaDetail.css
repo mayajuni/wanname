@@ -1,0 +1,10 @@
+#qnaDetail article {
+    padding: 3%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#qnaDetail h2 {
+    font-size: 18px;
+    margin: 15px 0 5px;
+}

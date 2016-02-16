@@ -1,0 +1,48 @@
+#myPage article > ul {
+    width: 100%;
+    border-bottom: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin-top: 10px;
+}
+
+#myPage article > ul li {
+    display: table-cell;
+    width: 1%;
+    float: none;
+    margin-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+    margin-right: 0;
+    line-height: 1.42857143;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#myPage article > ul li.active, #myPage article > ul li:hover {
+    background-color: #1371e7;
+    border: 1px solid #1371e7;
+    color: #fff;
+}
+
+#myPage .content{
+    border: 0.2em solid #1371e7;
+    width: 100%;
+    padding: 3%;
+    position: relative;
+}
+
+#myPage .pagination{
+    margin-bottom: 0;
+}
+
+#myPage table tbody tr td {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+#myPage table thead tr th{
+    text-align: center;
+}
