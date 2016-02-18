@@ -23,7 +23,7 @@ app
                     controller: 'programC'
                 })
                 .state('program.detail', {
-                    url: '/:_id',
+                    url: ':_id',
                     templateUrl: 'view/program/programDetail.tpl.html',
                     controller: 'programDetailC',
                     resolve: {

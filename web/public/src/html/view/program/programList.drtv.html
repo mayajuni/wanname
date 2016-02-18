@@ -1,5 +1,5 @@
 <div class="program-box">
-    <div class="tag-box clearfix" ng-if="!isMain">
+    <!--<div class="tag-box clearfix" ng-if="!isMain">
         <div class="best-tag clearfix">
             <div class="text">인기태그</div>
             <ul class="tag">
@@ -39,7 +39,7 @@
                 <li>음식점 창업</li>
             </ul>
         </div>
-    </div>
+    </div>-->
     <div class="program-list clearfix">
         <div class="col-sm-6 col-md-4" ng-repeat="list in programList | orderBy : 'regDt' : true">
             <img ng-src="{{list.mainImage[0] | getImage}}" ui-sref="program.detail({_id: list._id})">
@@ -48,7 +48,7 @@
                     <div class="title">
                         {{list.title}}
                     </div>
-                    <div class="nmame">커피위로 정희수 로스터</div>
+                    <div class="nmame">{{list.name}}</div>
                     <div class="tag clearfix">
                         <ul class="tag">
                             <li ng-repeat="subList in list.category">{{subList}}</li>

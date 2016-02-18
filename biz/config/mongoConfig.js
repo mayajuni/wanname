@@ -43,6 +43,7 @@ mongo.schema.programCourses = new Schema({
     name: String,
     feature: String,
     dateLocation: String,
+    date: String,
     other: String,
     content: String,
     pay:  Number,
@@ -61,6 +62,7 @@ mongo.schema.programContent = new Schema({
 mongo.schema.program = new Schema({
     category: Array,
     mainImage: [mongo.schema.file],
+    name: String,
     title: String,
     courses: [mongo.schema.programCourses],
     oldHtml: String,

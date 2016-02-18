@@ -18,6 +18,7 @@ function Vo() {
         _id: String,
         category: {method: 'POST, PUT', validate: true},
         mainImage: {method: 'POST, PUT', validate: true},
+        name: String,
         title: String,
         courses : String,
         oldHtml: Number,

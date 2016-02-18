@@ -128,6 +128,12 @@ app
                 })
             };
 
+            $scope.delete = function() {
+                programS.detail($scope.program._id).then(function() {
+                    $scope.close();
+                })
+            };
+
             $scope.close = function() {
                 $uibModalInstance.close();
             };

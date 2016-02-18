@@ -44,6 +44,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label>체험날짜 및 시간</label>
+                                <div>
+                                    <input type="text" ng-model="course.date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label>기간 및 장소</label>
                                 <div>
                                     <input type="text" ng-model="course.dateLocation" class="form-control">
@@ -90,6 +96,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label>체험날짜 및 시간</label>
+                                    <div>
+                                        <input type="text" ng-model="list.date" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label>기간 및 장소</label>
                                     <div>
                                         <input type="text" ng-model="list.dateLocation" class="form-control" readonly>
@@ -119,6 +131,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label>이름</label>
+                <div>
+                    <input type="text" class="form-control" ng-model="program.name" placeholder="이름" required>
+                </div>
+            </div>
+            <div class="form-group">
                 <label>제목</label>
                 <div>
                     <input type="text" class="form-control" ng-model="program.title" placeholder="제목" required>
@@ -133,6 +151,7 @@
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-success" ng-click="update()" ng-disabled="myForm.$error.required || !program.oldHtml">수정</button>
+            <button type="submit" class="btn btn-danger" ng-click="delete()" ng-if="program._id">삭제</button>
             <button type="submit" class="btn btn-default" ng-click="close()">닫기</button>
         </div>
     </form>

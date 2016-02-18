@@ -7,7 +7,7 @@
     </div>
     <!-- 본문 -->
     <article ng-bind-html="detail.oldHtml | changeTrustAdHtml"></article>
-    <article>
+    <!--<article>
         <div class="main-title">
             프로그램 후기
         </div>
@@ -37,13 +37,21 @@
                 </tbody>
             </table>
         </div>
-    </article>
+    </article>-->
     <article>
         <div class="main-title">
             프로그램 코스
         </div>
-        <div class="couse-list">
-            <table class="table">
+        <div class="course-list">
+            <div class="col-xs-6 col-sm-3 course-box" ng-repeat="list in detail.courses" ng-click="openCourseModal(list)">
+                <div class="name">
+                    {{list.name}}
+                </div>
+                <div class="more">
+                    더보기
+                </div>
+            </div>
+            <!--<table class="table">
                 <colgroup>
                     <col width="70%">
                     <col width="20%">
@@ -55,7 +63,7 @@
                     <td>{{list.dateLocation}}</td>
                 </tr>
                 </tbody>
-            </table>
+            </table>-->
         </div>
     </article>
 </div>

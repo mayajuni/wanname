@@ -44,12 +44,11 @@ router.put("/", programVO.set, function(req, res){
 
 /**
  * 프로그램 삭제
-router.delete("/", programVO.set, function(req, res){
-    programBiz.getList(programVO.get, function(data) {
-        res.send(data);
+ */
+router.delete("/:_id", programVO.set, function(req, res){
+    programBiz.delete(req.params._id, function() {
+        res.send();
     })
 });
-
- */
 
 module.exports = router;

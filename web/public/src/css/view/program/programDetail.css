@@ -26,3 +26,23 @@
     cursor: pointer;
     border-bottom: 1px solid #ddd;
 }
+
+#programDetail .course-box {
+    height: 200px;
+    background-color: #1371e7;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px;
+    position: relative;
+}
+
+#programDetail .course-box .name{
+    font-size: 1.5em;
+}
+
+#programDetail .course-box .more{
+    font-size: 1em;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

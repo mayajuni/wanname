@@ -264,3 +264,19 @@ exports.getReview = function(_id, callback) {
         });
     });
 };
+
+/**
+ * 삭제
+ *
+ * @param _id
+ * @param callback
+ */
+exports.delete = function(_id, callback) {
+    Program.remove({_id: _id}, function(error) {
+        if(error) {
+            throw error;
+        }
+
+        callback();
+    })
+};

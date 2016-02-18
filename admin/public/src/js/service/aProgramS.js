@@ -54,6 +54,13 @@ app.factory('programS', ['$q', 'property', '$http', '$uibModal',
                     asy.resolve(data);
                 });
                 return asy.promise;
+            },
+            delete: function(_id) {
+                var asy = $q.defer();
+                $http.delete(property.api.program + _id).success(function (){
+                    asy.resolve();
+                });
+                return asy.promise;
             }
         };
 
