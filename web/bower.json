@@ -20,7 +20,7 @@
     "ng-file-upload": "~12.0.1",
     "wow": "~1.1.2",
     "angular-bootstrap": "~0.14.2",
-    "angular-summernote": "~0.7.1",
+    "angular-summernote": "~0.5.2",
     "angular-strap": "~2.3.7"
   }
 }
