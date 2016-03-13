@@ -5,6 +5,7 @@ app
     .controller('loginC', ['$scope', 'loginS', '$state', '$rootScope', 'joinS', '$uibModalInstance', '$localStorage',
         function($scope, loginS, $state, $rootScope, joinS, $uibModalInstance, $localStorage){
             loginS.logout();
+            $scope.find = {};
             $localStorage.remove('token');
             $rootScope.user = null;
             $scope.login = {
@@ -49,6 +50,16 @@ app
 
                 if(!$scope.login._id) {
                     $scope.error.email = '아이디(이메일) 형식이 잘못되었거나 입력이 안되었습니다.';
+                }
+            };
+
+            $scope.findPassword = function() {
+                if($scope.find.email && $scope.find.name) {
+                    if(confirm('비밀번호 찾기를 하시겠습니까?')) {
+                        loginS.findPassword($scope.find).then(function() {
+                            alert('이메일 주소로 임시 비밀번호가 전송되었습니다.');
+                        })
+                    }
                 }
             };
 

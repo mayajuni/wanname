@@ -80,6 +80,14 @@ app.factory('loginS', ['$rootScope', '$q', 'property', '$http', '$uibModal', 'lo
                     asy.resolve( $rootScope.user);
                 });
                 return asy.promise;
+            },
+            findPassword: function(find) {
+                var asy = $q.defer();
+                $http.post(property.api.login + 'findPassword/' + find.email + '/' + find.name, {}).success(function(data) {
+                    $rootScope.user = data;
+                    asy.resolve( $rootScope.user);
+                });
+                return asy.promise;
             }
         };
 

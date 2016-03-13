@@ -46,8 +46,8 @@ router.get("/logout", function(req, res){
 /**
  * 비밀번호 찾기
  */
-router.post("/findPassword/:_id", function(req, res){
-    memberBiz.findPassword(req.params._id, function(){
+router.post("/findPassword/:_id/:name", function(req, res){
+    memberBiz.findPassword(req.params._id, req.params.name, function(){
         res.send();
     })
 });

@@ -183,12 +183,13 @@ exports.findPassword = function(userId, name, callback) {
                 throw error;
             }
 
-            if(data.length < 1) {
+            if(!data || data.length < 1) {
                 err.throw(409, property.error.notUser)
             }
 
+            data._doc.password = crypto.decrypt(data._doc.password, config.crypto.password);
             /* 템플릿 만들기 */
-            email.getHtml(config.email.tpls.findPassword, password, function(error, data) {
+            email.getHtml(config.email.tpls.findPassword, data._doc, function(error, data) {
                 if(error){
                     throw error;
                 }

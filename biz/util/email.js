@@ -53,7 +53,7 @@ exports.getHtml = function(fileName, param, callback){
     // res.render('index', { title: 'Express' });
 
     // specify jade template to load
-    var template = process.cwd() + '/biz/tpls/'+fileName;
+    var template = __dirname+'/tpls/'+fileName;
 
     // get template from file system
     fs.readFile(template, 'utf8', function(error, file){
