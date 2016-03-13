@@ -46,6 +46,7 @@ app.factory('boardS', ['$q', 'property', '$http', '$uibModal',
                 return $uibModal.open({
                     templateUrl: 'view/serviceCenter/'+category+'/'+category+'Edit.md.tpl.html',
                     animation: true,
+                    backdrop : 'static',
                     controller: 'boardEditC',
                     size: 'lg',
                     resolve: {
@@ -62,6 +63,7 @@ app.factory('boardS', ['$q', 'property', '$http', '$uibModal',
                     scope: scope,
                     templateUrl: 'view/serviceCenter/'+scope.category+'/'+scope.category+'Create.md.tpl.html',
                     animation: true,
+                    backdrop : 'static',
                     controller: 'boardCreateC',
                     size: 'lg'
                 });

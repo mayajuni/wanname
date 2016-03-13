@@ -8,7 +8,7 @@ var loginAuth = require("../util/loginAuth");
 var router = express.Router();
 
 router.get("/", function(req, res) {
-    programBiz.getList({} ,function(data) {
+    programBiz.getList(req.query ,function(data) {
         res.send(data);
     })
 });

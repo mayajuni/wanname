@@ -136,6 +136,7 @@ exports.update = function(userId, blogVO, callback) {
     delete blogVO._id;
     blogVO.updateDt = Date.now();
     blogVO.updateId = userId;
+    blogVO.isTop = !blogVO.isTop ? false : blogVO.isTop;
 
     fileBiz.divisionIdEditRemove(blogVO._id, config.file.doc.blog, function() {
         Blog.update(
@@ -167,8 +168,8 @@ exports.update = function(userId, blogVO, callback) {
  * @param _id
  * @param callback
  */
-exports.remove = function(userId, _id, callback) {
-    Blog.remove({_id: new ObjectId(_id), userId: userId}, function(error) {
+exports.remove = function(_id, callback) {
+    Blog.remove({_id: _id}, function(error) {
         if(error) {
             throw error;
         }

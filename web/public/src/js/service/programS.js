@@ -4,9 +4,9 @@
 app.factory('programS', ['$q', 'property', '$http', '$uibModal',
     function($q, property, $http, $uibModal){
         var service = {
-            getProgramList: function() {
+            getProgramList: function(search) {
                 var asy = $q.defer();
-                $http.get(property.api.program).success(function(data){
+                $http.get(property.api.program, {params: search}).success(function(data){
                     asy.resolve(data);
                 });
                 return asy.promise;

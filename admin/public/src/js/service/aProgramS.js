@@ -15,6 +15,7 @@ app.factory('programS', ['$q', 'property', '$http', '$uibModal',
                 return $uibModal.open({
                     templateUrl: 'view/program/programCreate.md.tpl.html',
                     animation: true,
+                    backdrop : 'static',
                     controller: 'programCreateC',
                     size: 'lg'
                 });
@@ -39,6 +40,7 @@ app.factory('programS', ['$q', 'property', '$http', '$uibModal',
                     animation: true,
                     controller: 'programEditC',
                     size: 'lg',
+                    backdrop : 'static',
                     resolve: {
                         program: function() {
                             return service.detail(_id).then(function(data) {

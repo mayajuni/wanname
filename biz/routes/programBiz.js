@@ -24,7 +24,7 @@ var ObjectId = mongo.mongoose.Types.ObjectId;
 exports.getList = function(search, callback) {
     var where  = {};
     if(!!search.category) {
-        where.category = category;
+        where.category = search.category;
     }
     if(!!search.title){
         where.title = {$regex : search.title};

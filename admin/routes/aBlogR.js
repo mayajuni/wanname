@@ -42,4 +42,10 @@ router.post("/", blogVO.set, function(req, res) {
     })
 });
 
+router.delete("/:_id", function(req, res) {
+    blogBiz.remove(req.params._id, function() {
+        res.send();
+    })
+});
+
 module.exports = router;

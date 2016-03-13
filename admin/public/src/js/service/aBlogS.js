@@ -45,6 +45,7 @@ app.factory('blogS', ['$q', 'property', '$http', '$uibModal',
                     animation: true,
                     controller: 'blogEditC',
                     size: 'lg',
+                    backdrop : 'static',
                     resolve: {
                         detail: function () {
                             return service.getBoardDetail(_id).then(function(data) {
@@ -59,6 +60,7 @@ app.factory('blogS', ['$q', 'property', '$http', '$uibModal',
                     templateUrl: 'view/blog/blogCreate.md.tpl.html',
                     animation: true,
                     controller: 'blogCreateC',
+                    backdrop : 'static',
                     size: 'lg'
                 });
             }

@@ -1,0 +1,461 @@
+/***************웹폰트 로딩****************/
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/***************디폴트 셋팅****************/
+#detail body {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#detail ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#detail h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#detail h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#detail h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#detail p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#detail li {
+    list-style-type: none;
+}
+
+#detail a {
+    color: #999;
+    text-decoration: none;
+}
+
+#detail img {
+    vertical-align: bottom;
+}
+
+/***************여기에서부터 프로그램 컨텐츠****************/
+
+
+/***************여기에서부터 상단 타이틀 박스****************/
+
+#detail .cover {
+    width: 1180px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+#detail .video {
+    width: 50%;
+    height: 430px;
+    background-color: #3d3d3d;
+    float: left;
+    position: relative;
+}
+
+#detail .videowrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 15%;
+    height: 0;
+    overflow: hidden;
+}
+
+#detail .videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#detail .info {
+    width: 50%;
+    height: 430px;
+    background-color: #3d3d3d;
+    margin-left: 590px;
+    position: relative;
+}
+
+#detail .info .box_01 {
+    padding: 10px;
+    color: #fff;
+}
+
+#detail .info .box_01 .title {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+#detail .info .box_01 .subtitle {
+    font-size: 18px;
+    font-weight: 100;
+    text-indent: 5px;
+}
+
+#detail .info .box_02 {
+    padding: 10px;
+    height: 220px;
+    color: #fff;
+    line-height: 30px;
+}
+
+#detail .info .box_02 .title2 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #fffc00;
+    text-indent: 5px;
+}
+
+#detail .info .box_02 .subtitle2 {
+    font-size: 14px;
+    font-weight: 400;
+    text-indent: 5px;
+    padding: 1px;
+}
+
+/***************여기에서 부터 본문****************/
+
+#detail .page {
+    width: 780px;
+    margin: 0 auto;
+    color: #7b7b7b;
+}
+
+#detail .txt_box {
+    margin: 40px 0px;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+}
+
+#detail .txt_box .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#detail .txt_profile {
+    margin: 40px 0px;
+    background-color: #fff799;
+    color: #7b7b7b;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 100;
+}  
+
+#detail .txt_profile li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#detail .txt_profile .profile_title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #7b7b7b;
+}
+
+#detail .pic_box {
+    width: 780px;
+    margin: 40px 0px;
+    position: relative;
+}
+
+
+#detail .pic_box .pic {
+    width: 100%;
+    z-index: 1;
+}
+
+#detail .pic_box .comment {
+    width: 700px;
+    height: 60px;
+    padding: 10px 40px;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 20px;
+    text-align: left;
+    z-index: 2;
+}
+
+#detail .stress_box {
+    display: block;
+    width: 100%;
+    height: 240px;
+    margin: 40px 0px 20px;
+    background-image: url(../imgs/detail/quote_icons.png);
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#detail .stress_box .quote_txt {
+    font-size: 26px;
+    font-weight: 400;
+    color: #1371e7;
+    word-spacing: 2px;
+    line-height: 160%;
+    position: absolute;
+    left: 90px;
+}
+
+#detail .stress_box_short {
+    display: block;
+    width: 100%;
+    height: 120px;
+    margin: 40px 0px 20px;
+    background-image: url(../imgs/detail/quote_icons.png);
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#detail .stress_box_short .quote_txt_short {
+    font-size: 26px;
+    font-weight: 400;
+    color: #1371e7;
+    word-spacing: 2px;
+    line-height: 160%;
+    position: absolute;
+    left: 90px;
+}
+
+#detail .stress_box_long {
+    display: block;
+    width: 100%;
+    height: 400px;
+    margin: 40px 0px 20px;
+    background-image: url(../imgs/detail/quote_icons.png);
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#detail .stress_box_long .quote_txt_long {
+    font-size: 26px;
+    font-weight: 400;
+    color: #1371e7;
+    word-spacing: 2px;
+    line-height: 160%;
+    position: absolute;
+    left: 90px;
+}
+
+#detail .plus {
+    width: 100%;
+    border: 1px solid #1371e7;
+}
+
+#detail .plus .plus_top {
+    background-color: #1371e7;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    text-indent: 10px;
+}
+
+#detail .plus .plus_btm {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 20px;
+}
+
+
+#detail .map {
+    margin: 40px 0px;  
+
+}
+
+#detail .map_title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/***************여기에서부터 반응형 태블릿****************/
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+#detail .cover {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#detail .video {
+    width: 100%;
+    height: 50%;
+    background-color: #3d3d3d;
+    float: none;
+}
+
+
+#detail .info {
+    width: 100%;
+    height: 560px;
+    background-color: #3d3d3d;
+    margin-left: 0px;
+}
+
+#detail .info .box_02 .subtitle2 {
+    font-size: 20px;
+    font-weight: 400;
+    text-indent: 5px;
+    padding: 4px;
+}    
+        
+#detail .page {
+    width: 90%;
+}
+
+#detail .txt_box {
+    margin: 40px 0px;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+}    
+
+#detail .txt_profile {
+    margin: 40px 0px;
+    background-color: #fff799;
+    color: #7b7b7b;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 100;
+}    
+        
+#detail .pic_box {
+    width: 100%;
+    margin: 40px 0px;
+    position: relative;
+}
+
+#detail .pic_box .comment {
+    width: 100%;
+    height: 60px;
+    padding: 0px;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 20px;
+    text-align: left;
+    z-index: 2;    
+    }
+}
+
+/***************여기에서부터 반응형 폰****************/
+@media (max-width: 767px){
+    
+#detail .cover {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+#detail .video {
+    width: 100%;
+    height: 50%;
+    background-color: #3d3d3d;
+    float: none;
+}
+
+
+#detail .info {
+    width: 100%;
+    height: 900px;
+    background-color: #3d3d3d;
+    margin-left: 0px;
+}
+    
+#detail .info .box_02 .subtitle2 {
+    font-size: 20px;
+    font-weight: 400;
+    text-indent: 5px;
+    padding: 4px;
+}   
+ 
+#detail .page {
+    width: 100%;
+}
+ 
+#detail .pic_box {
+    width: 100%;
+    margin: 40px 0px;
+    position: relative;
+}
+    
+#detail .txt_box {
+    margin: 40px 0px;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+}    
+    
+#detail .txt_profile {
+    margin: 40px 0px;
+    background-color: #fff799;
+    color: #7b7b7b;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 100;
+}        
+
+#detail .pic_box .comment {
+    width: 100%;
+    height: 60px;
+    padding: 0px;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 20px;
+    text-align: left;    
+    }
+
+#detail .stress_box {
+    display: none;
+    } 
+    
+#detail .stress_box_short {
+    display: none;
+    } 
+    
+#detail .stress_box_long {
+    display: none;
+    } 
+    
+#detail .map {
+    display: none;
+    }    
+    
+}

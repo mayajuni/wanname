@@ -18,12 +18,15 @@ app.directive('program', function() {
                 });
             }
 
-            function getProgramList() {
-                programS.getProgramList().then(function(data) {
+            $scope.getProgramList = function(category) {
+                if(category) {
+                    $scope.search.category = category;
+                }
+                programS.getProgramList($scope.search).then(function(data) {
                     $scope.programList = data.list;
                     $scope.count = data.count;
                 });
-            }
+            };
 
             $scope.apply = function(_id) {
                 if(!$rootScope.user) {
@@ -32,7 +35,7 @@ app.directive('program', function() {
 
                 programS.apply(_id).then(function() {
                     alert('완료');
-                    getProgramList();
+                    $scope.getProgramList();
                 });
             };
 
@@ -43,12 +46,12 @@ app.directive('program', function() {
 
                 programS.like(_id).then(function() {
                     alert('완료');
-                    getProgramList();
+                    $scope.getProgramList();
                 });
             };
 
             $scope.$watch("search.page", function(){
-                getProgramList();
+                $scope.getProgramList();
             });
         }]
     }
