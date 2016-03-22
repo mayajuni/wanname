@@ -1,0 +1,202 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/***************디폴트 셋팅****************/
+#aboutwm body {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#aboutwm ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#aboutwm h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#aboutwm h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#aboutwm h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#aboutwm p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+
+#aboutwm li {
+    list-style-type: none;
+}
+
+#aboutwm a {
+    color: #999;
+    text-decoration: none;
+}
+
+#aboutwm img {
+    vertical-align: bottom;
+}
+
+/***************여기에서부터 워너미 소개 ****************/
+
+#aboutwm {
+    
+}
+
+#aboutwm .cover {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+#aboutwm .txt_box {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#aboutwm .cover li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#aboutwm .cover li p {
+    padding: 4px;
+}
+
+#aboutwm .title {
+    font-size: 60px;
+    font-weight: 100;
+    color: #0963c9;
+}
+
+#aboutwm .cover .text_b {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0963c9;
+}
+
+#aboutwm .text_n {
+    font-size: 20px;
+    font-weight: 500;
+    color: #7b7b7b;
+}
+
+#aboutwm .title_bg_what {
+    background-image: url(/dist/imgs/aboutwm/img_txt_what.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#aboutwm .title_bg_why {
+    background-image: url(/dist/imgs/aboutwm/img_txt_why.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#aboutwm .title_bg_dream {
+    background-image: url(/dist/imgs/aboutwm/img_txt_dream.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#aboutwm .sub_title {
+    overflow: hidden;
+}
+
+#aboutwm .sub_title li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+#aboutwm .sub_title .text_slogan {
+    font-size: 180px;
+    font-weight: normal;
+    color: #0963c9;
+} 
+
+#aboutwm .sub_title .text_slogan_sub{
+    margin-top: 30px;
+    padding: 20px
+} 
+
+/***************여기에서부터 반응형 태블릿****************/
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+#aboutwm .cover {
+    width: 90%;
+    margin: 0 auto;
+}
+    
+#aboutwm .sub_title li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    float: none;
+}
+    
+}
+
+/***************여기에서부터 반응형 폰****************/
+
+@media (max-width: 767px){
+    
+#aboutwm .cover {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#aboutwm .cover .title_bg_what {
+    background-image: url(../imgs/aboutwm/img_txt_what.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+    
+#aboutwm .title_bg_why {
+    background-image: url(../imgs/aboutwm/img_txt_why.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+#aboutwm .title_bg_dream {
+    background-image: url(../imgs/aboutwm/img_txt_dream.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}    
+
+#aboutwm .sub_title li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    float: none;
+}    
+    
+}
+
+

@@ -178,6 +178,7 @@ exports.findPassword = function(userId, name, callback) {
     Member.findOneAndUpdate(
         {_id: userId, name: name},
         {$set: {password: crypto.encrypt(password, config.crypto.password)}},
+        {new: true},
         function(error, data) {
             if(error) {
                 throw error;

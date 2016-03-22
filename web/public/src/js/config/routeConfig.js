@@ -12,6 +12,10 @@ app
                     templateUrl: 'view/main/main.tpl.html',
                     controller: 'mainC'
                 })
+                .state('about', {
+                    url: '/about',
+                    templateUrl: 'view/about/about.tpl.html',
+                })
                 .state('program', {
                     abstract: true,
                     url: '/program',
