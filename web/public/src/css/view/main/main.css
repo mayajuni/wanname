@@ -115,6 +115,7 @@
     font-size: 18px;
     color: #7b7b7b;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 #main .why-wanname .content-box > [class*=col-] {
